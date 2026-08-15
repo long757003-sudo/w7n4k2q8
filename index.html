@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>奥园七期内部台账</title>
+<style>
+/* ===== 基底:纸感设计手记(暖米底 + 衬线标题 + 赤陶/墨绿)===== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+:root{
+  color-scheme:light; /* 单一纸感配色,托管发布时宿主是暗色也不跟随 */
+  --paper:#f4eee1; --card:#fffdf7; --line:#e7dcc4; --line-soft:#eadfc8;
+  --ink:#2b2620; --ink-2:#57534e; --ink-3:#8a8172;
+  --clay:#b45309; --clay-bg:#f6e7cf; --pine:#0f766e; --pine-bg:#e6f2ee;
+  --topbar:60px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+h1,h2,h3,.serif{font-family:Georgia,"Songti SC","STSong","Noto Serif SC",serif;letter-spacing:.3px}
+img{max-width:100%}
+
+/* ===== 顶栏 + 汉堡 ===== */
+.topbar{position:fixed;top:0;left:0;right:0;height:var(--topbar);z-index:60;display:flex;align-items:center;
+  gap:12px;padding:0 16px;background:rgba(244,238,225,.88);backdrop-filter:saturate(1.5) blur(10px);
+  -webkit-backdrop-filter:saturate(1.5) blur(10px);border-bottom:1px solid var(--line)}
+.topbar.at-top{background:transparent;border-bottom-color:transparent}
+.topbar.at-top .tb-name,.topbar.at-top .tb-sub{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.topbar.at-top .burger i{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.tb-txt{min-width:0;flex:1}
+.tb-name{font-family:Georgia,"Songti SC",serif;font-size:16px;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-sub{font-size:11px;color:var(--ink-3);line-height:1.3}
+.burger{flex:none;width:40px;height:40px;margin-right:-8px;border:none;background:none;cursor:pointer;
+  display:grid;align-content:center;justify-items:end;gap:5px;padding:0}
+.burger i{display:block;width:20px;height:2px;border-radius:2px;background:var(--ink);transition:background .2s}
+.burger i:nth-child(2){width:14px}
+
+/* ===== 抽屉菜单 ===== */
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(43,38,32,.45);opacity:0;visibility:hidden;transition:opacity .22s,visibility .22s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(84vw,340px);background:var(--card);
+  border-left:1px solid var(--line);transform:translateX(101%);transition:transform .26s cubic-bezier(.2,.8,.3,1);
+  display:flex;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.drawer.on{transform:none}
+.dr-head{padding:18px 20px 12px;border-bottom:1px solid var(--line-soft)}
+.dr-title{font-family:Georgia,"Songti SC",serif;font-size:18px;font-weight:700}
+.dr-meta{font-size:12px;color:var(--ink-3);margin-top:2px}
+.dr-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border:none;background:none;font-size:22px;
+  color:var(--ink-3);cursor:pointer;line-height:1}
+.navlist{padding:8px 10px 20px}
+.navlist a{display:block;padding:11px 12px;border-radius:8px;text-decoration:none;color:var(--ink);
+  border-bottom:1px solid var(--line-soft)}
+.navlist a:last-child{border-bottom:none}
+.nav-t{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.nav-n{font-family:Georgia,serif;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.nav-d{font-size:12px;color:var(--ink-3);margin-top:2px;line-height:1.5}
+.nav-c{margin-left:auto;font-size:11px;font-weight:600;color:var(--clay);background:var(--clay-bg);border-radius:999px;padding:0 8px}
+.navlist a.on{background:var(--pine);}
+.navlist a.on .nav-t,.navlist a.on .nav-d,.navlist a.on .nav-n{color:#fff}
+.navlist a.on .nav-c{color:var(--pine);background:#fff}
+
+/* ===== 页面容器:一次只显示一个主题模块 ===== */
+main{padding-top:var(--topbar)}
+main.home-on{padding-top:0}
+.page{display:none}
+.page.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page.on{animation:none}}
+.wrap{max-width:680px;margin:0 auto;padding:18px 16px 56px}
+.page-head{max-width:680px;margin:0 auto;padding:20px 16px 6px}
+.page-kicker{font-size:12px;color:var(--clay);font-weight:600;letter-spacing:.08em}
+.page-title{font-size:26px;font-weight:700;margin-top:2px}
+.page-lead{font-size:13px;color:var(--ink-3);margin-top:6px;line-height:1.6}
+
+/* ===== 首屏:效果图轮播 ===== */
+.hero{position:relative;background:#2b2620}
+.hero-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hero-track::-webkit-scrollbar{display:none}
+.hero-slide{flex:0 0 100%;scroll-snap-align:center;position:relative}
+.hero-slide img{display:block;width:100%;aspect-ratio:4/3;max-height:72vh;object-fit:cover}
+.hero-mask{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.42) 0,rgba(0,0,0,0) 32%,rgba(0,0,0,.12) 58%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.hero-foot{position:absolute;left:0;right:0;bottom:0;padding:0 18px 22px;color:#fff;pointer-events:none}
+.hero-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);border-radius:999px;padding:3px 11px}
+.hero-pill b{width:6px;height:6px;border-radius:50%;background:#facc15;display:inline-block}
+.hero-h1{font-size:30px;font-weight:700;margin-top:10px;line-height:1.25;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero-cap{font-size:13px;opacity:.88;margin-top:6px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:6px}
+.dots b{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45);transition:width .2s,background .2s}
+.dots b.on{width:18px;border-radius:3px;background:#fff}
+.hero-scroll{position:absolute;right:16px;bottom:26px;font-size:11px;color:rgba(255,255,255,.75);writing-mode:vertical-rl;letter-spacing:.2em}
+
+/* ===== 首屏:平面结构图 ===== */
+.floor{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.floor-in{max-width:680px;margin:0 auto;padding:18px 16px 20px}
+.floor-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.floor-h h2{font-size:18px;font-weight:700}
+.floor-h span{font-size:12px;color:var(--ink-3)}
+.segs{display:flex;gap:6px;background:#f2ebdb;border:1px solid var(--line);border-radius:999px;padding:3px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none}
+.segs::-webkit-scrollbar{display:none}
+.segs button{flex:1;white-space:nowrap;border:none;background:none;font:inherit;font-size:13px;color:var(--ink-3);
+  padding:5px 12px;border-radius:999px;cursor:pointer}
+.segs button.on{background:var(--card);color:var(--ink);font-weight:600;box-shadow:0 1px 3px rgba(43,38,32,.12)}
+.floor-fig{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fbf7ec}
+.floor-fig img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;cursor:zoom-in}
+.floor-note{font-size:12px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+
+/* ===== 首屏:现状 + 模块入口 ===== */
+.bar{display:flex;gap:3px;margin:10px 0 12px}
+.bar i{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.bar i.done{background:var(--pine)}
+.bar i.doing{background:var(--clay)}
+.hero-line{font-size:14px;color:var(--ink-2)}
+.hero-line b{font-size:16px;color:var(--clay);font-family:Georgia,serif}
+.hero-sum{font-size:14.5px;color:var(--ink-2)}
+.next{margin-top:12px;background:#f7f1e4;border-radius:8px;padding:10px 12px}
+.next-t{font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px}
+.next ol{padding-left:20px;font-size:14px}
+.next li{margin:2px 0}
+.entry{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.entry a{display:block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px;
+  text-decoration:none;color:var(--ink)}
+.entry a:active{background:var(--clay-bg)}
+.entry-n{font-family:Georgia,serif;font-size:11px;color:var(--ink-3)}
+.entry-t{font-size:15px;font-weight:600;margin-top:2px;display:flex;align-items:center;gap:6px}
+.entry-d{font-size:12px;color:var(--ink-3);margin-top:3px;line-height:1.5}
+
+/* ===== 通用卡片与组件 ===== */
+section.blk{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-top:14px}
+section.blk:first-child{margin-top:0}
+h2.blk-t{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.h2-note{font-size:12px;font-weight:400;color:var(--ink-3)}
+.cnt{font-size:12px;font-weight:600;color:var(--clay);background:var(--clay-bg);border-radius:999px;padding:1px 8px}
+.notice{background:#fbf3e2;border:1px solid #e7d3a4;color:#7c5a15;border-radius:8px;padding:10px 12px;font-size:13px;line-height:1.6}
+.empty{font-size:13px;color:var(--ink-3)}
+.subblock{margin-top:16px;padding-top:12px;border-top:1px solid var(--line-soft)}
+.subblock:first-child{margin-top:0;padding-top:0;border-top:none}
+.subblock-t{font-size:13px;font-weight:600;color:var(--ink-3);margin-bottom:10px;display:flex;align-items:baseline;gap:6px}
+
+/* 生命周期 */
+.life-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.life-card{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:#fbf7ec}
+.life-card.end{border-color:#e6c98c;background:#f8efd7}
+.life-k{font-size:12px;color:var(--ink-3)}
+.life-v{font-size:15px;font-weight:700;margin-top:2px;font-family:Georgia,"Songti SC",serif;font-variant-numeric:tabular-nums}
+.life-note{font-size:12px;color:var(--ink-2);margin-top:4px;line-height:1.55}
+.life-judge{margin-top:12px;border-left:3px solid var(--pine);background:#eef6f3;padding:9px 11px;font-size:13px;color:#134e4a;line-height:1.6}
+.life-nodes{list-style:none;margin-top:14px}
+.life-node{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:11px 0;border-top:1px solid var(--line-soft)}
+.life-node:first-child{border-top:none;padding-top:0}
+.node-date{font-size:12px;color:var(--ink-3);font-family:Georgia,serif;font-variant-numeric:tabular-nums;padding-top:2px}
+.node-body{min-width:0}
+.node-head{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.node-title{font-size:14px;font-weight:600}
+.node-kind{flex:none;border-radius:999px;padding:1px 8px;font-size:11px;color:#6b6152;background:#efe7d5}
+.life-node.st-done .node-kind{color:var(--pine);background:var(--pine-bg)}
+.life-node.st-doing .node-kind{color:var(--clay);background:var(--clay-bg)}
+.node-desc{font-size:13px;color:var(--ink-2);margin-top:3px}
+
+/* 阶段时间线 */
+.tl{list-style:none}
+.tl li{position:relative;padding:0 0 16px 28px}
+.tl li::before{content:"";position:absolute;left:7px;top:20px;bottom:-2px;width:2px;background:var(--line)}
+.tl li:last-child{padding-bottom:2px}
+.tl li:last-child::before{display:none}
+.dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid #cabfa6;background:var(--card)}
+.st-done .dot{background:var(--pine);border-color:var(--pine)}
+.st-done .dot::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.st-doing .dot{border-color:var(--clay)}
+.st-doing .dot::after{content:"";position:absolute;left:3px;top:3px;width:6px;height:6px;border-radius:50%;background:var(--clay)}
+.st-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.st-name{font-size:15px;font-weight:600}
+.st-todo .st-name{color:var(--ink-3);font-weight:500}
+.chip{flex:none;font-size:12px;border-radius:999px;padding:1px 10px}
+.chip-done{color:var(--pine);background:var(--pine-bg)}
+.chip-doing{color:var(--clay);background:var(--clay-bg);font-weight:600}
+.chip-todo{color:var(--ink-3);background:#efeadd}
+.st-desc{font-size:13px;color:var(--ink-3);margin-top:2px}
+
+/* 要业主配合的节点 */
+.oa{display:grid;grid-template-columns:92px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line-soft)}
+.oa:first-of-type{border-top:none;padding-top:0}
+.oa-when{font-size:12px;color:var(--ink-3);font-family:Georgia,"Songti SC",serif;font-variant-numeric:tabular-nums;padding-top:3px}
+.oa-what{font-size:14px;font-weight:600;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.oa-note{font-size:12.5px;color:var(--ink-2);margin-top:3px;line-height:1.55}
+.kind{flex:none;font-size:11px;border-radius:999px;padding:1px 8px;font-weight:600}
+.k-call{color:#b91c1c;background:#fdeaea}
+.k-live{color:var(--clay);background:var(--clay-bg)}
+.k-des{color:var(--pine);background:var(--pine-bg)}
+.k-give{color:#7c5a15;background:#fbf3e2}
+.k-self{color:var(--ink-3);background:#efeadd}
+
+/* 待确认 */
+.pend{border:1px solid var(--line);border-radius:6px;padding:12px;margin-top:10px}
+.pend:first-of-type{margin-top:0}
+.pend-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.pend-item{font-size:14px;font-weight:600}
+.badge{flex:none;font-size:12px;color:var(--clay);background:#fbf3e2;border:1px solid #e7d3a4;border-radius:999px;padding:1px 10px}
+.pend-meta{font-size:12px;color:var(--ink-3);margin-top:4px}
+.pend-note{font-size:13px;color:var(--ink-2);margin-top:6px}
+
+/* 合同与物料登记(仅内部版) */
+.rg{border:1px solid var(--line);border-radius:6px;padding:12px;margin-top:10px;background:var(--card)}
+.rg:first-of-type{margin-top:0}
+.rg-h{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.rg-n{font-size:15px;font-weight:600}
+.rg-who{font-size:12px;color:var(--ink-3);margin-top:2px;line-height:1.5}
+.rg-row{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:12.5px;padding:6px 0;border-top:1px solid var(--line-soft);margin-top:6px}
+.rg-row:first-of-type{margin-top:8px}
+.rg-k{color:var(--ink-3)}
+.rg-v{color:var(--ink-2);min-width:0}
+.rg-f{display:block;font-size:11.5px;color:var(--ink-3);margin-top:2px;word-break:break-word}
+.rg-due{margin-top:8px;font-size:12px;color:var(--clay);font-weight:600}
+.rg-risk{margin-top:6px;border-left:3px solid #b91c1c;background:#fdf2f2;padding:7px 10px;font-size:12.5px;color:#7f1d1d;line-height:1.55}
+.rg-alert{border:1px solid #e0a3a3;background:#fdf2f2;color:#7f1d1d;border-radius:6px;padding:10px 12px;font-size:13px;line-height:1.6;margin-bottom:12px}
+
+/* 图纸与效果图 */
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shots .shot:first-child{grid-column:1/-1}
+.shot{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card)}
+.shot img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in;background:#fbf7ec}
+.shot-cap{padding:8px 10px}
+.shot-t{font-size:13px;font-weight:600}
+.shot-n{font-size:11.5px;color:var(--ink-3);margin-top:2px;line-height:1.5}
+.drawing{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);margin-top:12px}
+.drawing:first-of-type{margin-top:0}
+.drawing img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#fbf7ec;border-bottom:1px solid var(--line);cursor:zoom-in}
+.drawing-empty{height:150px;display:grid;place-items:center;background:#fbf7ec;color:var(--ink-3);font-size:14px;border-bottom:1px solid var(--line)}
+.drawing-info{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px 0}
+.drawing-title{font-size:14px;font-weight:600}
+.drawing .pend-note{padding:0 12px 12px;margin-top:4px}
+
+/* 花费 */
+.fin-lead{font-size:13px;color:var(--ink-2);margin-bottom:8px}
+.fin-sum{margin:0 0 4px;background:#fbf7ec;border:1px solid #ecdcbf;border-radius:6px;padding:10px 12px}
+.fin-sum-row{display:flex;justify-content:space-between;font-size:13px;padding:2px 0;font-variant-numeric:tabular-nums}
+.fin-sum-row span:last-child{font-weight:700}
+.fin-sum-row.sub{font-size:12px;color:var(--ink-3);padding-left:8px}
+.fin-sum-row.sub span:last-child{font-weight:600}
+.fin-sum-row .income{color:var(--pine)}
+.fin-group{margin-top:14px}
+.fin-gt{font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:4px}
+.fin-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line-soft)}
+.fin-row:first-of-type{border-top:none}
+.fin-item{font-size:14px;font-weight:600}
+.fin-note{font-size:12px;color:var(--ink-3);margin-top:2px}
+.fin-amt{flex:none;font-size:14px;font-weight:700;font-variant-numeric:tabular-nums}
+.fin-amt.income{color:var(--pine)}
+.fin-sched{margin-top:6px;border-top:1px dashed #e2d6bb;padding-top:4px}
+.fin-srow{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:2px 0}
+.fin-sstate{flex:none;font-size:11px;border-radius:999px;padding:0 7px;font-weight:600}
+.fin-sstate.paid{color:var(--pine);background:var(--pine-bg)}
+.fin-sstate.due{color:var(--clay);background:#fffbeb}
+.fin-sstage{flex:1;color:var(--ink-2)}
+.fin-samt{flex:none;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+.fin-trackers{margin-top:14px;padding-top:10px;border-top:1px solid var(--line-soft);font-size:12px;color:var(--ink-3)}
+.tracker-mini{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.tracker-meta{font-size:12px;color:var(--ink-3)}
+/* 预算总盘(内部) */
+.bud-top{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.bud-c{border:1px solid var(--line);border-radius:6px;padding:9px 10px;background:#fbf7ec}
+.bud-c.warn{border-color:#e7a4a4;background:#fdf2f2}
+.bud-k{font-size:11.5px;color:var(--ink-3)}
+.bud-v{font-size:16px;font-weight:700;font-family:Georgia,serif;font-variant-numeric:tabular-nums;margin-top:2px}
+.bud-c.warn .bud-v{color:#b91c1c}
+.cat{display:flex;align-items:center;gap:8px;padding:6px 0;border-top:1px solid var(--line-soft);font-size:13px}
+.cat:first-of-type{border-top:none}
+.cat-n{flex:none;width:66px}
+.cat-bar{flex:1;height:8px;border-radius:4px;background:#efe7d5;overflow:hidden}
+.cat-bar i{display:block;height:100%;background:var(--clay);border-radius:4px}
+.cat-v{flex:none;width:76px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.cat-p{flex:none;width:44px;text-align:right;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* 历程 */
+.chg{border-left:3px solid var(--clay);padding:2px 0 2px 12px;margin-top:14px}
+.chg:first-of-type{margin-top:0}
+.chg-date{font-size:12px;color:var(--ink-3);font-family:Georgia,serif}
+.chg-what{font-size:14px;font-weight:600;margin-top:2px}
+.chg-why{font-size:13px;color:var(--ink-2);margin-top:4px}
+.upd{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line-soft)}
+.upd:first-child{border-top:none;padding-top:0}
+.upd-date{flex:none;width:74px;font-size:12px;color:var(--ink-3);font-family:Georgia,serif;padding-top:3px}
+.upd-body{flex:1;font-size:14px;color:var(--ink-2)}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;border:1px solid var(--line);cursor:zoom-in}
+
+/* 参与方 */
+.party{display:flex;gap:10px;font-size:14px;padding:8px 0;border-top:1px solid var(--line-soft);align-items:baseline}
+.party:first-of-type{border-top:none;padding-top:0}
+.party-role{flex:none;width:64px;color:var(--ink-3);font-size:13px}
+.party-who{font-weight:600}
+.party-duty{margin-left:auto;color:var(--ink-3);font-size:12px;text-align:right}
+
+/* 关于折叠 / 内部横幅 / 页脚 */
+details.about{margin-top:16px}
+details.about summary{cursor:pointer;color:var(--ink-3);font-size:12px;list-style:none}
+details.about summary::-webkit-details-marker{display:none}
+details.about summary::before{content:"▸ ";color:var(--ink-3)}
+details.about[open] summary::before{content:"▾ "}
+details.about>p{font-size:12px;color:var(--ink-3);margin-top:8px}
+.public-list{padding-left:20px;font-size:13px;color:var(--ink-2);margin-top:8px}
+.public-list li{margin:4px 0}
+.int-banner{background:#7f1d1d;color:#fff;border-radius:6px;padding:10px 12px;font-size:13px;font-weight:600;line-height:1.5;margin-bottom:14px}
+section.blk.internal{border-color:#e0a3a3;background:#fdf5f3}
+footer{text-align:center;font-size:12px;color:var(--ink-3);margin-top:22px;line-height:1.8}
+
+/* 大图查看 */
+.lb{position:fixed;inset:0;z-index:90;background:rgba(20,17,14,.94);display:none;align-items:center;justify-content:center;padding:16px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:86vh;object-fit:contain;border-radius:4px}
+.lb-cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:rgba(255,255,255,.8);font-size:12.5px;padding:0 20px}
+.lb-x{position:absolute;top:12px;right:14px;width:40px;height:40px;border:none;background:none;color:#fff;font-size:26px;cursor:pointer;line-height:1}
+
+@media (max-width:420px){
+  .life-grid{grid-template-columns:1fr}
+  .life-node{grid-template-columns:1fr;gap:3px}
+  .node-head{align-items:flex-start}
+  .bud-top{grid-template-columns:1fr 1fr}
+  .entry{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<style>
+main.home-on{padding-top:var(--topbar)!important}
+.topbar.at-top{background:rgba(244,238,225,.88)!important;border-bottom-color:var(--line)!important}
+.topbar.at-top .tb-name,.topbar.at-top .tb-sub{color:inherit!important;text-shadow:none!important}
+.topbar.at-top .burger i{background:var(--ink)!important;box-shadow:none!important}
+.int-banner{position:sticky;top:var(--topbar);z-index:50;border-radius:0;margin:0}
+</style>
+<header class="topbar">
+  <div class="tb-txt">
+    <div class="tb-name" data-home="奥园七期装修进度">奥园七期装修进度</div>
+    <div class="tb-sub">更新于 2026-08-15 · 业主维护</div>
+  </div>
+  <button class="burger" aria-label="打开菜单"><i></i><i></i><i></i></button>
+</header>
+<div class="scrim"></div>
+<aside class="drawer" aria-label="主题模块">
+  <button class="dr-close" aria-label="关闭菜单">&times;</button>
+  <div class="dr-head">
+    <div class="dr-title">奥园七期装修进度</div>
+    <div class="dr-meta">更新于 2026-08-15 · 按主题分模块看</div>
+  </div>
+  <nav class="navlist">
+    <a href="#home">
+      <div class="nav-t"><span class="nav-n">01</span>首页</div>
+      <div class="nav-d">效果图、平面结构、当前进度</div>
+    </a>
+    <a href="#design">
+      <div class="nav-t"><span class="nav-n">02</span>设计方案<span class="nav-c">26</span></div>
+      <div class="nav-d">效果图与图纸资料</div>
+    </a>
+    <a href="#plan">
+      <div class="nav-t"><span class="nav-n">03</span>计划与节点<span class="nav-c">3/18</span></div>
+      <div class="nav-d">工期计划、要业主出面的节点</div>
+    </a>
+    <a href="#cost">
+      <div class="nav-t"><span class="nav-n">04</span>账目(内部)</div>
+      <div class="nav-d">账目、预算总盘与比选报价</div>
+    </a>
+    <a href="#docs">
+      <div class="nav-t"><span class="nav-n">05</span>合同与物料<span class="nav-c">8</span></div>
+      <div class="nav-d">合同、报价单、物料清单齐不齐</div>
+    </a>
+    <a href="#decide">
+      <div class="nav-t"><span class="nav-n">06</span>待确认<span class="nav-c">5</span></div>
+      <div class="nav-d">还悬着的事,谁拍板</div>
+    </a>
+    <a href="#history">
+      <div class="nav-t"><span class="nav-n">07</span>历程<span class="nav-c">21</span></div>
+      <div class="nav-d">方案变更与动态流水</div>
+    </a>
+    <a href="#about">
+      <div class="nav-t"><span class="nav-n">08</span>参与方与说明</div>
+      <div class="nav-d">谁在做什么、这页什么口径</div>
+    </a>
+  </nav>
+</aside>
+<main><div class="int-banner">内部视图 · 含实名、预算总盘与未成交报价 · 请勿外发(对外版是 index.html)</div><section class="page" id="home">
+<div class="hero">
+  <div class="hero-track">
+    <div class="hero-slide" data-cap="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><img src="assets/img-14.jpg" alt="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><img src="assets/img-23.jpg" alt="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="主卧:通顶木饰面衣柜,床头留出窗景"><img src="assets/img-04.jpg" alt="主卧:通顶木饰面衣柜,床头留出窗景"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><img src="assets/img-07.jpg" alt="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><img src="assets/img-17.jpg" alt="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><div class="hero-mask"></div></div>
+  </div>
+  <div class="hero-foot">
+    <span class="hero-pill"><b></b>土建施工 · 3/18 阶段完成</span>
+    <div class="hero-h1">奥园七期装修</div>
+    <div class="hero-cap">客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台</div>
+  </div>
+  <div class="dots"><b class="on"></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b></div>
+</div>
+<div class="floor"><div class="floor-in">
+  <div class="floor-h"><h2>平面结构</h2><span>点图看大图</span></div>
+  <div class="segs"><button class="on" data-src="assets/img-02.png" data-note="设计一版平面布置:主卧、长辈房、儿童房、多功能房、客餐厅、厨房、双卫与生活阳台的家具动线。带尺寸标注的版本留内部。">平面布置</button><button class="" data-src="assets/img-01.jpg" data-note="改造前的原始户型,标了各房间名称与面积(客厅 33.6㎡、卧室 A 14.1㎡、卧室 B 10.6㎡、卧室 C 9.5㎡ 等)。">原始户型</button><button class="" data-src="assets/img-03.png" data-note="阴影部分为拆除的墙体,这一版已于 2026-07-29 施工完成。图上门牌与公司联系方式已裁掉。">拆除范围</button></div>
+  <div class="floor-fig"><img src="assets/img-02.png" alt="平面布置"></div>
+  <p class="floor-note">设计一版平面布置:主卧、长辈房、儿童房、多功能房、客餐厅、厨房、双卫与生活阳台的家具动线。带尺寸标注的版本留内部。</p>
+</div></div><div class="wrap">
+  <section class="blk">
+    <h2 class="blk-t">现在 / 下一步</h2>
+    <div class="hero-line"><b>3/18</b> 个阶段完成 · 进行中:土建施工、水电定位</div>
+    <div class="bar"><i class="done"></i><i class="done"></i><i class="done"></i><i class="doing"></i><i class="doing"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i></div>
+    <p class="hero-sum">施工方已进场,8 月 10 日开工。拆除、钢结构床做完,现在同时在走土建施工(次卧窗户砌墙齐平、约 15 号装入户门)和水电定位。工长给了整套工期计划,计划 12 月 21–30 日完工收尾验收。眼下最急的是中央空调:土建这一段就得定,8 月 20 日空调就要进场安装,而且安装是业主自理。</p>
+    <div class="next"><div class="next-t">接下来</div><ol><li>8 月 19 日前把中央空调定下来(8-20 就进场装,业主自理)</li><li>空调安装前把智能通信线预埋好,封墙后补不了</li><li>8 月 31 日–9 月 1 日水电验收 + 吊顶交底,业主要到场</li><li>门窗按同规格核价结论定标;地暖做不做要赶在水电施工前拍板</li></ol></div>
+  </section>
+  <div class="entry">
+    <a href="#design">
+      <div class="entry-n">02</div>
+      <div class="entry-t">设计方案<span class="cnt">26</span></div>
+      <div class="entry-d">效果图与图纸资料</div>
+    </a>
+    <a href="#plan">
+      <div class="entry-n">03</div>
+      <div class="entry-t">计划与节点<span class="cnt">3/18</span></div>
+      <div class="entry-d">工期计划、要业主出面的节点</div>
+    </a>
+    <a href="#cost">
+      <div class="entry-n">04</div>
+      <div class="entry-t">账目(内部)</div>
+      <div class="entry-d">账目、预算总盘与比选报价</div>
+    </a>
+    <a href="#docs">
+      <div class="entry-n">05</div>
+      <div class="entry-t">合同与物料<span class="cnt">8</span></div>
+      <div class="entry-d">合同、报价单、物料清单齐不齐</div>
+    </a>
+    <a href="#decide">
+      <div class="entry-n">06</div>
+      <div class="entry-t">待确认<span class="cnt">5</span></div>
+      <div class="entry-d">还悬着的事,谁拍板</div>
+    </a>
+    <a href="#history">
+      <div class="entry-n">07</div>
+      <div class="entry-t">历程<span class="cnt">21</span></div>
+      <div class="entry-d">方案变更与动态流水</div>
+    </a>
+    <a href="#about">
+      <div class="entry-n">08</div>
+      <div class="entry-t">参与方与说明</div>
+      <div class="entry-d">谁在做什么、这页什么口径</div>
+    </a>
+  </div>
+  <div class="notice" style="margin-top:14px">装修计划会随实际情况调整,以本页最新内容为准;每次调整都记进「历程 · 方案变更」。</div></div></section>
+<section class="page" id="design">
+  <div class="page-head">
+    <div class="page-kicker">02</div>
+    <h1 class="page-title">设计方案</h1>
+    <p class="page-lead">效果图是设计意图,图纸是施工依据。图上门牌与设计单位信息已裁掉。</p>
+  </div><div class="wrap"><section class="blk">
+    <h2 class="blk-t">方案效果图<span class="h2-note">设计师共出 36 张,挑了 16 张上页</span></h2>
+    <div class="shots">
+      <div class="shot">
+        <img src="assets/img-14.jpg" alt="客厅" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">客厅</div><div class="shot-n">浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右侧接开放式岛台。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-15.jpg" alt="客厅望餐厨" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">客厅望餐厨</div><div class="shot-n">落地窗采光,蓝色单椅与墙面阅读置物。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-23.jpg" alt="餐厨岛台" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">餐厨岛台</div><div class="shot-n">餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-24.jpg" alt="餐桌区" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">餐桌区</div><div class="shot-n">圆餐桌 + 爬梯墙,餐边收纳兼装饰。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-10.jpg" alt="厨房" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">厨房</div><div class="shot-n">木色橱柜 + 白色台面,嵌入式电器与洗碗机。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-11.jpg" alt="厨房动线" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">厨房动线</div><div class="shot-n">厨房通向生活阳台的动线,洗切与备餐分区。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-17.jpg" alt="入户玄关" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">入户玄关</div><div class="shot-n">洞洞板上墙挂自行车,下方做通高鞋柜。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-06.jpg" alt="休闲角" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">休闲角</div><div class="shot-n">开放区里的躺椅、绿植与健身位,和客厅连通。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-04.jpg" alt="主卧" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">主卧</div><div class="shot-n">通顶木饰面衣柜,床头留出窗景。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-05.jpg" alt="主卧 · 另一角" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">主卧 · 另一角</div><div class="shot-n">地台床与整墙木饰面收纳。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-07.jpg" alt="儿童房" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">儿童房</div><div class="shot-n">地台 + 上床,楼梯兼收纳,下方留活动区。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-08.jpg" alt="儿童房 · 窗边" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">儿童房 · 窗边</div><div class="shot-n">小桌小凳,飘窗改成休闲位。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-19.jpg" alt="地台卧室" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">地台卧室</div><div class="shot-n">蓝色背景墙 + 榻榻米地台,窗边做书桌。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-20.jpg" alt="地台卧室 · 书桌角" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">地台卧室 · 书桌角</div><div class="shot-n">转角桌面接床头,兼书房与休息。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-18.jpg" alt="生活阳台" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">生活阳台</div><div class="shot-n">洗衣机与烘干机并排,黑框窗到顶。</div></div>
+      </div>
+      <div class="shot">
+        <img src="assets/img-09.jpg" alt="卫生间" loading="lazy">
+        <div class="shot-cap"><div class="shot-t">卫生间</div><div class="shot-n">干湿分离,镜柜与嵌入式收纳。</div></div>
+      </div>
+    </div>
+  </section>
+  <section class="blk">
+    <h2 class="blk-t">改造前后对比<span class="h2-note">上半是改造前现状,下半是方案效果</span></h2>
+    
+    <div class="drawing">
+      <img src="assets/img-13.jpg" alt="客厅 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <div class="drawing-info"><div class="drawing-title">客厅 · 改造前后</div></div>
+      <p class="pend-note">上半改造前现状,下半方案效果:整体视角,与开放式岛台相邻。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-16.jpg" alt="岛台/厨房 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <div class="drawing-info"><div class="drawing-title">岛台/厨房 · 改造前后</div></div>
+      <p class="pend-note">上现状、下效果:开放式厨房岛台,木色橱柜 + 白色台面。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-21.jpg" alt="餐厅① · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <div class="drawing-info"><div class="drawing-title">餐厅① · 改造前后</div></div>
+      <p class="pend-note">上现状、下效果:餐厅圆桌 + 木饰面,墙面爬梯做收纳与装饰。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-12.jpg" alt="客厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <div class="drawing-info"><div class="drawing-title">客厅② · 改造前后</div></div>
+      <p class="pend-note">上现状、下效果:落地窗采光,蓝色单椅 + 吊扇,墙面做阅读置物。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-22.jpg" alt="餐厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <div class="drawing-info"><div class="drawing-title">餐厅② · 改造前后</div></div>
+      <p class="pend-note">上现状、下效果:从玄关往里看,餐厨一体。</p>
+    </div>
+  </section>
+  <section class="blk">
+    <h2 class="blk-t">图纸资料<span class="h2-note">原始、拆改、平面、水电逐步补齐</span></h2>
+    
+    <div class="drawing">
+      <img src="assets/img-01.jpg" alt="原始户型图" loading="lazy">
+      <div class="drawing-info"><div class="drawing-title">原始户型图</div><span class="badge">已有</span></div>
+      <p class="pend-note">改造前的彩色户型图,标了各房间名称与面积;可编辑描线版后续再补。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-03.png" alt="拆除墙体图" loading="lazy">
+      <div class="drawing-info"><div class="drawing-title">拆除墙体图</div><span class="badge">已施工</span></div>
+      <p class="pend-note">阴影部分为要拆除的墙体,2026-07-29 已按此完工。图上门牌、公司联系方式已裁掉。</p>
+    </div>
+    <div class="drawing">
+      <img src="assets/img-02.png" alt="平面布置图" loading="lazy">
+      <div class="drawing-info"><div class="drawing-title">平面布置图</div><span class="badge">设计一版</span></div>
+      <p class="pend-note">第一版平面布置的家具动线;带尺寸标注的版本留内部。定稿版脱敏后替换。</p>
+    </div>
+    <div class="drawing">
+      <div class="drawing-empty">待补图纸</div>
+      <div class="drawing-info"><div class="drawing-title">施工图(定稿)</div><span class="badge">已收到 07-31</span></div>
+      <p class="pend-note">水电、立面与节点齐全,是各家报价比选的同一份依据。原件含门牌与设计单位信息,脱敏线稿版后续再上页。</p>
+    </div>
+    <div class="drawing">
+      <div class="drawing-empty">待补图纸</div>
+      <div class="drawing-info"><div class="drawing-title">水电点位图</div><span class="badge">待脱敏上页</span></div>
+      <p class="pend-note">已含在施工图定稿里;封墙前的现场照片会和点位图一起存档互相对照。</p>
+    </div>
+  </section></div></section>
+<section class="page" id="plan">
+  <div class="page-head">
+    <div class="page-kicker">03</div>
+    <h1 class="page-title">计划与节点</h1>
+    <p class="page-lead">施工阶段按工长给的工期计划排;哪几天要业主到场、要自己买东西,单独列出来。</p>
+  </div><div class="wrap"><section class="blk">
+    <h2 class="blk-t">施工阶段<span class="h2-note">当前阶段高亮;时间随实际调整,调整记进「历程」</span></h2>
+    <ul class="tl">
+      <li class="st-done"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">设计与方案定稿</span><span class="chip chip-done">06-30 → 07-31</span></div>
+        <p class="st-desc">量房、平面布局、水电点位、全屋定制,施工图已定稿</p>
+      </li>
+      <li class="st-done"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">拆除</span><span class="chip chip-done">08-10</span></div>
+        <p class="st-desc">主体拆除 7 月 29 日已单独发包做完;这里是工期计划的起点</p>
+      </li>
+      <li class="st-done"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">钢结构床施工</span><span class="chip chip-done">08-11 → 08-12</span></div>
+        
+      </li>
+      <li class="st-doing"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">土建施工</span><span class="chip chip-doing">08-13 → 08-19</span></div>
+        <p class="st-desc">次卧窗户砌墙齐平;约 15 号装入户门;中央空调要在这一段定下来</p>
+      </li>
+      <li class="st-doing"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">水电定位</span><span class="chip chip-doing">08-14 → 08-16</span></div>
+        
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">水电开槽</span><span class="chip chip-todo">08-17 → 08-19</span></div>
+        
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">空调安装</span><span class="chip chip-todo">08-20 → 08-24</span></div>
+        <p class="st-desc">业主自理;安装前要提前预埋智能通信线</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">水电施工</span><span class="chip chip-todo">08-25 → 08-30</span></div>
+        <p class="st-desc">封墙前拍照存档</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">水电验收 · 吊顶交底</span><span class="chip chip-todo">08-31 → 09-01</span></div>
+        <p class="st-desc">需业主到场</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">吊顶施工 · 瓷砖定板</span><span class="chip chip-todo">09-02 → 09-09</span></div>
+        <p class="st-desc">定板需设计师到场</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">泥工施工</span><span class="chip chip-todo">09-10 → 09-27</span></div>
+        <p class="st-desc">业主提供地漏;约 9-8 防水验收(需业主到场),9-18 定制复尺</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">美缝施工</span><span class="chip chip-todo">09-30 → 10-09</span></div>
+        <p class="st-desc">业主自理</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">漆工施工</span><span class="chip chip-todo">10-10 → 11-10</span></div>
+        
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">自流平施工</span><span class="chip chip-todo">11-05 → 11-09</span></div>
+        
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">业主备料到场</span><span class="chip chip-todo">11-11 → 11-15</span></div>
+        <p class="st-desc">开关面板、灯具、卫生间五金件等要安装的东西送到现场</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">安装</span><span class="chip chip-todo">11-16 → 11-20</span></div>
+        
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">自购项安装</span><span class="chip chip-todo">11-21 → 12-20</span></div>
+        <p class="st-desc">业主自购、自行安排安装</p>
+      </li>
+      <li class="st-todo"><span class="dot"></span>
+        <div class="st-head"><span class="st-name">完工 · 收尾 · 验收</span><span class="chip chip-todo">12-21 → 12-30</span></div>
+        
+      </li>
+    </ul>
+  </section>
+  
+<section class="blk">
+  <h2 class="blk-t">要业主出面的节点<span class="cnt">10</span><span class="h2-note">到场、自购、自己安排的都在这</span></h2>
+  
+  <div class="oa">
+    <div class="oa-when">08-19 前</div>
+    <div>
+      <div class="oa-what">把中央空调定下来<span class="kind k-call">要拍板</span></div>
+      <div class="oa-note">土建这一段就要定;8-20 就进场装,安装是业主自理。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">08-20 前</div>
+    <div>
+      <div class="oa-what">提前预埋智能通信线<span class="kind k-self">业主自理</span></div>
+      <div class="oa-note">工长原话「提前预埋 2 星智能通信线」,空调安装前必须埋好,封墙后没法补。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">08-31 → 09-01</div>
+    <div>
+      <div class="oa-what">水电验收 + 吊顶交底<span class="kind k-live">要到场</span></div>
+      <div class="oa-note">验收和交底同一档期,人必须在。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">09-02 起</div>
+    <div>
+      <div class="oa-what">瓷砖定板<span class="kind k-des">设计师到场</span></div>
+      <div class="oa-note">吊顶施工同期做,定板要设计师一起。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">约 09-08</div>
+    <div>
+      <div class="oa-what">防水验收<span class="kind k-live">要到场</span></div>
+      <div class="oa-note">泥工阶段的关键节点,验完才能往下走。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">09-10 前</div>
+    <div>
+      <div class="oa-what">提供地漏<span class="kind k-give">业主提供</span></div>
+      <div class="oa-note">泥工进场就要用。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">约 09-18</div>
+    <div>
+      <div class="oa-what">定制复尺<span class="kind k-self">要配合</span></div>
+      <div class="oa-note">复尺之日起算定制 30 个工作日,复尺拖一天交付就晚一天。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">09-30 → 10-09</div>
+    <div>
+      <div class="oa-what">美缝施工<span class="kind k-self">业主自理</span></div>
+      
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">11-11 → 11-15</div>
+    <div>
+      <div class="oa-what">开关面板、灯具、卫生间五金件送到现场<span class="kind k-give">业主提供</span></div>
+      <div class="oa-note">11-16 就开始安装,东西不到位就卡住。</div>
+    </div>
+  </div>
+  <div class="oa">
+    <div class="oa-when">11-21 → 12-20</div>
+    <div>
+      <div class="oa-what">自购项安装<span class="kind k-self">业主自理</span></div>
+      <div class="oa-note">家具、家电这类自己买的东西自行安排进场。</div>
+    </div>
+  </div>
+</section>
+  
+<section class="blk">
+  <h2 class="blk-t">工期与作息约定<span class="h2-note">以下是工长随工期计划一起给的约定,原文口径。</span></h2>
+  <ul class="public-list"><li>施工时间:工作日上午 9:00–12:00、下午 14:00–18:00;周六周日、法定节假日、中考高考期间及国家特定情况不施工。</li><li>定制项目(家具、橱柜、衣柜、门窗、石材等):从业主选定方案样式选材、且相关区域瓷砖铺贴完成、我方完成最终复尺之日起,30 个工作日内完成定制交付。总工期可能因此调整,会提前商议确认后在工作群告知。</li><li>室外露天施工遇下雨、大风、下雪、冰雹等天气,工期顺延。</li><li>遇突发不可抗力(疫情、室外低于 5℃ 的极寒、高于 37℃ 的极热等),工期相应调整顺延,会提前沟通并在群里告知。</li></ul>
+</section>
+  <section class="blk">
+    <h2 class="blk-t">项目全生命周期<span class="h2-note">事实、判断、待定节点分开记</span></h2>
+    <div class="life-grid"><div class="life-card ">
+    <div class="life-k">全生命周期起点</div>
+    <div class="life-v">2026-05-31</div>
+    <div class="life-note">签订购房合同,装修项目从房屋交接准备开始进入记录。</div>
+  </div><div class="life-card ">
+    <div class="life-k">装修项目启动</div>
+    <div class="life-v">2026-06-01</div>
+    <div class="life-note">开始围绕设计、施工方式、费用台账与资料归档推进。</div>
+  </div><div class="life-card ">
+    <div class="life-k">当前记录截点</div>
+    <div class="life-v">2026-08-15</div>
+    <div class="life-note">施工方已进场,土建与水电定位同时在做;工期计划已排到 12 月底。</div>
+  </div><div class="life-card end">
+    <div class="life-k">计划完工时间</div>
+    <div class="life-v">12-21 → 12-30(计划)</div>
+    <div class="life-note">工长工期计划排到 12 月 21–30 日完工收尾验收。实际结束仍以竣工验收、开荒保洁、通风除醛并具备入住条件的当天为准;定制项目复尺后 30 个工作日交付,可能整体顺延。</div>
+  </div></div>
+    <div class="life-judge">2026-06-14 曾按整装路线判断工期约 90 天可控;2026-06-30 改为设计先行、施工后比选,那个 90 天只作为早期判断留痕。现在以工长给的这套工期计划为准:8-10 开工、12-30 完工收尾,约 4 个半月,比早期判断长——因为中间含定制项目 30 个工作日的交付周期,以及周末与节假日不施工。</div>
+    <ul class="life-nodes">
+      <li class="life-node st-done">
+        <div class="node-date">2026-05-31</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">购房合同签订</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">全生命周期记录从房屋取得与装修准备开始。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-06-01</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">装修项目启动</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">启动装修规划、资料整理和团队比选。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-06-07</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">开始设计/装修方比选</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">金山片区实地看三家设计/装修方。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-06-14</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">阶段判断:走整装路线</span><span class="node-kind">判断</span></div>
+          <p class="node-desc">当时判断整装工期约 90 天、整体花费更可控。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-06-30</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">阶段判断调整:设计先行</span><span class="node-kind">判断</span></div>
+          <p class="node-desc">设计单独签约设计工作室,施工方等方案出来后用同一套图纸比价。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-07-03</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">进度页上线 + 方案审阅启动</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">设计师已定,进度页开始作为对外记录入口。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-07-07</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">收到设计一版图纸</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">原始结构、拆除、平面布置到位,随后提修改意见。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-07-18</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">设计费二期支付</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">房子解押后按合同节点支付。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-07-29</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">拆除出渣完工</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">现场转毛坯状态并拍照存档;拆除单独发包,不等基装施工方定。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-07-31</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">施工图定稿 + 全套效果图</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">在原始结构、拆除、平面之外补齐水电、立面与节点;效果图 36 张,已挑 5 张上页。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-08-01</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">预算与采购台账重建</span><span class="node-kind">判断</span></div>
+          <p class="node-desc">把散在四处、互相打架的预算合并成一套关联台账,全部项目逐项估价完毕。</p>
+        </div>
+      </li>
+      <li class="life-node st-done">
+        <div class="node-date">2026-08-10</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">施工方进场开工</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">按工期计划从拆除起算,随后钢结构床、土建、水电依次推进。</p>
+        </div>
+      </li>
+      <li class="life-node st-doing">
+        <div class="node-date">2026-08-15</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">拿到整套工期计划</span><span class="node-kind">事实</span></div>
+          <p class="node-desc">从 8-10 开工排到 12-30 完工收尾验收,含作息、定制交付与顺延约定,已整理进「计划与节点」。</p>
+        </div>
+      </li>
+      <li class="life-node st-todo">
+        <div class="node-date">2026-08-19</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">中央空调必须定下来</span><span class="node-kind">关键判断</span></div>
+          <p class="node-desc">土建段内定;8-20 进场安装,安装为业主自理,且安装前要预埋智能通信线。</p>
+        </div>
+      </li>
+      <li class="life-node st-todo">
+        <div class="node-date">2026-08-31</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">水电验收 + 吊顶交底</span><span class="node-kind">关键节点</span></div>
+          <p class="node-desc">需业主到场;封墙前的照片要一并存档。</p>
+        </div>
+      </li>
+      <li class="life-node st-todo">
+        <div class="node-date">约 2026-09-08</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">防水验收</span><span class="node-kind">关键节点</span></div>
+          <p class="node-desc">泥工阶段的卡点,需业主到场。</p>
+        </div>
+      </li>
+      <li class="life-node st-todo">
+        <div class="node-date">约 2026-09-18</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">定制复尺</span><span class="node-kind">关键节点</span></div>
+          <p class="node-desc">复尺之日起算定制 30 个工作日交付,直接决定后段工期。</p>
+        </div>
+      </li>
+      <li class="life-node st-todo">
+        <div class="node-date">12-21 → 12-30</div>
+        <div class="node-body">
+          <div class="node-head"><span class="node-title">完工收尾与验收</span><span class="node-kind">结束定义</span></div>
+          <p class="node-desc">计划节点;实际结束仍以具备入住条件当天为准。</p>
+        </div>
+      </li>
+    </ul>
+  </section></div></section>
+<section class="page" id="cost">
+  <div class="page-head">
+    <div class="page-kicker">04</div>
+    <h1 class="page-title">账目(内部)</h1>
+    <p class="page-lead">实名账目 + 预算总盘 + 比选中的报价,全部只在内部版出现。</p>
+  </div><div class="wrap">
+  <section class="blk internal">
+    <h2 class="blk-t">账目(实名)<span class="h2-note">含商家/品牌/人名实名,勿外发</span></h2>
+    <p class="fin-lead">内部账目,金额为实际数;只进 internal.html,不进对外 index.html,也不进公开仓。权威源是飞书多维表格「付款」表。</p>
+    <div class="fin-sum">
+  <div class="fin-sum-row"><span>回款合计</span><span class="income">+¥5,585</span></div>
+  <div class="fin-sum-row"><span>已定支出</span><span>¥24,350</span></div>
+  <div class="fin-sum-row sub"><span>· 已付</span><span>¥22,805</span></div>
+  <div class="fin-sum-row sub"><span>· 待付</span><span>¥1,545</span></div>
+</div>
+    <div class="fin-group"><div class="fin-gt">回款 / 冲抵预算</div>
+    <div class="fin-row"><div><div class="fin-item">空调挂机(原房主留下)</div><div class="fin-note">2026-07-07</div></div><div class="fin-amt income">+¥2,000</div></div>
+    <div class="fin-row"><div><div class="fin-item">布沙发 + 3 个衣柜(原房主留下)</div><div class="fin-note">2026-07-06</div></div><div class="fin-amt income">+¥600</div></div>
+    <div class="fin-row"><div><div class="fin-item">空调柜机出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥1,660</div></div>
+    <div class="fin-row"><div><div class="fin-item">电视 + 主卧床 + 热水器出售</div><div class="fin-note">2026-07-18 · 三件合并一单</div></div><div class="fin-amt income">+¥850</div></div>
+    <div class="fin-row"><div><div class="fin-item">冰箱出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥100</div></div>
+    <div class="fin-row"><div><div class="fin-item">次卧床 2 张出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥200</div></div>
+    <div class="fin-row"><div><div class="fin-item">灶出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥30</div></div>
+    <div class="fin-row"><div><div class="fin-item">不锈钢折叠晾衣架出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥30</div></div>
+    <div class="fin-row"><div><div class="fin-item">旋转镜柜出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥100</div></div>
+    <div class="fin-row"><div><div class="fin-item">显示器包装盒出售</div><div class="fin-note">2026-07-18</div></div><div class="fin-amt income">+¥15</div></div></div>
+    <div class="fin-group"><div class="fin-gt">已定 / 已发生费用</div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">设计费 · 张成室内设计工作室 · 谭琳双</div>
+        <div class="fin-note">计费:150 元/㎡ × 103㎡(实际 111㎡,按 103㎡ 计,少算 8㎡ ≈ 1200 元)</div>
+        
+        <div class="fin-note">已签约,分期付 · 已付 13,905 取自飞书台账;三期与尾款拆分是按总额 15,450 反推,三期实付日期待回填核对。</div>
+        <div class="fin-sched"><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">一期定金</span><span class="fin-samt">¥2,000</span></div><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">二期 · 2026-07-18</span><span class="fin-samt">¥5,952.5</span></div><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">三期 · 施工图定稿后</span><span class="fin-samt">¥5,952.5</span></div><div class="fin-srow"><span class="fin-sstate due">待付</span><span class="fin-sstage">尾款 · 后续</span><span class="fin-samt">¥1,545</span></div></div>
+      </div>
+      <div class="fin-amt">¥15,450</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">拆除出渣</div>
+        <div class="fin-note">计费:正常拆除 4000 + 铲墙 700 + 拆墙 1800(12墙 6.5㎡、24墙 13㎡)+ 拆飘窗 6.2 米 950 + 飘窗混凝土加收 950</div>
+        
+        <div class="fin-note">已完工结清(2026-07-29) · 结算 8,900 高于最初预估 7,450:飘窗为混凝土触发加收,余下差额待与飞书「付款」表逐笔核对。</div>
+        <div class="fin-sched"><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">定金</span><span class="fin-samt">¥500</span></div><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">完工结算 · 2026-07-29</span><span class="fin-samt">¥8,400</span></div></div>
+      </div>
+      <div class="fin-amt">¥8,900</div>
+    </div></div>
+    <div class="fin-trackers"><div class="tracker-mini"><span>预算与采购台账</span><span class="tracker-meta">飞书多维表格(预算项 / 报价 / 付款 / 供应商) · 权威源</span></div><div class="tracker-mini"><span>门窗逐项对比与同规格核价</span><span class="tracker-meta">飞书表 · 门窗报价明细 / 同规格核价 · 已完成核价</span></div><div class="tracker-mini"><span>基装工艺横向对比</span><span class="tracker-meta">采购/装修报价/韩工_vs_红灯笼_工艺横向对比.xlsx · 已完成</span></div></div>
+  </section>
+  
+<section class="blk internal">
+  <h2 class="blk-t">预算总盘<span class="h2-note">2026-08-01 全量估价后的快照 · 仅内部</span></h2>
+  <div class="bud-top">
+    <div class="bud-c"><div class="bud-k">红线</div><div class="bud-v">35.0 万</div></div>
+    <div class="bud-c warn"><div class="bud-k">已估合计</div><div class="bud-v">49.8 万</div></div>
+    <div class="bud-c warn"><div class="bud-k">缺口</div><div class="bud-v">+14.8 万</div></div>
+  </div>
+  <div class="fin-sum">
+    <div class="fin-sum-row"><span>已付</span><span>¥22,805</span></div>
+    <div class="fin-sum-row sub"><span>· 不可预见费(单列,不摊入)</span><span>¥17,500</span></div>
+    <div class="fin-sum-row sub"><span>· 可分配额</span><span>¥332,500</span></div>
+    <div class="fin-sum-row sub"><span>· 台账行数</span><span>103 行</span></div>
+  </div>
+  <div class="subblock"><div class="subblock-t">按类别分布</div>
+    
+    <div class="cat">
+      <span class="cat-n">电器设备</span>
+      <span class="cat-bar"><i style="width:100.0%"></i></span>
+      <span class="cat-v">¥132,800</span>
+      <span class="cat-p">26.6%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">施工</span>
+      <span class="cat-bar"><i style="width:73.0%"></i></span>
+      <span class="cat-v">¥97,000</span>
+      <span class="cat-p">19.5%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">硬装材料</span>
+      <span class="cat-bar"><i style="width:70.9%"></i></span>
+      <span class="cat-v">¥94,200</span>
+      <span class="cat-p">18.9%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">全屋定制</span>
+      <span class="cat-bar"><i style="width:54.6%"></i></span>
+      <span class="cat-v">¥72,518</span>
+      <span class="cat-p">14.6%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">软装</span>
+      <span class="cat-bar"><i style="width:39.0%"></i></span>
+      <span class="cat-v">¥51,800</span>
+      <span class="cat-p">10.4%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">其他支出项</span>
+      <span class="cat-bar"><i style="width:26.4%"></i></span>
+      <span class="cat-v">¥35,000</span>
+      <span class="cat-p">7%</span>
+    </div>
+    <div class="cat">
+      <span class="cat-n">设计</span>
+      <span class="cat-bar"><i style="width:11.3%"></i></span>
+      <span class="cat-v">¥15,000</span>
+      <span class="cat-p">3%</span>
+    </div>
+  </div>
+  <div class="subblock"><div class="subblock-t">判断</div>
+    <ul class="public-list"><li>超红线 148,318(+42.4%)。之前的「只超一点点」是假象——家电软装那 38 行当时全是空的,填满后缺口从 5,818 涨到 148,318。</li><li>砍掉六个可选/低优先项(地暖 25000、新风 13000、投影 5000、空气净化器 1500、立式冷柜 1500、梳妆台 1200,合计 47,500)后仍为 450,818。要回到 35 万得动施工档次或大幅压缩家电软装,删小件解决不了。</li><li>不可预见费 17,500(5%)单列一行不摊入各项,可分配额 332,500;超支先吃这一行。</li><li>面积口径待定:MyHome 记建面 120㎡,旧表按 110㎡ 算单价,各空间净面积加总 102.1㎡,等实测后回填。</li><li>估价口径:重庆 2026 中端偏实用,与已定选择(国产乳胶漆 / 多层木地板 / 重庆厂家板材 / 海信或美的中央空调)同档。</li></ul>
+  </div>
+  <p class="fin-note" style="margin-top:10px">权威源是飞书多维表格(预算项 / 报价 / 付款 / 供应商),本页只是快照。103 行已全部估价,无空缺。</p>
+</section>
+<section class="blk internal">
+  <h2 class="blk-t">比选中的报价<span class="h2-note">含实名与未成交价 · 仅内部</span></h2>
+  
+  <div class="subblock"><div class="subblock-t">基装(两家都无书面报价单)</div>
+    
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">韩工 <span class="badge">口头区间折算</span></div>
+        <div class="fin-note">口径:900 元/㎡ × 110㎡ 取中</div>
+        <div class="fin-note">PDF 95 页全是工艺说明,零报价页</div>
+      </div>
+      <div class="fin-amt">¥99,000</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">红灯笼 <span class="badge">口头区间折算</span></div>
+        <div class="fin-note">口径:口头区间取中</div>
+        <div class="fin-note">PDF 84 页全是工艺说明,零报价页</div>
+      </div>
+      <div class="fin-amt">¥85,000</div>
+    </div>
+    
+  </div>
+  <div class="subblock"><div class="subblock-t">中央空调(三个口径打架)</div>
+    
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">海信 7.28 方案书 <span class="badge">有书面方案书</span></div>
+        <div class="fin-note">口径:设备 34408 + 材料 8500 + 人工 3125</div>
+        <div class="fin-note">不含吊装、不含税</div>
+      </div>
+      <div class="fin-amt">¥46,033</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">京东 · 美的 <span class="badge">电商套餐价</span></div>
+        <div class="fin-note">口径:设备 24584 + 安装 10000</div>
+        
+      </div>
+      <div class="fin-amt">¥34,584</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">设计师版备注 · 海信 <span class="badge">无书面支撑</span></div>
+        <div class="fin-note">口径:国补后 28500 + 出风口 1500</div>
+        <div class="fin-note">口头价,不可作为比选依据</div>
+      </div>
+      <div class="fin-amt">¥30,000</div>
+    </div>
+    
+  </div>
+  <div class="subblock"><div class="subblock-t">门窗(已按同规格重算,12 个基准窗洞 × 13 扇开启 × 含纱窗含吊装)</div>
+    
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">福罗嘉 <span class="badge">最低</span></div>
+        <div class="fin-note">口径:同规格重算</div>
+        
+      </div>
+      <div class="fin-amt">¥37,693</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">时间静止</div>
+        <div class="fin-note">口径:同规格重算</div>
+        <div class="fin-note">基准尺寸取自该家实测值</div>
+      </div>
+      <div class="fin-amt">¥40,968</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">KAKA</div>
+        <div class="fin-note">口径:同规格重算</div>
+        <div class="fin-note">基准尺寸取自该家实测值</div>
+      </div>
+      <div class="fin-amt">¥42,292</div>
+    </div>
+    <div class="fin-row">
+      <div>
+        <div class="fin-item">正典 <span class="badge">最高</span></div>
+        <div class="fin-note">口径:同规格重算(补贴后估值)</div>
+        
+      </div>
+      <div class="fin-amt">¥73,324</div>
+    </div>
+    <div class="life-judge">四家原报价都有整扇窗漏报;不按同规格重算,直接比原报价会选错。</div>
+  </div>
+</section></div></section>
+<section class="page" id="docs">
+  <div class="page-head">
+    <div class="page-kicker">05</div>
+    <h1 class="page-title">合同与物料</h1>
+    <p class="page-lead">每个已定或在谈的采购单元一张卡:合同签没签、报价单在哪、物料清单齐不齐、卡在哪一天。金额和付款流水在飞书台账,这里不重复。</p>
+  </div><div class="wrap"><div class="rg-alert"><b>归档缺口:</b>截至 2026-08-15,`合同单据/` 目录仍是空的——设计和施工都已经在履约,却没有一份合同扫描件归档。出增项争议或日后保修,这是最先要用到的东西。</div>
+  <section class="blk internal">
+    <h2 class="blk-t">采购单元<span class="cnt">8</span></h2>
+    <p class="fin-lead">按「可签约 / 可下单单元」管合同、报价单和物料清单。这里只管文件在哪、齐不齐、卡在哪;金额、付款流水和逐项预算在飞书台账,不在这里重复。</p>
+    
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">设计</div><div class="rg-who">张成室内设计工作室 · 谭琳双</div></div>
+        <span class="chip chip-done">已签约 · 履约中</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">待归档<span class="rg-f">合同单据/(空)</span></span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">计费口径已定<span class="rg-f">150 元/㎡ × 103㎡</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">无物料<span class="rg-f">交付物是图纸:施工图 7-31 定稿、效果图 36 张、SketchUp 模型 7.20 版</span></span></div>
+      <div class="rg-due">卡点:尾款待竣工节点</div>
+      <div class="rg-risk">合同扫描件没归档;尾款 1545 的分期口径是反推的,要拿合同核。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">拆除出渣</div><div class="rg-who">拆除队</div></div>
+        <span class="chip chip-done">已完工结清</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">无书面合同<span class="rg-f">口头计价</span></span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">口头计价<span class="rg-f">正常拆除 + 铲墙 + 拆墙 + 拆飘窗,飘窗混凝土加收</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">无物料</span></div>
+      <div class="rg-due">卡点:已完成(2026-07-29)</div>
+      <div class="rg-risk">结算 8900 比预估 7450 多 1450,没有书面依据;收据要补进 `合同单据/`。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">基装施工</div><div class="rg-who">施工方(已进场,7-31 前比选的两家:韩工 / 红灯笼)</div></div>
+        <span class="chip chip-doing">已进场施工</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">待确认是否已签 / 待归档<span class="rg-f">合同单据/(空)</span></span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">两家原始资料都没有报价页<span class="rg-f">采购/装修报价/基装/韩工(PDF 95 页,全是工艺说明)</span><span class="rg-f">采购/装修报价/基装/红灯笼(PDF 84 页,同上)</span><span class="rg-f">采购/装修报价/韩工_vs_红灯笼_工艺横向对比.xlsx</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">随工期计划推进<span class="rg-f">工期计划已排到 12-30;辅材品牌与用量口径待写进合同附件</span></span></div>
+      <div class="rg-due">卡点:水电验收 08-31 前把合同与报价补齐</div>
+      <div class="rg-risk">人已经在干活,但没有白纸黑字的报价单和增减项约定,后面出增项、算总账没有依据——这是当前最大的敞口。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">中央空调</div><div class="rg-who">未定(海信 / 美的 / 海尔三家在选)</div></div>
+        <span class="badge">未定 · 卡点</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">未签</span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">三个口径打架<span class="rg-f">采购/装修报价/中央空调/海信荣耀家II方案 7.28 与 8.3</span><span class="rg-f">采购/装修报价/中央空调/京东-美的、京东-美的&amp;海尔</span><span class="rg-f">采购/装修报价/中央空调/海尔劲雅V6</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">口径要拉齐<span class="rg-f">同口径应含:设备型号与匹数 + 铜管等材料 + 人工 + 吊装 + 税;还要预埋智能通信线</span></span></div>
+      <div class="rg-due">卡点:08-19 前定(08-20 进场安装,业主自理)</div>
+      <div class="rg-risk">三个数差近 1.6 万,其中一个只有口头补贴价没有书面单;定晚了直接卡住 08-20 的安装档期。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">门窗定制</div><div class="rg-who">四家已核价:福罗嘉 / 时间静止 / KAKA / 正典</div></div>
+        <span class="badge">已核价 · 未定标</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">未签</span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">已按同规格重算,可比<span class="rg-f">采购/装修报价/门窗定制/(四家报价明细与图纸)</span><span class="rg-f">飞书表「门窗报价明细」93 行 + 「门窗同规格核价」59 行</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">基准已定<span class="rg-f">12 个基准窗洞 × 13 扇开启,统一含纱窗、含吊装;基准尺寸取自两家独立一致的实测值</span></span></div>
+      <div class="rg-due">卡点:泥工复尺前定标;定制交期 30 个工作日</div>
+      <div class="rg-risk">四家原报价都漏报了整扇窗,直接比原报价会选错;定标晚了会压到 9-18 复尺后的定制周期。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">全屋定制(柜体)</div><div class="rg-who">尚木智品(已出报价明细)</div></div>
+        <span class="badge">未定</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">未签</span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">有报价明细<span class="rg-f">采购/装修报价/全屋定制/全屋定制-尚木智品-报价明细.xlsx / .pdf</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">按空间拆<span class="rg-f">岛台+水吧台、儿童房地台床+上床+衣柜等已在飞书「预算项」拆到行;注意别和餐边柜、卧室C床体重复计价</span></span></div>
+      <div class="rg-due">卡点:09-18 前后复尺,复尺之日起 30 个工作日交付</div>
+      <div class="rg-risk">复尺日直接决定后段工期;定制项拖一天,安装和完工整体后移。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">主材(瓷砖 / 地板 / 漆)</div><div class="rg-who">待定</div></div>
+        <span class="badge">待定板</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">未签</span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">待</span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">待定板<span class="rg-f">档次口径已定:国产乳胶漆 / 多层木地板 / 重庆厂家板材</span></span></div>
+      <div class="rg-due">卡点:09-02 起瓷砖定板(需设计师到场)</div>
+      <div class="rg-risk">定板要和吊顶施工同期,拖了会顶到 09-10 泥工进场。</div>
+    </div>
+    <div class="rg">
+      <div class="rg-h">
+        <div><div class="rg-n">家电与软装(自购)</div><div class="rg-who">业主自购</div></div>
+        <span class="chip chip-doing">清单已建 · 陆续下单</span>
+      </div>
+      <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">按订单<span class="rg-f">保留发票与保修卡,归档进 `合同单据/`</span></span></div>
+      <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">以电商到手价为准<span class="rg-f">飞书「预算项」类别=电器设备 / 软装(共 50 行)</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">已录入<span class="rg-f">尺寸规格务必填(嵌入位、坑距、台面),避免到货装不下;定制类交期长要提前下单</span></span></div>
+      <div class="rg-due">卡点:开关面板、灯具、卫浴五金 11-11 → 11-15 必须到现场</div>
+      <div class="rg-risk">家电软装那 38 行是预算缺口的主要来源,下单节奏直接影响能不能压回红线。</div>
+    </div>
+    <div class="fin-trackers">合同扫描件统一放 `合同单据/`,命名 `类型-对象-日期.pdf`;报价单原件在 `采购/装修报价/&lt;类目&gt;/`。</div>
+  </section></div></section>
+<section class="page" id="decide">
+  <div class="page-head">
+    <div class="page-kicker">06</div>
+    <h1 class="page-title">待确认</h1>
+    <p class="page-lead">还悬着的事都列在这:谁拍板、什么时候之前要定、卡在什么地方。</p>
+  </div><div class="wrap"><section class="blk">
+    <h2 class="blk-t">待确认<span class="cnt">5</span></h2>
+    
+    <div class="pend">
+      <div class="pend-head"><span class="pend-item">确定中央空调</span><span class="badge">最急</span></div>
+      <div class="pend-meta">谁拍板:业主 · 时间:8-19 前(土建段内)</div>
+      <p class="pend-note">8-20 就进场安装,而且安装是业主自理。同一套需求现在有三个价:方案书全包价、电商套餐价、口头补贴价,差距接近 1.6 万,要按同口径(设备 + 材料 + 人工 + 吊装 + 税)拉齐再定。图纸标注的范围是「全屋除儿童房外走中央空调」,报价要按这个范围算。另外安装前必须先预埋智能通信线,封墙后补不了。</p>
+    </div>
+    <div class="pend">
+      <div class="pend-head"><span class="pend-item">地暖做不做</span><span class="badge">图纸按不做</span></div>
+      <div class="pend-meta">谁拍板:全家 · 时间:8-25 水电施工前</div>
+      <p class="pend-note">平面布置图上明确标注「不做地暖」,设计和施工都按这个走;后来在预算里又加了这一项,所以口径没对齐。要做就得赶在水电施工前推翻,直接影响地面做法与净层高,拖到开槽之后再改就要返工。</p>
+    </div>
+    <div class="pend">
+      <div class="pend-head"><span class="pend-item">阳台A能否封闭</span><span class="badge">待确认</span></div>
+      <div class="pend-meta">谁拍板:业主 + 物业 · 时间:8-19 土建段内</div>
+      <p class="pend-note">户型图里是虚线,疑似赠送面积;砌墙正在做,要物业书面确认能否封闭、是否涉及承重。</p>
+    </div>
+    <div class="pend">
+      <div class="pend-head"><span class="pend-item">门窗定标</span><span class="badge">已核价待定</span></div>
+      <div class="pend-meta">谁拍板:全家 · 时间:泥工复尺前</div>
+      <p class="pend-note">四家报价按 12 个基准窗洞、13 扇开启、统一含纱窗含吊装重算后才可比;重算发现四家原报价都漏报了整扇窗,现在具备定标条件。</p>
+    </div>
+    <div class="pend">
+      <div class="pend-head"><span class="pend-item">施工报价单与合同口径归档</span><span class="badge">待补齐</span></div>
+      <div class="pend-meta">谁拍板:业主 · 时间:水电验收前</div>
+      <p class="pend-note">施工方已进场,书面报价单和合同口径如果还没归档要补上;后面出增项、做结算,得有一份白纸黑字的依据。</p>
+    </div>
+  </section></div></section>
+<section class="page" id="history">
+  <div class="page-head">
+    <div class="page-kicker">07</div>
+    <h1 class="page-title">历程</h1>
+    <p class="page-lead">上面是方案改了什么、为什么改;下面是一条一条的动态流水。</p>
+  </div><div class="wrap"><section class="blk">
+    <h2 class="blk-t">方案变更<span class="cnt">5</span><span class="h2-note">每条都带「为什么」</span></h2>
+    
+    <div class="chg"><div class="chg-date">2026-08-10</div><div class="chg-what">施工方定下来并进场开工,整套工期排到 12 月 30 日完工收尾</div><div class="chg-why">为什么:设计施工分离的路线走到这一步:施工图 7 月 31 日定稿后,各家在同一份图纸上报价才有可比性,选定就直接进场;拆除此前已单独发包做完,进场当天就能接土建。工期比早期判断的 90 天长,主要是定制项目复尺后要 30 个工作日,加上周末与节假日不施工。</div></div>
+    <div class="chg"><div class="chg-date">2026-08-01</div><div class="chg-what">预算与采购台账合并成一套关联表,原先四处口径作废</div><div class="chg-why">为什么:之前预算散在四处、互相打架:设计师版一个口径、自己做的一版另一个口径、还有两份只有示例行的空清单,同一个项目在不同表里是不同的数,没法用来做判断。合并后一行就是一个能签约、能下单的单元,一个数只住一处。</div></div>
+    <div class="chg"><div class="chg-date">2026-07-31</div><div class="chg-what">拆除先单独发包做掉,不等基装施工方定下来</div><div class="chg-why">为什么:拆除是所有工种的前置,工艺简单也能单独计价。先拆完既能腾出现场复核实际尺寸,也让后面各家施工方在同一个毛坯状态上报价,可比性更强。</div></div>
+    <div class="chg"><div class="chg-date">2026-06-30</div><div class="chg-what">选商方式调整:设计单独签约设计工作室,施工方等方案出来再定(原计划设计施工打包)</div><div class="chg-why">为什么:先把设计定下来,拿定稿方案去要施工报价,各家报价在同一份图纸上才有可比性,再据此选施工方。</div></div>
+    <div class="chg"><div class="chg-date">2026-06-14</div><div class="chg-what">装修方式定调:走装修公司整装,放弃独立设计师路线</div><div class="chg-why">为什么:全家沟通后定的:整装工期可控(约 90 天)、整体花费更实惠;独立设计师更称心但工期长、总价压不住。</div></div>
+  </section>
+  <section class="blk">
+    <h2 class="blk-t">动态<span class="cnt">21</span></h2>
+    
+    <div class="upd"><div class="upd-date">2026-08-15</div><div class="upd-body"><p>拿到整套工期计划:8 月 10 日开工、12 月 21–30 日完工收尾验收,中间每一段的起止日、要业主到场和要业主自备的节点都排出来了,已经放进「计划与节点」。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-14</div><div class="upd-body"><p>水电定位开始(8-14 至 8-16)。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-13</div><div class="upd-body"><p>土建施工开始:次卧窗户砌墙齐平;入户门约 15 号安装。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-11</div><div class="upd-body"><p>钢结构床施工(8-11 至 8-12)。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-10</div><div class="upd-body"><p>施工方进场开工,工期从拆除起算。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-01</div><div class="upd-body"><p>预算和采购台账重做了一套:所有项目逐项估价完毕,报价、付款、供应商互相关联,以后一个数只住一处。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-08-01</div><div class="upd-body"><p>门窗四家报价拉到同一把尺子上重算(同样的窗洞、同样的开启扇数、都含纱窗和吊装),发现四家原报价都漏报了整扇窗,现在能横向比了。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-31</div><div class="upd-body"><p>收到施工图定稿和全套效果图(36 张),挑了 5 张放进「设计方案」。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-29</div><div class="upd-body"><p>拆除出渣完工,现场转毛坯状态,拍照存档;拆除是单独发包先做的,没等基装施工方定。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-20</div><div class="upd-body"><p>设计模型更新到 7.20 版,后面换角度出图都从这一版走。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-18</div><div class="upd-body"><p>设计方案效果图出来了(餐厅、客厅、岛台/厨房),连同改造前后对比一起放进「设计方案」。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-18</div><div class="upd-body"><p>花费更新:设计款二期已付;原房主留下的和用不上的旧家电家具陆续出手,又添了几笔回款冲抵预算,明细见「花费」。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-07</div><div class="upd-body"><p>收到设计师第一版图纸(原始结构、拆除、平面布置),已放到「设计方案」;正在看方案、准备提修改意见。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-04</div><div class="upd-body"><p>开始整理原始图纸、材料购买清单、人工费用清单和社交平台同步记录;后续会把方案变化和选择理由一起留痕。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-03</div><div class="upd-body"><p>设计师定了(已签的设计工作室);今晚看平面方案。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-07-03</div><div class="upd-body"><p>这个进度页上线,之后计划和进展都在这里看。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-06-30</div><div class="upd-body"><p>和设计工作室签订设计合同,预约上门量房。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-06-14</div><div class="upd-body"><p>又实地考察了两家装修公司;当天全家定调走整装路线。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-06-10</div><div class="upd-body"><p>考察一家整装公司和一家设计工作室。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-06-07</div><div class="upd-body"><p>金山片区实地看了三家设计/装修方,开始比选。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-06-01</div><div class="upd-body"><p>装修项目启动(5 月 31 日签的购房合同)。</p></div></div>
+  </section></div></section>
+<section class="page" id="about">
+  <div class="page-head">
+    <div class="page-kicker">08</div>
+    <h1 class="page-title">参与方与说明</h1>
+    <p class="page-lead">谁在做什么,以及这个页面按什么口径写。</p>
+  </div><div class="wrap"><section class="blk">
+    <h2 class="blk-t">参与方</h2>
+    <div class="party"><span class="party-role">业主</span><span class="party-who">龙先生一家</span><span class="party-duty">拍板、验收、维护本页</span></div><div class="party"><span class="party-role">设计师</span><span class="party-who">设计工作室(已签约)</span><span class="party-duty">量房、平面方案、施工图</span></div><div class="party"><span class="party-role">拆除</span><span class="party-who">拆除队(已完工)</span><span class="party-duty">拆改与垃圾清运</span></div><div class="party"><span class="party-role">施工方</span><span class="party-who">施工方(已进场)</span><span class="party-duty">按工期计划施工,调整提前在工作群告知</span></div>
+  </section>
+  <section class="blk">
+    <h2 class="blk-t">这个页面怎么写的</h2>
+    <p class="hero-sum">这个页面会同步记录装修过程里的方案变化、材料选择、人工费用口径和现场反馈。社交平台上收到的有效建议会回流到项目记录里。</p>
+    <ul class="public-list"><li>先展示问题和选择理由,再展示结果。</li><li>已经发生的花费明细和金额都公开,只把商家、品牌、人名换成泛称。</li><li>还在谈判中的报价、供应商底价和整体预算盘子不对外,避免影响比价。</li><li>网友建议会进入评论回流表,有用的再变成待办或决策记录。</li></ul>
+  </section>
+  <footer>有问题直接在微信群里说<br>本页更新到 2026-08-15</footer></div></section></main>
+<div class="lb"><button class="lb-x" aria-label="关闭">&times;</button><img alt=""><div class="lb-cap"></div></div>
+<script>
+(function(){
+  var body=document.body, topbar=document.querySelector('.topbar'), main=document.querySelector('main');
+
+  /* ---- 抽屉菜单 ---- */
+  var drawer=document.querySelector('.drawer'), scrim=document.querySelector('.scrim');
+  function openDrawer(){drawer.classList.add('on');scrim.classList.add('on');body.classList.add('locked')}
+  function closeDrawer(){drawer.classList.remove('on');scrim.classList.remove('on');body.classList.remove('locked')}
+  document.querySelector('.burger').addEventListener('click',openDrawer);
+  document.querySelector('.dr-close').addEventListener('click',closeDrawer);
+  scrim.addEventListener('click',closeDrawer);
+
+  /* ---- 模块路由:一次只显示一个主题模块 ---- */
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var links=[].slice.call(document.querySelectorAll('.navlist a'));
+  var ids=pages.map(function(p){return p.id});
+  function show(id,push){
+    if(ids.indexOf(id)<0)id=ids[0];
+    pages.forEach(function(p){p.classList.toggle('on',p.id===id)});
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)});
+    main.classList.toggle('home-on',id===ids[0]);
+    var t=document.querySelector('.page.on .page-title'), n=document.querySelector('.tb-name');
+    n.textContent=(id===ids[0])?n.dataset.home:(t?t.textContent:n.dataset.home);
+    /* 沙箱 iframe(如托管发布)里 pushState 会抛 SecurityError,退回改 hash,再不行就纯内存切换 */
+    if(push&&location.hash!=='#'+id){
+      try{history.pushState(null,'','#'+id)}catch(e){try{location.hash=id}catch(e2){}}
+    }
+    window.scrollTo(0,0); onScroll();
+  }
+  links.forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();closeDrawer();show(a.getAttribute('href').slice(1),true)})});
+  [].slice.call(document.querySelectorAll('.entry a,.jump')).forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();show(a.getAttribute('href').slice(1),true)})});
+  window.addEventListener('popstate',function(){show(location.hash.slice(1),false)});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1),false)});
+  var start=ids[0];
+  try{ if(location.hash)start=location.hash.slice(1) }catch(e){}
+  show(start,false);
+
+  /* ---- 顶栏在首屏大图上透明 ---- */
+  function onScroll(){
+    var home=main.classList.contains('home-on');
+    topbar.classList.toggle('at-top',home&&window.scrollY<160);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---- 首屏轮播 ---- */
+  var track=document.querySelector('.hero-track');
+  if(track){
+    var dots=[].slice.call(document.querySelectorAll('.dots b'));
+    var caps=[].slice.call(document.querySelectorAll('.hero-slide')).map(function(s){return s.dataset.cap||''});
+    var capEl=document.querySelector('.hero-cap');
+    track.addEventListener('scroll',function(){
+      var i=Math.round(track.scrollLeft/track.clientWidth);
+      dots.forEach(function(d,j){d.classList.toggle('on',j===i)});
+      if(capEl&&caps[i]!=null)capEl.textContent=caps[i];
+    },{passive:true});
+    dots.forEach(function(d,i){d.addEventListener('click',function(){track.scrollTo({left:i*track.clientWidth,behavior:'smooth'})})});
+  }
+
+  /* ---- 首屏平面图切换 ---- */
+  var segs=document.querySelector('.segs');
+  if(segs){
+    var btns=[].slice.call(segs.querySelectorAll('button'));
+    var fig=document.querySelector('.floor-fig img'), note=document.querySelector('.floor-note');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+      fig.src=b.dataset.src;fig.alt=b.textContent;note.textContent=b.dataset.note||'';
+    })});
+  }
+
+  /* ---- 大图查看 ---- */
+  var lb=document.querySelector('.lb'), lbImg=lb.querySelector('img'), lbCap=lb.querySelector('.lb-cap');
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(t.tagName==='IMG'&&t.closest('.floor-fig,.shot,.drawing,.photos')){
+      lbImg.src=t.src;lbCap.textContent=t.alt||'';lb.classList.add('on');body.classList.add('locked');
+    }
+  });
+  function closeLb(){lb.classList.remove('on');body.classList.remove('locked');lbImg.src=''}
+  lb.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLb();closeDrawer()}});
+})();
+</script>
+</body>
+</html>
