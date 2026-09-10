@@ -226,6 +226,12 @@ h2.blk-t{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-it
 .shot-t{font-size:13px;font-weight:600}
 .shot-n{font-size:11.5px;color:var(--ink-3);margin-top:2px;line-height:1.5}
 .drawing{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);margin-top:12px}
+.plan-group{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.plan-group summary{cursor:pointer;font-size:17px;font-weight:600;padding:8px 0}
+.plan-group summary span{font-size:12px;font-weight:400;color:var(--ink-3);margin-left:12px}
+.latest-plans .drawing-info{padding-bottom:12px;flex-wrap:wrap}
+.latest-plans .drawing img{aspect-ratio:auto}
+.plan-open{font-size:13px;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
 .drawing:first-of-type{margin-top:0}
 .drawing img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#fbf7ec;border-bottom:1px solid var(--line);cursor:zoom-in}
 .drawing-empty{height:150px;display:grid;place-items:center;background:#fbf7ec;color:var(--ink-3);font-size:14px;border-bottom:1px solid var(--line)}
@@ -288,6 +294,18 @@ h2.blk-t{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-it
 .photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;border:1px solid var(--line);cursor:zoom-in}
 
 /* 参与方 */
+.contact-note{font-size:13px;color:var(--ink-2);line-height:1.7;margin:0 0 16px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.contact-card{min-width:0;border:1px solid var(--line);border-radius:8px;padding:16px}
+.contact-role{font-size:12px;color:var(--ink-3)}
+.contact-name{font-size:18px;margin:4px 0 12px}
+.contact-details{margin:0;font-size:14px}
+.contact-details>div{display:flex;gap:12px;margin-top:6px;align-items:baseline}
+.contact-details dt{flex:none;color:var(--ink-3);font-size:12px}
+.contact-details dd{margin:0;min-width:0;overflow-wrap:anywhere;user-select:text}
+.contact-details a{text-decoration:underline;text-underline-offset:3px}
+.contact-pending{color:var(--ink-3)}
+.contact-rule{margin:16px 0 0}
 .party{display:flex;gap:10px;font-size:14px;padding:8px 0;border-top:1px solid var(--line-soft);align-items:baseline}
 .party:first-of-type{border-top:none;padding-top:0}
 .party-role{flex:none;width:64px;color:var(--ink-3);font-size:13px}
@@ -351,7 +369,7 @@ main.home-on{padding-top:var(--topbar)!important}
       <div class="nav-d">效果图、平面结构、当前进度</div>
     </a>
     <a href="#design">
-      <div class="nav-t"><span class="nav-n">02</span>设计方案<span class="nav-c">26</span></div>
+      <div class="nav-t"><span class="nav-n">02</span>设计方案<span class="nav-c">54</span></div>
       <div class="nav-d">效果图与图纸资料</div>
     </a>
     <a href="#plan">
@@ -371,7 +389,7 @@ main.home-on{padding-top:var(--topbar)!important}
       <div class="nav-d">还悬着的事,谁拍板</div>
     </a>
     <a href="#history">
-      <div class="nav-t"><span class="nav-n">07</span>历程<span class="nav-c">26</span></div>
+      <div class="nav-t"><span class="nav-n">07</span>历程<span class="nav-c">28</span></div>
       <div class="nav-d">方案变更与动态流水</div>
     </a>
     <a href="#about">
@@ -380,14 +398,14 @@ main.home-on{padding-top:var(--topbar)!important}
     </a>
   </nav>
 </aside>
-<main><div class="int-banner">完整版 · 含实名、预算总盘、未成交报价与合同登记 · 请勿转发(要发给别人请用对外版链接)</div><section class="page" id="home">
+<main><div class="int-banner">完整版 · 持有链接即可直接访问 · 含施工图、实名账目、预算总盘、未成交报价与合同登记</div><section class="page" id="home">
 <div class="hero">
   <div class="hero-track">
-    <div class="hero-slide" data-cap="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><img src="assets/img-14.jpg" alt="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><div class="hero-mask"></div></div>
-    <div class="hero-slide" data-cap="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><img src="assets/img-23.jpg" alt="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><div class="hero-mask"></div></div>
-    <div class="hero-slide" data-cap="主卧:通顶木饰面衣柜,床头留出窗景"><img src="assets/img-04.jpg" alt="主卧:通顶木饰面衣柜,床头留出窗景"><div class="hero-mask"></div></div>
-    <div class="hero-slide" data-cap="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><img src="assets/img-07.jpg" alt="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><div class="hero-mask"></div></div>
-    <div class="hero-slide" data-cap="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><img src="assets/img-17.jpg" alt="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><img src="assets/img-44.jpg" alt="客厅:浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右手接开放式岛台"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><img src="assets/img-53.jpg" alt="餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="主卧:通顶木饰面衣柜,床头留出窗景"><img src="assets/img-34.jpg" alt="主卧:通顶木饰面衣柜,床头留出窗景"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><img src="assets/img-37.jpg" alt="儿童房:地台 + 上床,楼梯兼收纳,下方留活动区"><div class="hero-mask"></div></div>
+    <div class="hero-slide" data-cap="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><img src="assets/img-47.jpg" alt="入户玄关:洞洞板上墙挂自行车,下方做通高鞋柜"><div class="hero-mask"></div></div>
   </div>
   <div class="hero-foot">
     <span class="hero-pill"><b></b>木工施工 · 3/18 阶段完成</span>
@@ -398,9 +416,9 @@ main.home-on{padding-top:var(--topbar)!important}
 </div>
 <div class="floor"><div class="floor-in">
   <div class="floor-h"><h2>平面结构</h2><span>点图看大图</span></div>
-  <div class="segs"><button class="on" data-src="assets/img-02.png" data-note="设计一版平面布置:主卧、长辈房、儿童房、多功能房、客餐厅、厨房、双卫与生活阳台的家具动线。带尺寸标注的版本留内部。">平面布置</button><button class="" data-src="assets/img-01.jpg" data-note="改造前的原始户型,标了各房间名称与面积(客厅 33.6㎡、卧室 A 14.1㎡、卧室 B 10.6㎡、卧室 C 9.5㎡ 等)。">原始户型</button><button class="" data-src="assets/img-03.png" data-note="阴影部分为拆除的墙体,这一版已于 2026-07-29 施工完成。图上门牌与公司联系方式已裁掉。">拆除范围</button></div>
-  <div class="floor-fig"><img src="assets/img-02.png" alt="平面布置"></div>
-  <p class="floor-note">设计一版平面布置:主卧、长辈房、儿童房、多功能房、客餐厅、厨房、双卫与生活阳台的家具动线。带尺寸标注的版本留内部。</p>
+  <div class="segs"><button class="on" data-src="assets/img-04.png" data-note="8.26 最新施工图 · P04 · 平面布置图；完整分类图纸见「设计方案」。">平面布置图</button><button class="" data-src="assets/img-05.png" data-note="8.26 最新施工图 · P05 · 平面布置图（尺寸标注版）；完整分类图纸见「设计方案」。">平面布置图（尺寸标注版）</button><button class="" data-src="assets/img-01.png" data-note="8.26 最新施工图 · P01 · 原始结构图；完整分类图纸见「设计方案」。">原始结构图</button><button class="" data-src="assets/img-02.png" data-note="8.26 最新施工图 · P02 · 墙体拆除图；完整分类图纸见「设计方案」。">墙体拆除图</button></div>
+  <div class="floor-fig"><img src="assets/img-04.png" alt="平面布置图"></div>
+  <p class="floor-note">8.26 最新施工图 · P04 · 平面布置图；完整分类图纸见「设计方案」。</p>
 </div></div><div class="wrap">
   <section class="blk">
     <h2 class="blk-t">现在 / 下一步</h2>
@@ -412,7 +430,7 @@ main.home-on{padding-top:var(--topbar)!important}
   <div class="entry">
     <a href="#design">
       <div class="entry-n">02</div>
-      <div class="entry-t">设计方案<span class="cnt">26</span></div>
+      <div class="entry-t">设计方案<span class="cnt">54</span></div>
       <div class="entry-d">效果图与图纸资料</div>
     </a>
     <a href="#plan">
@@ -437,7 +455,7 @@ main.home-on{padding-top:var(--topbar)!important}
     </a>
     <a href="#history">
       <div class="entry-n">07</div>
-      <div class="entry-t">历程<span class="cnt">26</span></div>
+      <div class="entry-t">历程<span class="cnt">28</span></div>
       <div class="entry-d">方案变更与动态流水</div>
     </a>
     <a href="#about">
@@ -452,71 +470,223 @@ main.home-on{padding-top:var(--topbar)!important}
     <div class="page-kicker">02</div>
     <h1 class="page-title">设计方案</h1>
     <p class="page-lead">效果图是设计意图,图纸是施工依据。图上门牌与设计单位信息已裁掉。</p>
-  </div><div class="wrap"><section class="blk">
+  </div><div class="wrap"><section class="blk latest-plans">
+    <h2 class="blk-t">最新施工图 · 8.26 版<span class="cnt">33 页</span></h2>
+    <p class="pend-note">33 页已完整归档，点击图纸可放大，打开高清图可查看细部。网站去除了联系方式栏；带完整图框的原件、书签阅读版和 200 dpi 全页图保存在本地。</p>
+    <ul class="public-list"><li>木工重点：P10–P14，核对吊顶尺寸、灯具位置、开关与插座；配合空调风口及检修口复核。</li><li>业主已确认：新版删除入户 D 立面，属于方案更改。旧版留作历史；部分原页顶部说明截断仍待补齐。</li><li>水电图为设计依据，实际隐蔽管线位置须对照现场影像和实测。P04/P05 同名平面图均已保留。</li></ul>
+    <details class="plan-group" open>
+      <summary>吊顶与灯具<span>3 页</span></summary>
+      <div class="drawing">
+        <img src="assets/img-10.png" alt="P10 · 吊顶布置图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P10 · 吊顶布置图</div>
+        <a href="assets/img-10.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-11.png" alt="P11 · 吊顶尺寸图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P11 · 吊顶尺寸图</div>
+        <a href="assets/img-11.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-12.png" alt="P12 · 灯具定位图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P12 · 灯具定位图</div>
+        <a href="assets/img-12.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div>
+    </details><details class="plan-group" >
+      <summary>水电与开关<span>4 页</span></summary>
+      <div class="drawing">
+        <img src="assets/img-06.png" alt="P06 · 水路布置图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P06 · 水路布置图</div>
+        <a href="assets/img-06.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-07.png" alt="P07 · 插座布置图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P07 · 插座布置图</div>
+        <a href="assets/img-07.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-13.png" alt="P13 · 开关布置图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P13 · 开关布置图</div>
+        <a href="assets/img-13.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-14.png" alt="P14 · 插座开关总览图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P14 · 插座开关总览图</div>
+        <a href="assets/img-14.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div>
+    </details><details class="plan-group" >
+      <summary>平面与拆改<span>5 页</span></summary>
+      <div class="drawing">
+        <img src="assets/img-01.png" alt="P01 · 原始结构图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P01 · 原始结构图</div>
+        <a href="assets/img-01.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-02.png" alt="P02 · 墙体拆除图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P02 · 墙体拆除图</div>
+        <a href="assets/img-02.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-03.png" alt="P03 · 新建墙体图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P03 · 新建墙体图</div>
+        <a href="assets/img-03.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-04.png" alt="P04 · 平面布置图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P04 · 平面布置图</div>
+        <a href="assets/img-04.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-05.png" alt="P05 · 平面布置图（尺寸标注版） · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P05 · 平面布置图（尺寸标注版）</div>
+        <a href="assets/img-05.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div>
+    </details><details class="plan-group" >
+      <summary>地面与面积<span>2 页</span></summary>
+      <div class="drawing">
+        <img src="assets/img-08.png" alt="P08 · 地面铺装图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P08 · 地面铺装图</div>
+        <a href="assets/img-08.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-09.png" alt="P09 · 面积统计图 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P09 · 面积统计图</div>
+        <a href="assets/img-09.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div>
+    </details><details class="plan-group" >
+      <summary>空间立面<span>19 页</span></summary>
+      <div class="drawing">
+        <img src="assets/img-15.png" alt="P15 · 餐厅B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P15 · 餐厅B立面</div>
+        <a href="assets/img-15.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-16.png" alt="P16 · 客餐厅A立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P16 · 客餐厅A立面</div>
+        <a href="assets/img-16.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-17.png" alt="P17 · 客厅B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P17 · 客厅B立面</div>
+        <a href="assets/img-17.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-18.png" alt="P18 · 餐厅D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P18 · 餐厅D立面</div>
+        <a href="assets/img-18.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-19.png" alt="P19 · 客厅D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P19 · 客厅D立面</div>
+        <a href="assets/img-19.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-20.png" alt="P20 · 多功能房D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P20 · 多功能房D立面</div>
+        <a href="assets/img-20.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-21.png" alt="P21 · 厨房A立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P21 · 厨房A立面</div>
+        <a href="assets/img-21.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-22.png" alt="P22 · 厨房B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P22 · 厨房B立面</div>
+        <a href="assets/img-22.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-23.png" alt="P23 · 厨房C立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P23 · 厨房C立面</div>
+        <a href="assets/img-23.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-24.png" alt="P24 · 次卫A/B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P24 · 次卫A/B立面</div>
+        <a href="assets/img-24.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-25.png" alt="P25 · 次卫C/D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P25 · 次卫C/D立面</div>
+        <a href="assets/img-25.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-26.png" alt="P26 · 长辈房A立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P26 · 长辈房A立面</div>
+        <a href="assets/img-26.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-27.png" alt="P27 · 长辈房D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P27 · 长辈房D立面</div>
+        <a href="assets/img-27.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-28.png" alt="P28 · 儿童房B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P28 · 儿童房B立面</div>
+        <a href="assets/img-28.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-29.png" alt="P29 · 儿童房C立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P29 · 儿童房C立面</div>
+        <a href="assets/img-29.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-30.png" alt="P30 · 主卫A立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P30 · 主卫A立面</div>
+        <a href="assets/img-30.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-31.png" alt="P31 · 主卧A立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P31 · 主卧A立面</div>
+        <a href="assets/img-31.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-32.png" alt="P32 · 主卧B立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P32 · 主卧B立面</div>
+        <a href="assets/img-32.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div><div class="drawing">
+        <img src="assets/img-33.png" alt="P33 · 主卧D立面 · 8.26 版" loading="lazy">
+        <div class="drawing-info"><div class="drawing-title">P33 · 主卧D立面</div>
+        <a href="assets/img-33.png" target="_blank" rel="noopener" class="plan-open">打开高清图</a></div>
+      </div>
+    </details>
+  </section><section class="blk">
     <h2 class="blk-t">方案效果图<span class="h2-note">设计师共出 36 张,挑了 16 张上页</span></h2>
     <div class="shots">
       <div class="shot">
-        <img src="assets/img-14.jpg" alt="客厅" loading="lazy">
+        <img src="assets/img-44.jpg" alt="客厅" loading="lazy">
         <div class="shot-cap"><div class="shot-t">客厅</div><div class="shot-n">浅木地板 + 布艺沙发,吊扇与爬梯收纳墙,右侧接开放式岛台。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-15.jpg" alt="客厅望餐厨" loading="lazy">
+        <img src="assets/img-45.jpg" alt="客厅望餐厨" loading="lazy">
         <div class="shot-cap"><div class="shot-t">客厅望餐厨</div><div class="shot-n">落地窗采光,蓝色单椅与墙面阅读置物。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-23.jpg" alt="餐厨岛台" loading="lazy">
+        <img src="assets/img-53.jpg" alt="餐厨岛台" loading="lazy">
         <div class="shot-cap"><div class="shot-t">餐厨岛台</div><div class="shot-n">餐厨一体:白色岛柜衔接木色餐边区,吧台兼咖啡操作台。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-24.jpg" alt="餐桌区" loading="lazy">
+        <img src="assets/img-54.jpg" alt="餐桌区" loading="lazy">
         <div class="shot-cap"><div class="shot-t">餐桌区</div><div class="shot-n">圆餐桌 + 爬梯墙,餐边收纳兼装饰。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-10.jpg" alt="厨房" loading="lazy">
+        <img src="assets/img-40.jpg" alt="厨房" loading="lazy">
         <div class="shot-cap"><div class="shot-t">厨房</div><div class="shot-n">木色橱柜 + 白色台面,嵌入式电器与洗碗机。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-11.jpg" alt="厨房动线" loading="lazy">
+        <img src="assets/img-41.jpg" alt="厨房动线" loading="lazy">
         <div class="shot-cap"><div class="shot-t">厨房动线</div><div class="shot-n">厨房通向生活阳台的动线,洗切与备餐分区。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-17.jpg" alt="入户玄关" loading="lazy">
+        <img src="assets/img-47.jpg" alt="入户玄关" loading="lazy">
         <div class="shot-cap"><div class="shot-t">入户玄关</div><div class="shot-n">洞洞板上墙挂自行车,下方做通高鞋柜。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-06.jpg" alt="休闲角" loading="lazy">
+        <img src="assets/img-36.jpg" alt="休闲角" loading="lazy">
         <div class="shot-cap"><div class="shot-t">休闲角</div><div class="shot-n">开放区里的躺椅、绿植与健身位,和客厅连通。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-04.jpg" alt="主卧" loading="lazy">
+        <img src="assets/img-34.jpg" alt="主卧" loading="lazy">
         <div class="shot-cap"><div class="shot-t">主卧</div><div class="shot-n">通顶木饰面衣柜,床头留出窗景。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-05.jpg" alt="主卧 · 另一角" loading="lazy">
+        <img src="assets/img-35.jpg" alt="主卧 · 另一角" loading="lazy">
         <div class="shot-cap"><div class="shot-t">主卧 · 另一角</div><div class="shot-n">地台床与整墙木饰面收纳。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-07.jpg" alt="儿童房" loading="lazy">
+        <img src="assets/img-37.jpg" alt="儿童房" loading="lazy">
         <div class="shot-cap"><div class="shot-t">儿童房</div><div class="shot-n">地台 + 上床,楼梯兼收纳,下方留活动区。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-08.jpg" alt="儿童房 · 窗边" loading="lazy">
+        <img src="assets/img-38.jpg" alt="儿童房 · 窗边" loading="lazy">
         <div class="shot-cap"><div class="shot-t">儿童房 · 窗边</div><div class="shot-n">小桌小凳,飘窗改成休闲位。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-19.jpg" alt="地台卧室" loading="lazy">
+        <img src="assets/img-49.jpg" alt="地台卧室" loading="lazy">
         <div class="shot-cap"><div class="shot-t">地台卧室</div><div class="shot-n">蓝色背景墙 + 榻榻米地台,窗边做书桌。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-20.jpg" alt="地台卧室 · 书桌角" loading="lazy">
+        <img src="assets/img-50.jpg" alt="地台卧室 · 书桌角" loading="lazy">
         <div class="shot-cap"><div class="shot-t">地台卧室 · 书桌角</div><div class="shot-n">转角桌面接床头,兼书房与休息。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-18.jpg" alt="生活阳台" loading="lazy">
+        <img src="assets/img-48.jpg" alt="生活阳台" loading="lazy">
         <div class="shot-cap"><div class="shot-t">生活阳台</div><div class="shot-n">洗衣机与烘干机并排,黑框窗到顶。</div></div>
       </div>
       <div class="shot">
-        <img src="assets/img-09.jpg" alt="卫生间" loading="lazy">
+        <img src="assets/img-39.jpg" alt="卫生间" loading="lazy">
         <div class="shot-cap"><div class="shot-t">卫生间</div><div class="shot-n">干湿分离,镜柜与嵌入式收纳。</div></div>
       </div>
     </div>
@@ -525,60 +695,32 @@ main.home-on{padding-top:var(--topbar)!important}
     <h2 class="blk-t">改造前后对比<span class="h2-note">上半是改造前现状,下半是方案效果</span></h2>
     
     <div class="drawing">
-      <img src="assets/img-13.jpg" alt="客厅 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <img src="assets/img-43.jpg" alt="客厅 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
       <div class="drawing-info"><div class="drawing-title">客厅 · 改造前后</div></div>
       <p class="pend-note">上半改造前现状,下半方案效果:整体视角,与开放式岛台相邻。</p>
     </div>
     <div class="drawing">
-      <img src="assets/img-16.jpg" alt="岛台/厨房 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <img src="assets/img-46.jpg" alt="岛台/厨房 · 改造前后" loading="lazy" style="aspect-ratio:3/4">
       <div class="drawing-info"><div class="drawing-title">岛台/厨房 · 改造前后</div></div>
       <p class="pend-note">上现状、下效果:开放式厨房岛台,木色橱柜 + 白色台面。</p>
     </div>
     <div class="drawing">
-      <img src="assets/img-21.jpg" alt="餐厅① · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <img src="assets/img-51.jpg" alt="餐厅① · 改造前后" loading="lazy" style="aspect-ratio:3/4">
       <div class="drawing-info"><div class="drawing-title">餐厅① · 改造前后</div></div>
       <p class="pend-note">上现状、下效果:餐厅圆桌 + 木饰面,墙面爬梯做收纳与装饰。</p>
     </div>
     <div class="drawing">
-      <img src="assets/img-12.jpg" alt="客厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <img src="assets/img-42.jpg" alt="客厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
       <div class="drawing-info"><div class="drawing-title">客厅② · 改造前后</div></div>
       <p class="pend-note">上现状、下效果:落地窗采光,蓝色单椅 + 吊扇,墙面做阅读置物。</p>
     </div>
     <div class="drawing">
-      <img src="assets/img-22.jpg" alt="餐厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
+      <img src="assets/img-52.jpg" alt="餐厅② · 改造前后" loading="lazy" style="aspect-ratio:3/4">
       <div class="drawing-info"><div class="drawing-title">餐厅② · 改造前后</div></div>
       <p class="pend-note">上现状、下效果:从玄关往里看,餐厨一体。</p>
     </div>
   </section>
-  <section class="blk">
-    <h2 class="blk-t">图纸资料<span class="h2-note">原始、拆改、平面、水电逐步补齐</span></h2>
-    
-    <div class="drawing">
-      <img src="assets/img-01.jpg" alt="原始户型图" loading="lazy">
-      <div class="drawing-info"><div class="drawing-title">原始户型图</div><span class="badge">已有</span></div>
-      <p class="pend-note">改造前的彩色户型图,标了各房间名称与面积;可编辑描线版后续再补。</p>
-    </div>
-    <div class="drawing">
-      <img src="assets/img-03.png" alt="拆除墙体图" loading="lazy">
-      <div class="drawing-info"><div class="drawing-title">拆除墙体图</div><span class="badge">已施工</span></div>
-      <p class="pend-note">阴影部分为要拆除的墙体,2026-07-29 已按此完工。图上门牌、公司联系方式已裁掉。</p>
-    </div>
-    <div class="drawing">
-      <img src="assets/img-02.png" alt="平面布置图" loading="lazy">
-      <div class="drawing-info"><div class="drawing-title">平面布置图</div><span class="badge">设计一版</span></div>
-      <p class="pend-note">第一版平面布置的家具动线;带尺寸标注的版本留内部。定稿版脱敏后替换。</p>
-    </div>
-    <div class="drawing">
-      <div class="drawing-empty">待补图纸</div>
-      <div class="drawing-info"><div class="drawing-title">施工图(定稿)</div><span class="badge">已收到 07-31</span></div>
-      <p class="pend-note">水电、立面与节点齐全,是各家报价比选的同一份依据。原件含门牌与设计单位信息,脱敏线稿版后续再上页。</p>
-    </div>
-    <div class="drawing">
-      <div class="drawing-empty">待补图纸</div>
-      <div class="drawing-info"><div class="drawing-title">水电点位图</div><span class="badge">待脱敏上页</span></div>
-      <p class="pend-note">已含在施工图定稿里;封墙前的现场照片会和点位图一起存档互相对照。</p>
-    </div>
-  </section></div></section>
+  </div></section>
 <section class="page" id="plan">
   <div class="page-head">
     <div class="page-kicker">03</div>
@@ -1803,7 +1945,7 @@ main.home-on{padding-top:var(--topbar)!important}
       </div>
       <div class="rg-row"><span class="rg-k">合同</span><span class="rg-v">待归档<span class="rg-f">05-合同单据/(空)</span></span></div>
       <div class="rg-row"><span class="rg-k">报价单</span><span class="rg-v">计费口径已定<span class="rg-f">150 元/㎡ × 103㎡</span></span></div>
-      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">无物料<span class="rg-f">交付物是图纸:施工图 7-31 定稿、效果图 36 张、SketchUp 模型 7.20 版</span></span></div>
+      <div class="rg-row"><span class="rg-k">物料</span><span class="rg-v">无物料<span class="rg-f">交付图纸：最新施工图 8.26 版共 33 页已归档；7-31 旧版保留；效果图 36 张、SketchUp 模型仍为 7.20 版。</span></span></div>
       <div class="rg-due">卡点:尾款待竣工节点</div>
       <div class="rg-risk">合同扫描件没归档;尾款 1,545 的分期口径是反推的,要拿合同核。另:施工合同计价面积 109㎡,设计费按 103㎡ 计,6㎡ 差可作为不补差价的依据留存。</div>
     </div>
@@ -1978,8 +2120,10 @@ main.home-on{padding-top:var(--topbar)!important}
     <div class="chg"><div class="chg-date">2026-06-14</div><div class="chg-what">装修方式定调:走装修公司整装,放弃独立设计师路线</div><div class="chg-why">为什么:全家沟通后定的:整装工期可控(约 90 天)、整体花费更实惠;独立设计师更称心但工期长、总价压不住。</div></div>
   </section>
   <section class="blk">
-    <h2 class="blk-t">动态<span class="cnt">26</span></h2>
+    <h2 class="blk-t">动态<span class="cnt">28</span></h2>
     
+    <div class="upd"><div class="upd-date">2026-09-10</div><div class="upd-body"><p>业主确认 8.26 版删除入户 D 立面，属于方案更改，旧版仅作历史记录保留。已授权将去除联系方式的 33 页施工图发布到现有完整版网站，持有链接即可直接访问。</p></div></div>
+    <div class="upd"><div class="upd-date">2026-09-10</div><div class="upd-body"><p>收到 8.26 最新施工图，共 33 页，平面、水电、吊顶灯位和各房间立面已完整归档。完整版设计方案已补齐图纸，木工阶段优先核对吊顶、灯具和开关。</p></div></div>
     <div class="upd"><div class="upd-date">2026-09-10</div><div class="upd-body"><p>业主确认全屋硬装已进入木工阶段，木工已进场。水电测试打压阶段的全屋影像入口已登记为重要隐蔽工程资料，供后期管线定位核对；原始影像、打压报告及测试结论待备份核验。</p></div></div>
     <div class="upd"><div class="upd-date">2026-08-23</div><div class="upd-body"><p>门窗定标并预付八成:四家按同一把尺子重算后选定最低的一家,优惠后成交 32,500。12 页逐窗加工图(窗号、分格、玻璃配置、五金、单套面积)已归档,交期从复尺日起算 30 个工作日,复尺约排在 9 月 18 日。同时记下三个要办的:报价单抬头写错了人要改出重签、吊装费含不含要说清、复尺结果要书面确认后再下料。</p></div></div>
     <div class="upd"><div class="upd-date">2026-08-23</div><div class="upd-body"><p>中央空调签约:国产一线品牌整套系统,固定综合价 19,000 含安装,主机 7 匹 + 4 台室内机,设备质保 6 年、电控 2 年,待进场。合同、逐房间配置表和 29 项材料品牌表都已归档。同时发现三件要马上办的事:覆盖范围要书面确认(有两个房间没有室内机)、风口谁供要说清、空调要的电和开孔要转给基装。</p></div></div>
@@ -2012,7 +2156,62 @@ main.home-on{padding-top:var(--topbar)!important}
     <div class="page-kicker">08</div>
     <h1 class="page-title">参与方与说明</h1>
     <p class="page-lead">谁在做什么,以及这个页面按什么口径写。</p>
-  </div><div class="wrap"><section class="blk">
+  </div><div class="wrap">
+  <section class="blk">
+    <h2 class="blk-t">核心对接人<span class="cnt">6</span></h2>
+    <p class="contact-note">按项目保留核心对接人的姓名与联系方式，方便施工沟通、售后联系和日后回顾。电话号码可点击拨打，微信号可选中复制。</p>
+    <div class="contact-grid">
+      <article class="contact-card">
+        <div class="contact-role">设计师</div>
+        <h3 class="contact-name">谭琳双</h3>
+        <dl class="contact-details">
+          <div><dt>微信</dt><dd>TLS_2410</dd></div>
+          
+        </dl>
+      </article>
+      <article class="contact-card">
+        <div class="contact-role">拆除队</div>
+        <h3 class="contact-name">雷师傅</h3>
+        <dl class="contact-details">
+          <div><dt>微信</dt><dd>Chaichu-LFX</dd></div>
+          
+        </dl>
+      </article>
+      <article class="contact-card">
+        <div class="contact-role">中央空调</div>
+        <h3 class="contact-name">曹老师</h3>
+        <dl class="contact-details">
+          <div><dt>微信</dt><dd>ck18223357522</dd></div>
+          
+        </dl>
+      </article>
+      <article class="contact-card">
+        <div class="contact-role">门窗</div>
+        <h3 class="contact-name">颜老师</h3>
+        <dl class="contact-details">
+          <div><dt>微信</dt><dd>YAN15023019918</dd></div>
+          <div><dt>电话</dt><dd><a href="tel:15023019918">15023019918</a></dd></div>
+        </dl>
+      </article>
+      <article class="contact-card">
+        <div class="contact-role">施工方</div>
+        <h3 class="contact-name">胡老师</h3>
+        <dl class="contact-details">
+          <div><dt>微信</dt><dd>fqhxw129</dd></div>
+          <div><dt>电话</dt><dd class="contact-pending">待补充</dd></div>
+        </dl>
+      </article>
+      <article class="contact-card">
+        <div class="contact-role">施工方</div>
+        <h3 class="contact-name">陈经理</h3>
+        <dl class="contact-details">
+          
+          <div><dt>电话</dt><dd><a href="tel:19123443067">19123443067</a></dd></div>
+        </dl>
+      </article>
+    </div>
+    <p class="contact-note contact-rule">后续每个项目确定对接人后，及时补录姓名、负责项目和联系方式；尚未取得的信息标记待补充，对接人变更时保留原联系人及交接记录。</p>
+  </section><section class="blk">
     <h2 class="blk-t">参与方</h2>
     <div class="party"><span class="party-role">业主</span><span class="party-who">龙先生一家</span><span class="party-duty">拍板、验收、维护本页</span></div><div class="party"><span class="party-role">设计师</span><span class="party-who">设计工作室(已签约)</span><span class="party-duty">量房、平面方案、施工图</span></div><div class="party"><span class="party-role">拆除</span><span class="party-who">拆除队(已完工)</span><span class="party-duty">拆改与垃圾清运</span></div><div class="party"><span class="party-role">中央空调</span><span class="party-who">暖通施工方(已签约)</span><span class="party-duty">按合同配置表供货、安装、调试;设备质保 6 年</span></div><div class="party"><span class="party-role">门窗</span><span class="party-who">门窗厂家(已定标)</span><span class="party-duty">复尺、定制生产、安装;交期自复尺日起 30 个工作日</span></div><div class="party"><span class="party-role">施工方</span><span class="party-who">施工方(已签约进场)</span><span class="party-duty">按合同与工期计划施工,增项走书面变更单,调整提前在工作群告知</span></div>
   </section>
