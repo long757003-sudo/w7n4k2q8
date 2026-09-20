@@ -305,6 +305,33 @@ h2.blk-t{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-it
 .cat-v{flex:none;width:76px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .cat-p{flex:none;width:44px;text-align:right;font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 
+/* 计划与实际进度 */
+.plan-context{font-size:13px;color:var(--ink-2);line-height:1.8;margin-bottom:14px}
+.plan-milestones{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+.plan-milestones li{display:flex;flex-direction:column;gap:4px;border-left:2px solid #c9b894;padding:6px 0 14px 14px;position:relative}
+.plan-milestones li::before{content:'';position:absolute;left:-5px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--clay)}
+.plan-milestones time{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.plan-milestones span{font-size:14px;font-weight:600}
+.plan-latest{font-size:12px;color:var(--ink-2);margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);line-height:1.8}
+.progress-node{padding:20px 0;border-top:1px solid var(--line);scroll-margin-top:130px}
+.progress-node>header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.progress-node h3{font-size:18px;line-height:1.5}
+.progress-date{font-size:12px;color:var(--clay);margin-bottom:5px}
+.progress-description{font-size:13px;line-height:1.9;color:var(--ink-2)}
+.progress-events{list-style:none;margin:12px 0;padding:0;font-size:12px}
+.progress-events li{display:flex;gap:14px;padding:5px 0;line-height:1.7}
+.progress-events time{flex:none;color:var(--ink-3)}
+.progress-result{font-size:12px;color:var(--ink-2);margin:12px 0}
+.progress-detail{border-top:1px solid var(--line-soft);font-size:13px}
+.progress-detail>summary{padding:11px 0;cursor:pointer;color:var(--pine);font-weight:600}
+.progress-detail .cs-stage{padding:10px 0}
+.progress-checks{padding:0 10px;background:#fbf8f0;border-radius:8px}
+.progress-standards-preview>div{padding:10px 0;font-size:13px;line-height:1.8}
+.progress-standards-preview h4{font-size:14px;margin-bottom:6px}
+.progress-standards-preview a{font-size:12px;color:var(--pine)}
+.progress-current h3{color:var(--pine)}
+@media(max-width:480px){.plan-milestones{gap:0 10px}.plan-milestones time{font-size:11px}.plan-milestones span{font-size:13px}.progress-node>header{align-items:flex-start}.progress-node h3{font-size:17px}.progress-events li{gap:9px}.progress-checks{padding:0 6px}}
+
 /* 历程 */
 .chg{border-left:3px solid var(--clay);padding:2px 0 2px 12px;margin-top:14px}
 .chg:first-of-type{margin-top:0}
@@ -380,7 +407,7 @@ footer{text-align:center;font-size:12px;color:var(--ink-3);margin-top:22px;line-
 .cs-focus{margin:20px 0;padding:20px;background:var(--pine-bg);border:1px solid #b9d8cc;border-radius:12px}.cs-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.cs-heading h3{font-size:20px;color:var(--pine)}.cs-heading>span,.cs-kicker{font-size:12px;color:var(--ink-2)}.cs-focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:14px 0}.cs-focus-grid article{background:var(--card);border:1px solid var(--line);padding:16px;border-radius:9px;min-width:0}.cs-focus-grid h4{font-size:18px;margin:5px 0}.cs-focus a{color:var(--pine);text-underline-offset:3px}.cs-focus-grid p,.cs-focus-grid ul,.cs-focus-grid article>a,.cs-source{font-size:13px}.cs-focus ul,.cs-guidance ul{padding-left:20px;line-height:1.8}.cs-focus-grid ul{margin:10px 0}.cs-source summary,.cs-shared>summary{cursor:pointer;color:var(--pine);font-size:13px;padding:8px 0}.cs-source p{margin:9px 0}.cs-guidance{padding:12px 14px;background:var(--pine-bg);border-radius:8px;font-size:13px}.cs-group{margin-top:16px}.cs-group h5{font-size:12px;color:var(--ink-2);margin-bottom:6px}.cs-item{border-top:1px solid var(--line-soft)}.cs-item>summary{display:flex;justify-content:space-between;gap:12px;padding:11px 0;cursor:pointer;font-size:14px;align-items:baseline}.cs-item>summary>span:first-child{flex:1}.cs-item>summary:before{content:'＋';color:var(--pine);flex:none}.cs-item[open]>summary:before{content:'−'}.cs-quantity{font-size:12px;color:var(--ink-2);text-align:right}.cs-item>div{padding:10px 12px;background:#f8f4eb;border-radius:8px;margin-bottom:10px;overflow-wrap:anywhere}.cs-boundary{margin-top:9px;color:#855223}.cs-shared{border-top:1px solid var(--line);margin-top:14px}.cs-stage .ac-section-head{flex-wrap:wrap}.cs-focus a:focus-visible,.cs-item summary:focus-visible{outline:2px solid var(--pine);outline-offset:3px}
 @media(max-width:600px){.cs-focus{padding:14px}.cs-focus-grid{grid-template-columns:1fr}.cs-focus-grid article{padding:13px}.cs-item>summary{gap:8px}.cs-quantity{max-width:100px;flex-shrink:0}}
 </style>
-<meta name="content-version" content="056b92c30f0e"><meta name="checklist-version" content="2026-09-12-v2"></head>
+<meta name="content-version" content="92990756e5cf"><meta name="checklist-version" content="2026-09-12-v2"></head>
 <body>
 <style>
 main.home-on{padding-top:var(--topbar)!important}
@@ -766,27 +793,24 @@ main.home-on{padding-top:var(--topbar)!important}
   <div class="page-head">
     <div class="page-kicker">03</div>
     <h1 class="page-title">计划与节点</h1>
-    <p class="page-lead">先看施工进度，再按证据核验质量。原计划、交底与备料记录保留，验收结论由业主确认。</p>
-  </div><div class="wrap"><section class="blk acceptance" data-checklist-version="2026-09-12-v2">
-    <div class="ac-heading"><div><p class="ac-eyebrow">施工 · 验收 · 现场记录</p><h2>把进度和验收分开看</h2></div><span class="ac-badge">2026-09-12-v2</span></div>
-    <p class="ac-intro">施工完成只代表工序结束。每一项检查都要有对应证据，并由业主确认；资料完整与验收通过分别记录。</p>
-    <div class="ac-stats" aria-label="施工与验收统计"><div><strong>7<small> / 16</small></strong><span>施工完成 · 阶段</span></div><div><strong>7</strong><span>待验收 · 阶段</span></div><div><strong>0</strong><span>待整改 · 项</span></div></div>
-    <p class="ac-caption">当前：木工施工。待验收只统计施工完成的阶段；待整改按未关闭事项计数。</p>
-    <section class="cs-focus" aria-label="基装服务与当前节点">
-    <div class="cs-heading"><h3>基装服务 · 跟着节点看</h3><span>86 项 · 13 个分部</span></div>
-    <p class="ac-caption">施工服务已对应到下方各阶段。范围来自合同附件，逐项落实情况待核对；施工与验收状态沿用现场记录。</p>
-    <div class="cs-focus-grid"><article><span class="cs-kicker">当前节点</span><h4><a href="#stage-carpentry" data-stage-link="carpentry">木工施工</a></h4><p class="ac-caption">09-08 进场（实际）</p><p>9 项对应服务 · 儿童房床钢架及欧松板基层、明档窗帘盒吊顶（长辈房）、主卧书桌造型基层、主卧床头平板造型基层等</p><ul><li>核对普通吊顶、防潮吊顶、窗帘盒、隔墙、灯槽、书桌和床头基层，以及儿童房床欧松板基层。</li><li>空调风口基层与暖通方接口对齐，封板前结合 8.26 施工图 P10–P14 核对。</li><li>书桌、床头及儿童房床的饰面材质与安装由业主自理，需衔接定制供应商。</li></ul><a href="#stage-carpentry" data-stage-link="carpentry">查看本阶段范围与验收</a></article><article><span class="cs-kicker">接下来准备</span><h4><a href="#stage-tiling" data-stage-link="tiling">泥工施工</a></h4><p class="ac-caption">预计 09-21 至 09-27 开始铺贴</p><p>34 项对应服务 · 地面回填及找平（浅坑）、地面砖铺贴、包下水管（单根）、地面回填及找平等</p><ul><li>开贴前核对回填、沉箱防水、墙地面防水与相应验收记录；已拍照片不等于验收通过。</li><li>瓷砖和门槛石为甲供；确认尺寸、排版、地漏及主卫洗手台补砖的铺贴范围。</li><li>原表“瓷砖尺寸更换”工程量及价格空缺，尺寸说明有歧义，先与工长确认；附件二主材配置清单仍待补。</li></ul><a href="#stage-tiling" data-stage-link="tiling">查看本阶段范围与验收</a></article></div>
-    <p class="ac-caption">4 项跨阶段服务：二次转运、施工中清扫、成品保护、施工机具磨损，　临时设施。同一原表项目在相关节点提示，不重复计项。</p>
-    <details class="cs-source"><summary>附件来源与范围说明</summary><p>融创.紫枫郡8-1-303.xlsx · Sheet1 · 预算日期 2026-08-03 · 2026-09-20 登记</p><p>本次附件与已有两份归档原件 SHA256 一致，复用既有原件，不重复登记合同或费用。Sheet2、Sheet3 为空。</p><p>按原表逐行登记服务范围和工程量；阶段归属及衔接提醒是整理结果。服务项目不自动标为完工或验收通过，实际进度沿用现有节点。跨阶段项目只登记一次。报价及付款仍查原报价明细和账目。</p><p>原表说明（原文）：</p><ul><li>本工程报价实行预算内包干制，预算表未列之项目不进入本预算。</li><li>本工程报价报价为现行基本价，若有未列之项目以甲乙双方的议定价为准。</li><li>本工程报价增减项目由甲乙双方代表签定工程变更单后方能实施。</li><li>此预算表内工程量以实际发生量结算。</li><li>本预算报价不含任何口头承诺项目。</li><li>本工程报价表解释权归本公司预算部。</li></ul><p>具体结算与变更待结合双方确认记录核对。</p></details>
+    <p class="page-lead">上方看计划，下方看实际施工记录及对应验收说明。</p>
+  </div><div class="wrap"><section class="blk plan-overview" aria-labelledby="plan-overview-title"><h2 class="blk-t" id="plan-overview-title">计划<span class="h2-note">主要时间节点</span></h2>
+    <p class="plan-context">以下为原工期计划，后续时间随现场进度调整。</p>
+    <ol class="plan-milestones"><li><time>8 月</time><span>拆除、土建与水电</span></li><li><time>9 月</time><span>木工与泥工</span></li><li><time>09-30 — 10-09</time><span>美缝</span></li><li><time>10-10 — 11-10</time><span>漆工</span></li><li><time>11-05 — 11-09</time><span>自流平</span></li><li><time>11-11 — 11-20</time><span>备料到场与安装</span></li><li><time>11-21 — 12-20</time><span>自购家具家电安装</span></li><li><time>12-21 — 12-30</time><span>收尾与交付</span></li></ol>
+    <p class="plan-latest">最新安排：瓷砖预计 09-21 至 09-27 开始铺贴；空调外机与窗户同步安装，具体日期待定。</p>
   </section>
-    <div class="ac-preparation"><b>验收清单待确认</b><p>十大检查组已列入清单。部分适用范围及专业要求仍待确认，当前记录不代表验收通过；当前尚无阶段满足全部通过条件。</p><details><summary>查看清单准备事项 · 32 条</summary><ul><li>钢结构床：需承载及连接节点设计资料。</li><li>空调：需书面确认覆盖范围、主机供电条件及风口材质数量与分工。</li><li>地面及美缝：需确定地板类别、自流平与美缝产品，取得厂家施工与验收要求。</li><li>燃气器具：需确认实际安装范围及对应专业安装、排烟和验收资料要求。</li><li>钢结构床承载与连接依据：要求或专业参数待核验</li><li>钢结构床承载与连接依据：依据原文待核验</li><li>钢架连接、防腐及隐蔽记录：要求或专业参数待核验</li><li>钢架连接、防腐及隐蔽记录：依据原文待核验</li><li>内机型号、数量与覆盖区域：要求或专业参数待核验</li><li>找平材料与基层交接：要求或专业参数待核验</li><li>接缝处理与成品表面：要求或专业参数待核验</li><li>木地板与成品面层：要求或专业参数待核验</li><li>空调后期设备与接口：要求或专业参数待核验</li><li>空调风口与木工配合：要求或专业参数待核验</li><li>燃气器具及排烟交接：适用范围待确认</li><li>燃气器具及排烟交接：要求或专业参数待核验</li><li>拆除：适用清单尚未由业主确认或确认版本已失效</li><li>钢结构床施工：适用清单尚未由业主确认或确认版本已失效</li><li>土建施工：适用清单尚未由业主确认或确认版本已失效</li><li>水电定位：适用清单尚未由业主确认或确认版本已失效</li><li>水电开槽：适用清单尚未由业主确认或确认版本已失效</li><li>空调内机及隐蔽管线：适用清单尚未由业主确认或确认版本已失效</li><li>水电施工：适用清单尚未由业主确认或确认版本已失效</li><li>木工施工：适用清单尚未由业主确认或确认版本已失效</li><li>泥工施工：适用清单尚未由业主确认或确认版本已失效</li><li>美缝施工：适用清单尚未由业主确认或确认版本已失效</li><li>漆工施工：适用清单尚未由业主确认或确认版本已失效</li><li>自流平施工：适用清单尚未由业主确认或确认版本已失效</li><li>安装：适用清单尚未由业主确认或确认版本已失效</li><li>自购项安装：适用清单尚未由业主确认或确认版本已失效</li><li>空调后期安装及调试：适用清单尚未由业主确认或确认版本已失效</li><li>完工收尾与交付：适用清单尚未由业主确认或确认版本已失效</li></ul></details></div>
-    <nav class="ac-jump" aria-label="施工与验收节点"><a href="#stage-demolition" data-stage-link="demolition">拆除</a><a href="#stage-material-acceptance" data-stage-link="material-acceptance">材料验收</a><a href="#stage-steel" data-stage-link="steel">钢结构床施工</a><a href="#stage-masonry" data-stage-link="masonry">土建施工</a><a href="#stage-layout" data-stage-link="layout">水电定位</a><a href="#stage-chasing" data-stage-link="chasing">水电开槽</a><a href="#stage-ac-hidden" data-stage-link="ac-hidden">空调内机及隐蔽管线</a><a href="#stage-water-electric" data-stage-link="water-electric">水电施工</a><a href="#stage-carpentry" data-stage-link="carpentry">木工施工</a><a href="#stage-tiling" data-stage-link="tiling">泥工施工</a><a href="#stage-grout" data-stage-link="grout">美缝施工</a><a href="#stage-paint" data-stage-link="paint">漆工施工</a><a href="#stage-screed" data-stage-link="screed">自流平施工</a><a href="#stage-installation" data-stage-link="installation">安装</a><a href="#stage-owner-install" data-stage-link="owner-install">自购项安装</a><a href="#stage-ac-final" data-stage-link="ac-final">空调后期安装及调试</a><a href="#stage-finishing" data-stage-link="finishing">完工收尾与交付</a></nav>
-    <div class="ac-stages"><details class="ac-stage" id="stage-demolition">
-      <summary><div><h3>拆除</h3><span class="ac-summary-line">08-10 → 08-11（实际）</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主确认 8 月 10 日开始拆除，8 月 11 日完工。历史 7 月拆除结算记录保留，施工时间线以本次确认为准。</p><p class="ac-caption">实际开始：2026-08-10 · 实际结束：2026-08-11<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>拆除 · 08-10</p></details></section>
+  <section class="blk progress-actual" aria-labelledby="progress-actual-title" data-checklist-version="2026-09-12-v2"><h2 class="blk-t" id="progress-actual-title">实际施工进度<span class="h2-note">按已提交资料更新</span></h2>
+    <p class="plan-context">按施工顺序整理业主确认、到场记录和现场照片。未知日期保留待补，验收说明放在各节点内。</p>
+    <article class="progress-node" id="stage-site-entry" data-actual-stage="site-entry"><header><div><p class="progress-date">2026-08-09</p><h3>施工进场</h3></div><span class="ac-badge">业主确认</span></header><p class="progress-description">施工队已进场，记录来源为业主补充的实际施工节点。</p><details class="progress-detail progress-acceptance"><summary>进场交接检查说明</summary><div class="progress-standards-preview"><div><h4>保留设施与施工交接</h4><p>保留部位及需处理的问题有交接记录，发现损坏列明位置与处理结果。</p><a href="#check-demolition-02" data-check-link="demolition-02">查看检查方法与依据</a></div></div></details></article>
+    <article class="progress-node" id="stage-demolition" data-actual-stage="demolition">
+      <header><div><p class="progress-date">2026-08-10</p><h3>拆除</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主确认 8 月 10 日开始拆除，8 月 11 日完工。历史 7 月拆除结算记录保留，施工时间线以本次确认为准。</p>
+      <p class="ac-caption">施工记录起点：2026-08-10 · 实际结束：2026-08-11 · 完成确认：2026-09-11</p>
+      <ul class="progress-events"><li><time>2026-08-10</time><span>开始拆除</span></li><li><time>2026-08-11</time><span>拆除完工，钢架施工</span></li></ul>
       
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>拆除、钢架、土建</h5><details class="ac-check" id="check-demolition-01"><summary><span>拆改范围与结构保护</span><span class="ac-badge">待验收</span></summary>
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 2 项</summary><div class="progress-checks"><details class="ac-check" id="check-demolition-01"><summary><span>拆改范围与结构保护</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>本次墙体拆除区域</dd></div>
     <div><dt>检查时点</dt><dd>拆改后、后续覆盖前</dd></div>
@@ -812,30 +836,17 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage ac-materials" id="stage-material-acceptance" open>
-    <summary><div><h3>材料验收</h3><span class="ac-summary-line">08-30 材料照片 · 验收待确认</span></div><div class="ac-badges"><span class="ac-badge">验收待确认</span><span class="ac-badge">7 张照片</span></div></summary>
-    <div class="ac-stage-body"><section><h4>基装线材材料</h4><p>基装线材、线缆及管材照片已归档。当前为材料标签及外观记录，验收结果待业主确认。</p><p class="ac-caption">材料验收节点，不计入施工阶段完成数量。</p></section>
-    <section><h4>材料照片</h4><section class="ac-photo-batch"><h4>照片批次 · 基装线材 · 2026-08-30</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黄色电线包装标签"><img loading="lazy" src="assets/img-01.webp" alt="黄色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黄色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黄色、蓝色电线包装标签"><img loading="lazy" src="assets/img-02.webp" alt="黄色、蓝色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黄色、蓝色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：双色、红色电线包装标签"><img loading="lazy" src="assets/img-03.webp" alt="双色、红色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>双色、红色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：三组电线包装标签"><img loading="lazy" src="assets/img-04.webp" alt="三组电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>三组电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：橙色线材包装标签"><img loading="lazy" src="assets/img-05.webp" alt="橙色线材包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>橙色线材包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黑色线缆表面标识"><img loading="lazy" src="assets/img-06.webp" alt="黑色线缆表面标识"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黑色线缆表面标识</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：成捆管材包装与标识"><img loading="lazy" src="assets/img-07.webp" alt="成捆管材包装与标识"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>成捆管材包装与标识</figcaption></figure></div></section></section></div></details><details class="ac-stage" id="stage-steel">
-      <summary><div><h3>钢结构床施工</h3><span class="ac-summary-line">08-11 施工；已确认完成</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主确认 8 月 11 日钢架施工；业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p><p class="ac-caption">实际开始：2026-08-11 · 实际结束：未知／待补<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>钢结构床施工 · 08-11 → 08-12</p></details></section>
-      <section class="cs-stage" aria-label="钢结构床施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>1 项对应 · 3 项跨阶段</span></div>
-    <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>钢架完成记录保留；同一报价行内的欧松板基层随木工核对，饰面及安装为业主自理。</li></ul></div>
-    <div class="cs-group"><h5>木作工程</h5><details class="cs-item" data-service-id="base-r092"><summary><span>儿童房床钢架及欧松板基层</span><span class="cs-quantity">2.6 ㎡</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：本行同时包含钢架及欧松板基层：钢架阶段已确认施工完成，欧松板基层随木工逐项核对。饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 92 行 · 木作工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>拆除、钢架、土建</h5><details class="ac-check" id="check-steel-01"><summary><span>钢结构床承载与连接依据</span><span class="ac-badge">清单要求待核验</span></summary>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><p class="ac-caption">基装附件未单列此阶段服务。</p></details>
+    </article><article class="progress-node" id="stage-steel" data-actual-stage="steel">
+      <header><div><p class="progress-date">2026-08-11</p><h3>钢结构床施工</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主确认 8 月 11 日钢架施工；业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p>
+      <p class="ac-caption">施工记录起点：2026-08-11 · 完成确认：2026-09-11 · 实际完工日期待补</p>
+      <ul class="progress-events"><li><time>2026-08-11</time><span>拆除完工，钢架施工</span></li></ul>
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 2 项</summary><div class="progress-checks"><details class="ac-check" id="check-steel-01"><summary><span>钢结构床承载与连接依据</span><span class="ac-badge">清单要求待核验</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>儿童房钢结构床及其与原建筑连接</dd></div>
     <div><dt>检查时点</dt><dd>封闭钢架前或有效补验时</dd></div>
@@ -861,23 +872,12 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-masonry">
-      <summary><div><h3>土建施工</h3><span class="ac-summary-line">08-12 开始；已确认完成</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主确认 8 月 12 日开始土建；业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p><p class="ac-caption">实际开始：2026-08-12 · 实际结束：未知／待补<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>土建施工 · 08-13 → 08-19</p></details></section>
-      <section class="cs-stage" aria-label="土建施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>5 项对应 · 3 项跨阶段</span></div>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="钢结构床施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>1 项对应 · 3 项跨阶段</span></div>
     <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
-    
-    <div class="cs-group"><h5>土建工程</h5><details class="cs-item" data-service-id="base-r103"><summary><span>砌120砖墙</span><span class="cs-quantity">20.7 ㎡</span></summary>
-    <div><p>红砖+空心砖、采用红狮4.25级水泥、河沙及人工。</p><p class="ac-caption">原表：Sheet1 第 103 行 · 土建工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r104"><summary><span>砌240砖墙</span><span class="cs-quantity">3.3 ㎡</span></summary>
-    <div><p>红砖+空心砖、采用红狮4.25级水泥、河沙及人工。</p><p class="ac-caption">原表：Sheet1 第 104 行 · 土建工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r105"><summary><span>墙面抹灰搓砂（单面）</span><span class="cs-quantity">47.3 ㎡</span></summary>
-    <div><p>水泥沙浆抹砖灰</p><p class="ac-caption">原表：Sheet1 第 105 行 · 土建工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r106"><summary><span>现场浇筑门窗过梁</span><span class="cs-quantity">1.8 m</span></summary>
-    <div><p>严格按钢筋水泥石粉配比,红砖、水泥沙灰抹平。</p><p class="ac-caption">原表：Sheet1 第 106 行 · 土建工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r107"><summary><span>飘窗拆除部分 抹灰找平做防水</span><span class="cs-quantity">3 项</span></summary>
-    <div><p>水泥沙浆抹灰，并涂刷“立邦”防水。</p><p class="ac-caption">原表：Sheet1 第 107 行 · 土建工程</p></div>
+    <div class="cs-guidance"><b>本节点核对</b><ul><li>钢架完成记录保留；同一报价行内的欧松板基层随木工核对，饰面及安装为业主自理。</li></ul></div>
+    <div class="cs-group"><h5>木作工程</h5><details class="cs-item" data-service-id="base-r092"><summary><span>儿童房床钢架及欧松板基层</span><span class="cs-quantity">2.6 ㎡</span></summary>
+    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：本行同时包含钢架及欧松板基层：钢架阶段已确认施工完成，欧松板基层随木工逐项核对。饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 92 行 · 木作工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></div>
     
     <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
@@ -887,9 +887,16 @@ main.home-on{padding-top:var(--topbar)!important}
   </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>拆除、钢架、土建</h5><details class="ac-check" id="check-masonry-01"><summary><span>新墙与洞口尺寸</span><span class="ac-badge">待验收</span></summary>
+  </section></details>
+    </article><article class="progress-node" id="stage-masonry" data-actual-stage="masonry">
+      <header><div><p class="progress-date">2026-08-12</p><h3>土建施工</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主确认 8 月 12 日开始土建；业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p>
+      <p class="ac-caption">施工记录起点：2026-08-12 · 完成确认：2026-09-11 · 实际完工日期待补</p>
+      <ul class="progress-events"><li><time>2026-08-12</time><span>开始土建</span></li></ul>
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 2 项</summary><div class="progress-checks"><details class="ac-check" id="check-masonry-01"><summary><span>新墙与洞口尺寸</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>新建非承重墙和洞口</dd></div>
     <div><dt>检查时点</dt><dd>土建完成后</dd></div>
@@ -915,14 +922,21 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-layout">
-      <summary><div><h3>水电定位</h3><span class="ac-summary-line">施工完成；实际日期待补</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>水电定位 · 08-14 → 08-16</p></details></section>
-      <section class="cs-stage" aria-label="水电定位基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>0 项对应 · 3 项跨阶段</span></div>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="土建施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>5 项对应 · 3 项跨阶段</span></div>
     <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
     
-    
+    <div class="cs-group"><h5>土建工程</h5><details class="cs-item" data-service-id="base-r103"><summary><span>砌120砖墙</span><span class="cs-quantity">20.7 ㎡</span></summary>
+    <div><p>红砖+空心砖、采用红狮4.25级水泥、河沙及人工。</p><p class="ac-caption">原表：Sheet1 第 103 行 · 土建工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r104"><summary><span>砌240砖墙</span><span class="cs-quantity">3.3 ㎡</span></summary>
+    <div><p>红砖+空心砖、采用红狮4.25级水泥、河沙及人工。</p><p class="ac-caption">原表：Sheet1 第 104 行 · 土建工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r105"><summary><span>墙面抹灰搓砂（单面）</span><span class="cs-quantity">47.3 ㎡</span></summary>
+    <div><p>水泥沙浆抹砖灰</p><p class="ac-caption">原表：Sheet1 第 105 行 · 土建工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r106"><summary><span>现场浇筑门窗过梁</span><span class="cs-quantity">1.8 m</span></summary>
+    <div><p>严格按钢筋水泥石粉配比,红砖、水泥沙灰抹平。</p><p class="ac-caption">原表：Sheet1 第 106 行 · 土建工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r107"><summary><span>飘窗拆除部分 抹灰找平做防水</span><span class="cs-quantity">3 项</span></summary>
+    <div><p>水泥沙浆抹灰，并涂刷“立邦”防水。</p><p class="ac-caption">原表：Sheet1 第 107 行 · 土建工程</p></div>
+  </details></div>
     
     <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
@@ -931,9 +945,16 @@ main.home-on{padding-top:var(--topbar)!important}
   </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>水电定位与开槽</h5><details class="ac-check" id="check-layout-01"><summary><span>给排水点位定位</span><span class="ac-badge">待验收</span></summary>
+  </section></details>
+    </article><article class="progress-node" id="stage-layout" data-actual-stage="layout">
+      <header><div><p class="progress-date">确认于 2026-09-11 · 施工日期待补</p><h3>水电定位</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主于 9 月 11 日确认施工完成；实际完工日期未提供，验收结论另行记录。</p>
+      <p class="ac-caption">完成确认：2026-09-11 · 实际完工日期待补</p>
+      
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 2 项</summary><div class="progress-checks"><details class="ac-check" id="check-layout-01"><summary><span>给排水点位定位</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>厨房、双卫和阳台的给排水点位</dd></div>
     <div><dt>检查时点</dt><dd>水电定位及安装前</dd></div>
@@ -959,16 +980,11 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-chasing">
-      <summary><div><h3>水电开槽</h3><span class="ac-summary-line">已完成 · 09-20 业主确认</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">13 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主确认 8 月 19 日墙面开槽，并于 9 月 20 日再次确认本阶段施工完成；9 月 3 日拍摄的 13 张开槽布管照片已归档。实际完工日期未提供，验收结论另行记录。</p><p class="ac-caption">实际开始：2026-08-19 · 实际结束：未知／待补<br>施工完成确认：业主 · 2026-09-20</p><details class="ac-original-plan"><summary>原工长计划</summary><p>水电开槽 · 08-17 → 08-19</p></details></section>
-      <section class="cs-stage" aria-label="水电开槽基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>1 项对应 · 3 项跨阶段</span></div>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="水电定位基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>0 项对应 · 3 项跨阶段</span></div>
     <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
     
-    <div class="cs-group"><h5>水电工程</h5><details class="cs-item" data-service-id="base-r083"><summary><span>水电开槽</span><span class="cs-quantity">112 ㎡</span></summary>
-    <div><p>水电管路开槽</p><p class="ac-caption">原表：Sheet1 第 83 行 · 水电工程</p></div>
-  </details></div>
+    
     
     <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
@@ -977,9 +993,16 @@ main.home-on{padding-top:var(--topbar)!important}
   </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>水电定位与开槽</h5><details class="ac-check" id="check-chasing-01"><summary><span>开槽部位及结构保护</span><span class="ac-badge">待验收</span></summary>
+  </section></details>
+    </article><article class="progress-node" id="stage-chasing" data-actual-stage="chasing">
+      <header><div><p class="progress-date">2026-08-19</p><h3>水电开槽</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主确认 8 月 19 日墙面开槽，并于 9 月 20 日再次确认本阶段施工完成；9 月 3 日拍摄的 13 张开槽布管照片已归档。实际完工日期未提供，验收结论另行记录。</p>
+      <p class="ac-caption">施工记录起点：2026-08-19 · 完成确认：2026-09-20 · 实际完工日期待补</p>
+      <ul class="progress-events"><li><time>2026-08-19</time><span>墙面开槽</span></li></ul>
+      <p class="ac-caption">2026-09-11 · 业主确认水电之前工序施工完成。这是确认日期，未知完工日期不推算；不代表验收通过。</p>
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      <details class="progress-detail"><summary>现场照片 · 13 张</summary><section class="ac-photo-batch"><h4>照片批次 · 开槽布管20260903</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 01 · IMG_0811"><img loading="lazy" src="assets/img-41.webp" alt="开槽布管 01 · IMG_0811"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 01 · IMG_0811</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 02 · IMG_0812"><img loading="lazy" src="assets/img-42.webp" alt="开槽布管 02 · IMG_0812"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 02 · IMG_0812</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 03 · IMG_0813"><img loading="lazy" src="assets/img-43.webp" alt="开槽布管 03 · IMG_0813"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 03 · IMG_0813</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 04 · IMG_0814"><img loading="lazy" src="assets/img-44.webp" alt="开槽布管 04 · IMG_0814"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 04 · IMG_0814</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 05 · IMG_0815"><img loading="lazy" src="assets/img-45.webp" alt="开槽布管 05 · IMG_0815"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 05 · IMG_0815</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 06 · IMG_0816"><img loading="lazy" src="assets/img-46.webp" alt="开槽布管 06 · IMG_0816"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 06 · IMG_0816</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 07 · IMG_0817"><img loading="lazy" src="assets/img-47.webp" alt="开槽布管 07 · IMG_0817"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 07 · IMG_0817</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 08 · IMG_0818"><img loading="lazy" src="assets/img-48.webp" alt="开槽布管 08 · IMG_0818"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 08 · IMG_0818</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 09 · IMG_0819"><img loading="lazy" src="assets/img-49.webp" alt="开槽布管 09 · IMG_0819"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 09 · IMG_0819</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 10 · IMG_0820"><img loading="lazy" src="assets/img-50.webp" alt="开槽布管 10 · IMG_0820"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 10 · IMG_0820</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 11 · IMG_0821"><img loading="lazy" src="assets/img-51.webp" alt="开槽布管 11 · IMG_0821"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 11 · IMG_0821</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 12 · IMG_0822"><img loading="lazy" src="assets/img-52.webp" alt="开槽布管 12 · IMG_0822"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 12 · IMG_0822</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 13 · IMG_0823"><img loading="lazy" src="assets/img-53.webp" alt="开槽布管 13 · IMG_0823"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 13 · IMG_0823</figcaption></figure></div></section></details>
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 2 项</summary><div class="progress-checks"><details class="ac-check" id="check-chasing-01"><summary><span>开槽部位及结构保护</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>墙面或地面开槽</dd></div>
     <div><dt>检查时点</dt><dd>开槽后、覆盖前</dd></div>
@@ -1005,13 +1028,31 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><section class="ac-photo-batch"><h4>照片批次 · 开槽布管20260903</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 01 · IMG_0811"><img loading="lazy" src="assets/img-41.webp" alt="开槽布管 01 · IMG_0811"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 01 · IMG_0811</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 02 · IMG_0812"><img loading="lazy" src="assets/img-42.webp" alt="开槽布管 02 · IMG_0812"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 02 · IMG_0812</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 03 · IMG_0813"><img loading="lazy" src="assets/img-43.webp" alt="开槽布管 03 · IMG_0813"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 03 · IMG_0813</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 04 · IMG_0814"><img loading="lazy" src="assets/img-44.webp" alt="开槽布管 04 · IMG_0814"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 04 · IMG_0814</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 05 · IMG_0815"><img loading="lazy" src="assets/img-45.webp" alt="开槽布管 05 · IMG_0815"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 05 · IMG_0815</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 06 · IMG_0816"><img loading="lazy" src="assets/img-46.webp" alt="开槽布管 06 · IMG_0816"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 06 · IMG_0816</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 07 · IMG_0817"><img loading="lazy" src="assets/img-47.webp" alt="开槽布管 07 · IMG_0817"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 07 · IMG_0817</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 08 · IMG_0818"><img loading="lazy" src="assets/img-48.webp" alt="开槽布管 08 · IMG_0818"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 08 · IMG_0818</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 09 · IMG_0819"><img loading="lazy" src="assets/img-49.webp" alt="开槽布管 09 · IMG_0819"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 09 · IMG_0819</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 10 · IMG_0820"><img loading="lazy" src="assets/img-50.webp" alt="开槽布管 10 · IMG_0820"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 10 · IMG_0820</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 11 · IMG_0821"><img loading="lazy" src="assets/img-51.webp" alt="开槽布管 11 · IMG_0821"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 11 · IMG_0821</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 12 · IMG_0822"><img loading="lazy" src="assets/img-52.webp" alt="开槽布管 12 · IMG_0822"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 12 · IMG_0822</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：开槽布管 13 · IMG_0823"><img loading="lazy" src="assets/img-53.webp" alt="开槽布管 13 · IMG_0823"></button><figcaption>拍摄：2026-09-03<br>空间：未标注 · 方向：未标注<br>开槽布管 13 · IMG_0823</figcaption></figure></div></section></section></div></details><details class="ac-stage" id="stage-ac-hidden">
-      <summary><div><h3>空调内机及隐蔽管线</h3><span class="ac-summary-line">施工完成；实际日期待补</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主于 9 月 11 日确认内机及隐蔽管线安装完成；验收材料待补，后期设备安装和调试另列。 9 月 20 日补充两张内机现场照片，原图及压缩版已本地归档。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>空调安装（原计划未区分两期） · 08-20 → 08-24</p></details></section>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="水电开槽基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>1 项对应 · 3 项跨阶段</span></div>
+    <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
+    
+    <div class="cs-group"><h5>水电工程</h5><details class="cs-item" data-service-id="base-r083"><summary><span>水电开槽</span><span class="cs-quantity">112 ㎡</span></summary>
+    <div><p>水电管路开槽</p><p class="ac-caption">原表：Sheet1 第 83 行 · 水电工程</p></div>
+  </details></div>
+    
+    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details></details>
+  </section></details>
+    </article><article class="progress-node" id="stage-ac-hidden" data-actual-stage="ac-hidden">
+      <header><div><p class="progress-date">确认于 2026-09-11 · 施工日期待补</p><h3>空调内机及隐蔽管线</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">业主于 9 月 11 日确认内机及隐蔽管线安装完成；验收材料待补，后期设备安装和调试另列。 9 月 20 日补充两张内机现场照片，原图及压缩版已本地归档。</p>
+      <p class="ac-caption">完成确认：2026-09-11 · 实际完工日期待补</p>
       
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/5 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 10 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>空调隐蔽安装</h5><details class="ac-check" id="check-ac-hidden-01"><summary><span>内机型号、数量与覆盖区域</span><span class="ac-badge">清单要求待核验</span></summary>
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 5 项</summary><div class="progress-checks"><details class="ac-check" id="check-ac-hidden-01"><summary><span>内机型号、数量与覆盖区域</span><span class="ac-badge">清单要求待核验</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>已经安装的空调室内机</dd></div>
     <div><dt>检查时点</dt><dd>吊顶封板前</dd></div>
@@ -1076,35 +1117,19 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-water-electric" open>
-      <summary><div><h3>水电施工</h3><span class="ac-summary-line">08-28 → 09-07（实际）</span></div><div class="ac-badges"><span class="ac-badge ac-good">施工完成</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>8 月 28 日水电进场开工，9 月 1 日施工中，9 月 7 日施工结束。影像入口已归档，原件与打压报告待备份；验收结论另行记录。</p><p class="ac-caption">实际开始：2026-08-28 · 实际结束：2026-09-07<br>施工完成确认：业主 · 2026-09-11</p><details class="ac-original-plan"><summary>原工长计划</summary><p>水电施工 · 08-25 → 08-30</p></details></section>
-      <section class="cs-stage" aria-label="水电施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>4 项对应 · 4 项跨阶段</span></div>
-    <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>保留施工完成状态；按附件核查材料、管线和原始影像，打压及验收结论另记。</li></ul></div>
-    <div class="cs-group"><h5>水电工程</h5><details class="cs-item" data-service-id="base-r084"><summary><span>强电线</span><span class="cs-quantity">112 ㎡</span></summary>
-    <div><p>1.强电部分：均采用鸽派电线，灯线1.5平方，插座2.5平方，厨房.卫生间4平方，挂机空调4平方，立柜空调6平方。（中央空调如需10平方加600元）</p><p class="ac-caption">原表：Sheet1 第 84 行 · 水电工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r085"><summary><span>弱电线</span><span class="cs-quantity">112 ㎡</span></summary>
-    <div><p>1.弱电部分：六类网络线（秋叶原铜芯线自带屏蔽层）</p><p class="ac-caption">原表：Sheet1 第 85 行 · 水电工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r086"><summary><span>线管、接头 线盒</span><span class="cs-quantity">112 ㎡</span></summary>
-    <div><p>1  所有强弱电线管均采用得亿PVC管。2、线管配件和线盒（86系列红色加厚）为PVC系列。采用双线槽锁扣连接超国标工艺</p><p class="ac-caption">原表：Sheet1 第 86 行 · 水电工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r087"><summary><span>水管、管件</span><span class="cs-quantity">3 套</span></summary>
-    <div><p>水管采用伟星PP-R热水管（25*2.8MM）（循环水加800一个空间）</p><p class="ac-caption">原表：Sheet1 第 87 行 · 水电工程</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 4 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r113"><summary><span>施工中清扫</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>施工中现场清扫出渣（电工完工，木泥工完工，漆工完工，整体完工）</p><p class="ac-caption">原表：Sheet1 第 113 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/8 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 15 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>给排水</h5><details class="ac-check" id="check-water-electric-01"><summary><span>给水材料、接头与支撑</span><span class="ac-badge">待验收</span></summary>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><p class="ac-caption">基装附件未单列此阶段服务。</p></details>
+    </article><article class="progress-node" id="stage-material-acceptance" data-actual-stage="material-acceptance"><header><div><p class="progress-date">2026-08-30 · 材料照片</p><h3>基装材料到场记录</h3></div><span class="ac-badge">验收待确认</span></header><p class="progress-description">基装线材、线缆及管材照片已归档。当前为材料标签及外观记录，验收结果待业主确认。</p>
+    <details class="progress-detail"><summary>材料照片 · 7 张</summary><section class="ac-photo-batch"><h4>照片批次 · 基装线材 · 2026-08-30</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黄色电线包装标签"><img loading="lazy" src="assets/img-01.webp" alt="黄色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黄色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黄色、蓝色电线包装标签"><img loading="lazy" src="assets/img-02.webp" alt="黄色、蓝色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黄色、蓝色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：双色、红色电线包装标签"><img loading="lazy" src="assets/img-03.webp" alt="双色、红色电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>双色、红色电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：三组电线包装标签"><img loading="lazy" src="assets/img-04.webp" alt="三组电线包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>三组电线包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：橙色线材包装标签"><img loading="lazy" src="assets/img-05.webp" alt="橙色线材包装标签"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>橙色线材包装标签</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：黑色线缆表面标识"><img loading="lazy" src="assets/img-06.webp" alt="黑色线缆表面标识"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>黑色线缆表面标识</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：成捆管材包装与标识"><img loading="lazy" src="assets/img-07.webp" alt="成捆管材包装与标识"></button><figcaption>拍摄：2026-08-30<br>空间：材料堆放处 · 方向：标签及外观<br>成捆管材包装与标识</figcaption></figure></div></section></details>
+    <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法</summary><div class="progress-standards-preview"><div><h4>给水材料、接头与支撑</h4><p>材料、连接及支撑与实际系统和设计相符，进场与隐蔽记录可追溯。</p><a href="#check-water-electric-01" data-check-link="water-electric-01">查看检查方法与依据</a></div><div><h4>配电回路与导线对应</h4><p>回路、线径与保护装置对应有效设计及设备负荷，标识能对应实际点位。</p><a href="#check-water-electric-05" data-check-link="water-electric-05">查看检查方法与依据</a></div></div></details></article><article class="progress-node" id="stage-water-electric" data-actual-stage="water-electric">
+      <header><div><p class="progress-date">2026-08-28</p><h3>水电施工</h3></div><span class="ac-badge">施工完成</span></header>
+      <p class="progress-description">8 月 28 日水电进场开工，9 月 1 日施工中，9 月 7 日施工结束。影像入口已归档，原件与打压报告待备份；验收结论另行记录。</p>
+      <p class="ac-caption">施工记录起点：2026-08-28 · 实际结束：2026-09-07 · 完成确认：2026-09-11</p>
+      <ul class="progress-events"><li><time>2026-08-28</time><span>水电进场，开始水电施工</span></li><li><time>2026-09-01</time><span>水电施工</span></li><li><time>2026-09-07</time><span>水电施工结束</span></li></ul>
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 8 项</summary><div class="progress-checks"><details class="ac-check" id="check-water-electric-01"><summary><span>给水材料、接头与支撑</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>本户给水管道及接头</dd></div>
     <div><dt>检查时点</dt><dd>隐蔽前</dd></div>
@@ -1156,7 +1181,7 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div><div class="ac-group"><h5>电气</h5><details class="ac-check" id="check-water-electric-05"><summary><span>配电回路与导线对应</span><span class="ac-badge">待验收</span></summary>
+    </div></details><details class="ac-check" id="check-water-electric-05"><summary><span>配电回路与导线对应</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>本户配电箱及各用电回路</dd></div>
     <div><dt>检查时点</dt><dd>通电验收前</dd></div>
@@ -1208,31 +1233,18 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage ac-current" id="stage-carpentry" open>
-      <summary><div><h3>木工施工</h3><span class="ac-summary-line">09-08 进场（实际）</span></div><div class="ac-badges"><span class="ac-badge">施工中</span><span class="ac-badge">清单待确认</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主确认 9 月 8 日木工进场，设计师和业主交底。木工具体工序完成情况另行补录；9 月 20 日瓷砖已全部到场，预计下周铺贴。</p><p class="ac-caption">实际开始：2026-09-08 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>吊顶施工 · 瓷砖定板 · 09-02 → 09-09</p></details></section>
-      <section class="cs-stage" aria-label="木工施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>9 项对应 · 4 项跨阶段</span></div>
-    <p class="ac-caption">本阶段施工中，以下是约定范围，未逐项认定完工。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>核对普通吊顶、防潮吊顶、窗帘盒、隔墙、灯槽、书桌和床头基层，以及儿童房床欧松板基层。</li><li>空调风口基层与暖通方接口对齐，封板前结合 8.26 施工图 P10–P14 核对。</li><li>书桌、床头及儿童房床的饰面材质与安装由业主自理，需衔接定制供应商。</li></ul></div>
-    <div class="cs-group"><h5>木作工程</h5><details class="cs-item" data-service-id="base-r092"><summary><span>儿童房床钢架及欧松板基层</span><span class="cs-quantity">2.6 ㎡</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：本行同时包含钢架及欧松板基层：钢架阶段已确认施工完成，欧松板基层随木工逐项核对。饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 92 行 · 木作工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r093"><summary><span>明档窗帘盒吊顶（长辈房）</span><span class="cs-quantity">2.5 m</span></summary>
-    <div><p>基层用“泰山”ENF欧松板处理，泰山9mm普通纸面石膏板封面。</p><p class="ac-caption">原表：Sheet1 第 93 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r094"><summary><span>主卧书桌造型基层</span><span class="cs-quantity">2.9 m</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 94 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r095"><summary><span>主卧床头平板造型基层</span><span class="cs-quantity">4.5 ㎡</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 95 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r096"><summary><span>石膏板常规平顶吊顶</span><span class="cs-quantity">42 ㎡</span></summary>
-    <div><p>（客餐厅及过道+多功能房+长辈房+主卧）“泰山”9mm石膏板+轻钢龙骨吊顶</p><p class="ac-caption">原表：Sheet1 第 96 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r097"><summary><span>防潮石膏板平顶吊顶</span><span class="cs-quantity">19.9 ㎡</span></summary>
-    <div><p>（厨房+生活阳台+次卫+主卫）“泰山”9mm防潮石膏板+轻钢龙骨吊顶</p><p class="ac-caption">原表：Sheet1 第 97 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r098"><summary><span>石膏板隔墙</span><span class="cs-quantity">3.7 ㎡</span></summary>
-    <div><p>（客餐厅+主卧）“泰山”9mm石膏板+9mm欧松板加固+轻钢龙骨</p><p class="ac-caption">原表：Sheet1 第 98 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r099"><summary><span>反光灯槽（吊顶）</span><span class="cs-quantity">27.3 m</span></summary>
-    <div><p>全屋“泰山”9mm石膏板+木条+轻钢龙骨</p><p class="ac-caption">原表：Sheet1 第 99 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r100"><summary><span>中央空调风口</span><span class="cs-quantity">6 套</span></summary>
-    <div><p>“泰山”9mm石膏板+9mm欧松板加固+轻钢龙骨</p><p class="cs-boundary">范围提醒：本行是风口周边石膏板与欧松板加固基层；与暖通方的风口成品及设备安装责任需对齐。</p><p class="ac-caption">原表：Sheet1 第 100 行 · 木作工程</p></div>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="水电施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>4 项对应 · 4 项跨阶段</span></div>
+    <p class="ac-caption">本阶段已确认施工完成，附件逐项落实仍需核对。展开项目查看原表工程量、材料与工艺。</p>
+    <div class="cs-guidance"><b>本节点核对</b><ul><li>保留施工完成状态；按附件核查材料、管线和原始影像，打压及验收结论另记。</li></ul></div>
+    <div class="cs-group"><h5>水电工程</h5><details class="cs-item" data-service-id="base-r084"><summary><span>强电线</span><span class="cs-quantity">112 ㎡</span></summary>
+    <div><p>1.强电部分：均采用鸽派电线，灯线1.5平方，插座2.5平方，厨房.卫生间4平方，挂机空调4平方，立柜空调6平方。（中央空调如需10平方加600元）</p><p class="ac-caption">原表：Sheet1 第 84 行 · 水电工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r085"><summary><span>弱电线</span><span class="cs-quantity">112 ㎡</span></summary>
+    <div><p>1.弱电部分：六类网络线（秋叶原铜芯线自带屏蔽层）</p><p class="ac-caption">原表：Sheet1 第 85 行 · 水电工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r086"><summary><span>线管、接头 线盒</span><span class="cs-quantity">112 ㎡</span></summary>
+    <div><p>1  所有强弱电线管均采用得亿PVC管。2、线管配件和线盒（86系列红色加厚）为PVC系列。采用双线槽锁扣连接超国标工艺</p><p class="ac-caption">原表：Sheet1 第 86 行 · 水电工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r087"><summary><span>水管、管件</span><span class="cs-quantity">3 套</span></summary>
+    <div><p>水管采用伟星PP-R热水管（25*2.8MM）（循环水加800一个空间）</p><p class="ac-caption">原表：Sheet1 第 87 行 · 水电工程</p></div>
   </details></div>
     
     <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 4 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
@@ -1244,9 +1256,16 @@ main.home-on{padding-top:var(--topbar)!important}
   </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/5 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 10 项证据要求 · 结果：清单待确认</p>
-      <div class="ac-group"><h5>木工与吊顶</h5><details class="ac-check" id="check-carpentry-01"><summary><span>吊顶标高、造型与设备位置</span><span class="ac-badge">待验收</span></summary>
+  </section></details>
+    </article><article class="progress-node progress-current" id="stage-carpentry" data-actual-stage="carpentry">
+      <header><div><p class="progress-date">2026-09-08</p><h3>木工施工</h3></div><span class="ac-badge">施工中</span></header>
+      <p class="progress-description">业主确认 9 月 8 日木工进场，设计师和业主交底。木工具体工序完成情况另行补录；9 月 20 日瓷砖已全部到场，预计下周铺贴。</p>
+      <p class="ac-caption">施工记录起点：2026-09-08</p>
+      <ul class="progress-events"><li><time>2026-09-08</time><span>木工进场，设计师和业主交底</span></li></ul>
+      
+      <p class="progress-result">验收：清单待确认 · 施工记录不代表验收通过</p>
+      
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 5 项</summary><div class="progress-checks"><details class="ac-check" id="check-carpentry-01"><summary><span>吊顶标高、造型与设备位置</span><span class="ac-badge">待验收</span></summary>
     <div class="ac-check-body"><dl class="ac-fields">
     <div><dt>适用条件</dt><dd>本户石膏板整体面层吊顶</dd></div>
     <div><dt>检查时点</dt><dd>龙骨及封板前</dd></div>
@@ -1311,11 +1330,128 @@ main.home-on{padding-top:var(--topbar)!important}
     </dl>
     <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-tiling">
-      <summary><div><h3>泥工施工</h3><span class="ac-summary-line">预计 09-21 至 09-27 开始铺贴</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">13 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>09-20 业主确认瓷砖全部到场，预计下周开贴，具体开工日待确认；防水验收、地漏及定制复尺的实际安排待核。09-19 泥工照片已归档，未据此认定铺贴或验收完成。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>泥工施工 · 09-10 → 09-27</p></details></section>
-      <section class="cs-stage" aria-label="泥工施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>34 项对应 · 4 项跨阶段</span></div>
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="木工施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>9 项对应 · 4 项跨阶段</span></div>
+    <p class="ac-caption">本阶段施工中，以下是约定范围，未逐项认定完工。展开项目查看原表工程量、材料与工艺。</p>
+    <div class="cs-guidance"><b>本节点核对</b><ul><li>核对普通吊顶、防潮吊顶、窗帘盒、隔墙、灯槽、书桌和床头基层，以及儿童房床欧松板基层。</li><li>空调风口基层与暖通方接口对齐，封板前结合 8.26 施工图 P10–P14 核对。</li><li>书桌、床头及儿童房床的饰面材质与安装由业主自理，需衔接定制供应商。</li></ul></div>
+    <div class="cs-group"><h5>木作工程</h5><details class="cs-item" data-service-id="base-r092"><summary><span>儿童房床钢架及欧松板基层</span><span class="cs-quantity">2.6 ㎡</span></summary>
+    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：本行同时包含钢架及欧松板基层：钢架阶段已确认施工完成，欧松板基层随木工逐项核对。饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 92 行 · 木作工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r093"><summary><span>明档窗帘盒吊顶（长辈房）</span><span class="cs-quantity">2.5 m</span></summary>
+    <div><p>基层用“泰山”ENF欧松板处理，泰山9mm普通纸面石膏板封面。</p><p class="ac-caption">原表：Sheet1 第 93 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r094"><summary><span>主卧书桌造型基层</span><span class="cs-quantity">2.9 m</span></summary>
+    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 94 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r095"><summary><span>主卧床头平板造型基层</span><span class="cs-quantity">4.5 ㎡</span></summary>
+    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 95 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r096"><summary><span>石膏板常规平顶吊顶</span><span class="cs-quantity">42 ㎡</span></summary>
+    <div><p>（客餐厅及过道+多功能房+长辈房+主卧）“泰山”9mm石膏板+轻钢龙骨吊顶</p><p class="ac-caption">原表：Sheet1 第 96 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r097"><summary><span>防潮石膏板平顶吊顶</span><span class="cs-quantity">19.9 ㎡</span></summary>
+    <div><p>（厨房+生活阳台+次卫+主卫）“泰山”9mm防潮石膏板+轻钢龙骨吊顶</p><p class="ac-caption">原表：Sheet1 第 97 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r098"><summary><span>石膏板隔墙</span><span class="cs-quantity">3.7 ㎡</span></summary>
+    <div><p>（客餐厅+主卧）“泰山”9mm石膏板+9mm欧松板加固+轻钢龙骨</p><p class="ac-caption">原表：Sheet1 第 98 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r099"><summary><span>反光灯槽（吊顶）</span><span class="cs-quantity">27.3 m</span></summary>
+    <div><p>全屋“泰山”9mm石膏板+木条+轻钢龙骨</p><p class="ac-caption">原表：Sheet1 第 99 行 · 木作工程</p></div>
+  </details><details class="cs-item" data-service-id="base-r100"><summary><span>中央空调风口</span><span class="cs-quantity">6 套</span></summary>
+    <div><p>“泰山”9mm石膏板+9mm欧松板加固+轻钢龙骨</p><p class="cs-boundary">范围提醒：本行是风口周边石膏板与欧松板加固基层；与暖通方的风口成品及设备安装责任需对齐。</p><p class="ac-caption">原表：Sheet1 第 100 行 · 木作工程</p></div>
+  </details></div>
+    
+    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 4 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r113"><summary><span>施工中清扫</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>施工中现场清扫出渣（电工完工，木泥工完工，漆工完工，整体完工）</p><p class="ac-caption">原表：Sheet1 第 113 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
+    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
+  </details></details>
+  </section></details>
+    </article><article class="progress-node" id="stage-tiling" data-actual-stage="tiling">
+      <header><div><p class="progress-date">2026-09-14</p><h3>泥工施工</h3></div><span class="ac-badge">已有资料 · 开工待确认</span></header>
+      <p class="progress-description">09-20 业主确认瓷砖全部到场，预计下周开贴，具体开工日待确认；防水验收、地漏及定制复尺的实际安排待核。09-19 泥工照片已归档，未据此认定铺贴或验收完成。</p>
+      
+      <ul class="progress-events"><li><time>2026-09-20</time><span>瓷砖全部送到现场（铺贴尚未确认开工）</span></li></ul>
+      
+      <p class="progress-result">验收：尚无验收结论 · 施工记录不代表验收通过</p>
+      <details class="progress-detail"><summary>现场照片 · 13 张</summary><section class="ac-photo-batch"><h4>照片批次 · 泥工阶段20260919</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卧01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-54.webp" alt="主卧01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卧 · 方向：未标注<br>主卧01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卧02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-55.webp" alt="主卧02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卧 · 方向：未标注<br>主卧02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卫-洗手台 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-56.webp" alt="主卫-洗手台 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：主卫-洗手台 · 方向：未标注<br>主卫-洗手台 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卫 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-57.webp" alt="主卫 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卫 · 方向：未标注<br>主卫 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：儿童房01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-58.webp" alt="儿童房01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：儿童房 · 方向：未标注<br>儿童房01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：儿童房02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-59.webp" alt="儿童房02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：儿童房 · 方向：未标注<br>儿童房02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：入户区域01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-60.webp" alt="入户区域01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：入户区域 · 方向：未标注<br>入户区域01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：入户区域02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-61.webp" alt="入户区域02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：入户区域 · 方向：未标注<br>入户区域02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：多功能房 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-62.webp" alt="多功能房 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-14<br>空间：多功能房 · 方向：未标注<br>多功能房 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：客厅 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-63.webp" alt="客厅 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-18<br>空间：客厅 · 方向：未标注<br>客厅 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卧01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-64.webp" alt="次卧01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：次卧 · 方向：未标注<br>次卧01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卧02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-65.webp" alt="次卧02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：次卧 · 方向：未标注<br>次卧02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卫 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-66.webp" alt="次卫 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-18<br>空间：次卫 · 方向：未标注<br>次卫 · 泥工阶段现场记录</figcaption></figure></div></section></details>
+      <details class="progress-detail progress-acceptance"><summary>验收标准与检查方法 · 6 项</summary><div class="progress-checks"><details class="ac-check" id="check-tiling-01"><summary><span>防水基层与细部节点</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>本次卫浴及其他设计有防水要求的区域</dd></div>
+    <div><dt>检查时点</dt><dd>防水层及覆盖前</dd></div>
+    <div><dt>合格要求</dt><dd>基层和管根、地漏、门口等细部按有效防水设计施工，先核验细部再覆盖。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">最好在刷防水前请泥工陪你看，带上已确认的防水做法图和手机。</p><ol class="ac-method-steps"><li>“基层”就是防水涂层下面的地面或墙面。请师傅确认能检查后，查看是否有明显裂口、孔洞、松散处或垃圾，问题先拍照指出。</li><li>重点看管子穿出的位置、地漏周围、墙地交角和门口；请师傅指出每处怎样封堵、加强或收口，而不是只看大面刷没刷。</li><li>把这些位置与设计做法对应起来，未确定怎样处理的地方请设计师或施工方补说明；已经盖住的部分核对覆盖前照片。</li><li>保存一间房的全景和每个重点部位的近照，写位置和处理情况；后续刷了防水，也不能把先前没核对的细部自动算合格。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 4.6.3–4.6.6、5.6、6.0.5</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>隐蔽验收记录</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>隐蔽验收记录</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details><details class="ac-check" id="check-tiling-02"><summary><span>防水层完整性与适用厚度</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>本户采用的防水材料体系</dd></div>
+    <div><dt>检查时点</dt><dd>保护层或贴砖前</dd></div>
+    <div><dt>合格要求</dt><dd>材料和厚度按实际体系及设计要求核定；不把不同防水材料套用同一厚度。 卫生间按住宅规范 4.1.9 核对淋浴区、洗面器处及其余墙面的防水高度和防潮措施；已有建筑的限制须由设计方提供依据，不能自行降低要求。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请泥工准备防水产品说明、材料记录和适用做法，安排在不损伤涂层的条件下检查。</p><ol class="ac-method-steps"><li>先拍材料桶或包装上的产品名称、批次，核对是否与材料单一致；请师傅说明这个产品要求做哪些层、怎样检查厚度。</li><li>查看墙地面涂层是否连成完整一片，有没有明显漏涂、孔洞、开裂或露底，管根和地漏周围也要看；不要自行刮开涂层试厚度。</li><li>请师傅实际量墙面防水做到的高度，并按适用方法检查厚度，记录测点、实测值及应达到的要求；不能用“刷了几桶”代替厚度检查。</li><li>保存带尺子的高度照片、厚度检查和材料记录。已被砖盖住的部分查原始过程资料；没有资料先写待补，不凭贴完砖不漏水倒推防水层全部合格。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 4.6.1–4.6.2、5.6、6.0.6</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details><details class="ac-check" id="check-tiling-03"><summary><span>蓄水与渗漏检查</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>有蓄水检验条件的室内防水区域</dd></div>
+    <div><dt>检查时点</dt><dd>防水及饰面完成后的相应检验时点</dd></div>
+    <div><dt>合格要求</dt><dd>按 GB 55030-2022 6.0.12 核对楼地面蓄水高度与时长、有防水要求墙面的淋水时长；厕浴间在防水层、饰面层完成后分别试验。记录位置、起止时间、水位和楼下及相邻部位检查结果，未渗漏；具体试验方案由施工方按原文提供并核对。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">蓄水、淋水由施工方按方案组织，并提前协调楼下或相邻受影响住户查看；你负责见证和记录。</p><ol class="ac-method-steps"><li>“蓄水”是让地面保持规定的水位一段时间来查渗漏。先让师傅写清测哪个房间、在防水层还是贴砖完成后测、水位与时长要求以及依据。</li><li>由师傅做好排水口和门口等准备并加水，你拍下开始时间和带尺子的水位；不要自行堵口放水，以免流到未保护的地方。</li><li>到规定结束时再记录时间、水位，并与师傅查看墙角、门口、楼下及相邻部位有无新湿痕或滴水；进不去查看的部位写“未查看”。有防水要求的墙面淋水也请施工方按方案单独记录。</li><li>索取完整试验记录，分别保留防水层完成后和饰面层完成后的结果。发现渗漏或缺一轮试验时先处理、补验，不能用一张有水的照片作通过依据。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 6.0.12</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>测试报告</li><li>现场照片</li><li>墙面淋水记录</li><li>饰面层完成后的蓄水记录</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>测试报告</li><li>现场照片</li><li>墙面淋水记录</li><li>饰面层完成后的蓄水记录</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details><details class="ac-check" id="check-tiling-04"><summary><span>内墙饰面砖粘结与空鼓裂缝</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>本户满粘法内墙饰面砖</dd></div>
+    <div><dt>检查时点</dt><dd>铺贴后</dd></div>
+    <div><dt>合格要求</dt><dd>粘结牢固，按对应墙砖条款检查裂缝与空鼓；不得拿地砖口径替代墙砖口径。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">等施工方确认墙砖达到可检查的条件后，请泥工或验收人员带空鼓检查工具与你一起查看。</p><ol class="ac-method-steps"><li>先在正常照明下看每面墙，找裂纹、缺角、明显错缝或表面破损；用便签标位置，别用会染色的笔直接画在砖面。</li><li>“空鼓”是砖与后面的粘结处可能没有贴实。请验收人员用适合该砖的方式轻敲并判断，声音异常先标成待核，别自己拿硬物大力敲砖。</li><li>请对方按墙砖适用要求记录具体哪一块、哪个部位异常；墙砖与地砖的判定口径不同，不能用一句“允许一点空鼓”直接带过。</li><li>拍整面墙和问题砖近照，把问题与对应房间、墙面编号关联；处理后在同一位置复查，保留前后结果。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 10.2.1–10.2.4</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details><details class="ac-check" id="check-tiling-05"><summary><span>地砖排水坡向与面层</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>有排水要求的地面砖区域</dd></div>
+    <div><dt>检查时点</dt><dd>地砖铺贴后</dd></div>
+    <div><dt>合格要求</dt><dd>地面排水方向及坡度满足设计，铺贴及粘结按地面专业验收要求核验。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">在施工方确认地砖可以检查和试水后，请泥工或验收人员准备测量工具并安排排水检查。</p><ol class="ac-method-steps"><li>先走到每个区域看砖面和接缝，记录裂纹、缺角、明显高低不齐的位置；粘结情况由验收人员按地砖适用方法检查。</li><li>在有地漏、需要排水的区域，请师傅按测试安排通水，你观察水是不是往排出口走，有没有流向门外或形成明显积水；不要往木地板等非试水区域倒水。</li><li>请师傅测排水坡度及有关平整度、接缝尺寸，分别记录实测值和要求值；水能流走不等于所有尺寸都已合格。</li><li>保存各区域测量和试水结果、问题照片，注明位置。未测或被物品遮挡的位置留待检查，整改后复查原处。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jjc.ecjtu.edu.cn/__local/0/D3/27/2EA0F0352B5FE74203FBB0C79CD_D87CE1F4_C5AAD.pdf?e=.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50209-2010 · 建筑地面工程施工质量验收规范 · 6.2.5–6.2.16、表 6.1.8</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9 第 1 款、4.1.12</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details><details class="ac-check" id="check-tiling-06"><summary><span>卫生间防滑铺装</span><span class="ac-badge">未检查</span></summary>
+    <div class="ac-check-body"><dl class="ac-fields">
+    <div><dt>适用条件</dt><dd>卫生间地面铺装</dd></div>
+    <div><dt>检查时点</dt><dd>对应安装或铺装完成后、交付前；覆盖前检查隐蔽部分</dd></div>
+    <div><dt>合格要求</dt><dd>按住宅规范 4.1.10 核对防滑材料的性能证明与实际铺装对应关系，不能仅凭触感判定。</dd></div>
+    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请泥工或供货方准备卫生间地砖的产品与防滑性能资料，你核对资料和实际铺装是否同一产品。</p><ol class="ac-method-steps"><li>先拍地砖包装、型号或施工材料记录，确认卫生间实际用的砖是什么；客厅砖的报告不能直接拿来代替卫生间这款砖。</li><li>在性能报告里找到防滑相关结果，请供货方或检测人员指出测试项目、测试条件和所适用的要求，并核对是否满足本项验收口径。</li><li>现场查看有无影响使用的明显污染、损伤或不平，需要进一步测试时由专业人员按适用方法做；不要赤脚洒水走动来试会不会滑倒。</li><li>保存产品对应记录、性能资料和铺装位置照片；没有报告或报告对不上型号时记待补，不能凭“摸起来粗糙”判防滑合格。</li></ol></dd></div>
+    <div><dt>依据与条款</dt><dd><ul><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.10</a></li></ul></dd></div>
+    <div><dt>所需证据</dt><dd><ul><li>防滑性能报告</li><li>材料对应记录</li><li>现场照片</li></ul></dd></div>
+    <div><dt>当前缺项</dt><dd><ul><li>防滑性能报告</li><li>材料对应记录</li><li>现场照片</li></ul></dd></div>
+    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
+    </dl>
+    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+    
+    </div></details></div></details>
+      <details class="progress-detail"><summary>对应施工服务范围</summary><section class="cs-stage" aria-label="泥工施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>34 项对应 · 4 项跨阶段</span></div>
     <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
     <div class="cs-guidance"><b>本节点核对</b><ul><li>开贴前核对回填、沉箱防水、墙地面防水与相应验收记录；已拍照片不等于验收通过。</li><li>瓷砖和门槛石为甲供；确认尺寸、排版、地漏及主卫洗手台补砖的铺贴范围。</li><li>原表“瓷砖尺寸更换”工程量及价格空缺，尺寸说明有歧义，先与工长确认；附件二主材配置清单仍待补。</li></ul></div>
     <div class="cs-group"><h5>客厅、饭厅及过道</h5><details class="cs-item" data-service-id="base-r009"><summary><span>地面回填及找平（浅坑）</span><span class="cs-quantity">4.7 ㎡</span></summary>
@@ -1397,855 +1533,10 @@ main.home-on{padding-top:var(--topbar)!important}
   </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
     <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
   </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/6 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 15 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>防水与泥工</h5><details class="ac-check" id="check-tiling-01"><summary><span>防水基层与细部节点</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次卫浴及其他设计有防水要求的区域</dd></div>
-    <div><dt>检查时点</dt><dd>防水层及覆盖前</dd></div>
-    <div><dt>合格要求</dt><dd>基层和管根、地漏、门口等细部按有效防水设计施工，先核验细部再覆盖。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">最好在刷防水前请泥工陪你看，带上已确认的防水做法图和手机。</p><ol class="ac-method-steps"><li>“基层”就是防水涂层下面的地面或墙面。请师傅确认能检查后，查看是否有明显裂口、孔洞、松散处或垃圾，问题先拍照指出。</li><li>重点看管子穿出的位置、地漏周围、墙地交角和门口；请师傅指出每处怎样封堵、加强或收口，而不是只看大面刷没刷。</li><li>把这些位置与设计做法对应起来，未确定怎样处理的地方请设计师或施工方补说明；已经盖住的部分核对覆盖前照片。</li><li>保存一间房的全景和每个重点部位的近照，写位置和处理情况；后续刷了防水，也不能把先前没核对的细部自动算合格。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 4.6.3–4.6.6、5.6、6.0.5</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>隐蔽验收记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>隐蔽验收记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
+  </section></details>
+    </article>
     
-    </div></details><details class="ac-check" id="check-tiling-02"><summary><span>防水层完整性与适用厚度</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本户采用的防水材料体系</dd></div>
-    <div><dt>检查时点</dt><dd>保护层或贴砖前</dd></div>
-    <div><dt>合格要求</dt><dd>材料和厚度按实际体系及设计要求核定；不把不同防水材料套用同一厚度。 卫生间按住宅规范 4.1.9 核对淋浴区、洗面器处及其余墙面的防水高度和防潮措施；已有建筑的限制须由设计方提供依据，不能自行降低要求。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请泥工准备防水产品说明、材料记录和适用做法，安排在不损伤涂层的条件下检查。</p><ol class="ac-method-steps"><li>先拍材料桶或包装上的产品名称、批次，核对是否与材料单一致；请师傅说明这个产品要求做哪些层、怎样检查厚度。</li><li>查看墙地面涂层是否连成完整一片，有没有明显漏涂、孔洞、开裂或露底，管根和地漏周围也要看；不要自行刮开涂层试厚度。</li><li>请师傅实际量墙面防水做到的高度，并按适用方法检查厚度，记录测点、实测值及应达到的要求；不能用“刷了几桶”代替厚度检查。</li><li>保存带尺子的高度照片、厚度检查和材料记录。已被砖盖住的部分查原始过程资料；没有资料先写待补，不凭贴完砖不漏水倒推防水层全部合格。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 4.6.1–4.6.2、5.6、6.0.6</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
     
-    </div></details><details class="ac-check" id="check-tiling-03"><summary><span>蓄水与渗漏检查</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>有蓄水检验条件的室内防水区域</dd></div>
-    <div><dt>检查时点</dt><dd>防水及饰面完成后的相应检验时点</dd></div>
-    <div><dt>合格要求</dt><dd>按 GB 55030-2022 6.0.12 核对楼地面蓄水高度与时长、有防水要求墙面的淋水时长；厕浴间在防水层、饰面层完成后分别试验。记录位置、起止时间、水位和楼下及相邻部位检查结果，未渗漏；具体试验方案由施工方按原文提供并核对。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">蓄水、淋水由施工方按方案组织，并提前协调楼下或相邻受影响住户查看；你负责见证和记录。</p><ol class="ac-method-steps"><li>“蓄水”是让地面保持规定的水位一段时间来查渗漏。先让师傅写清测哪个房间、在防水层还是贴砖完成后测、水位与时长要求以及依据。</li><li>由师傅做好排水口和门口等准备并加水，你拍下开始时间和带尺子的水位；不要自行堵口放水，以免流到未保护的地方。</li><li>到规定结束时再记录时间、水位，并与师傅查看墙角、门口、楼下及相邻部位有无新湿痕或滴水；进不去查看的部位写“未查看”。有防水要求的墙面淋水也请施工方按方案单独记录。</li><li>索取完整试验记录，分别保留防水层完成后和饰面层完成后的结果。发现渗漏或缺一轮试验时先处理、补验，不能用一张有水的照片作通过依据。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.gsjn.gov.cn/zfxxgk/zfbmxxgk/zjj/fdzdgknr/lzyj/art/2022/art_0f0b3ad7fa304c0b961a009b0d8319ca.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55030-2022 · 建筑与市政工程防水通用规范 · 6.0.12</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>测试报告</li><li>现场照片</li><li>墙面淋水记录</li><li>饰面层完成后的蓄水记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>测试报告</li><li>现场照片</li><li>墙面淋水记录</li><li>饰面层完成后的蓄水记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-tiling-04"><summary><span>内墙饰面砖粘结与空鼓裂缝</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本户满粘法内墙饰面砖</dd></div>
-    <div><dt>检查时点</dt><dd>铺贴后</dd></div>
-    <div><dt>合格要求</dt><dd>粘结牢固，按对应墙砖条款检查裂缝与空鼓；不得拿地砖口径替代墙砖口径。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">等施工方确认墙砖达到可检查的条件后，请泥工或验收人员带空鼓检查工具与你一起查看。</p><ol class="ac-method-steps"><li>先在正常照明下看每面墙，找裂纹、缺角、明显错缝或表面破损；用便签标位置，别用会染色的笔直接画在砖面。</li><li>“空鼓”是砖与后面的粘结处可能没有贴实。请验收人员用适合该砖的方式轻敲并判断，声音异常先标成待核，别自己拿硬物大力敲砖。</li><li>请对方按墙砖适用要求记录具体哪一块、哪个部位异常；墙砖与地砖的判定口径不同，不能用一句“允许一点空鼓”直接带过。</li><li>拍整面墙和问题砖近照，把问题与对应房间、墙面编号关联；处理后在同一位置复查，保留前后结果。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 10.2.1–10.2.4</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-tiling-05"><summary><span>地砖排水坡向与面层</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>有排水要求的地面砖区域</dd></div>
-    <div><dt>检查时点</dt><dd>地砖铺贴后</dd></div>
-    <div><dt>合格要求</dt><dd>地面排水方向及坡度满足设计，铺贴及粘结按地面专业验收要求核验。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">在施工方确认地砖可以检查和试水后，请泥工或验收人员准备测量工具并安排排水检查。</p><ol class="ac-method-steps"><li>先走到每个区域看砖面和接缝，记录裂纹、缺角、明显高低不齐的位置；粘结情况由验收人员按地砖适用方法检查。</li><li>在有地漏、需要排水的区域，请师傅按测试安排通水，你观察水是不是往排出口走，有没有流向门外或形成明显积水；不要往木地板等非试水区域倒水。</li><li>请师傅测排水坡度及有关平整度、接缝尺寸，分别记录实测值和要求值；水能流走不等于所有尺寸都已合格。</li><li>保存各区域测量和试水结果、问题照片，注明位置。未测或被物品遮挡的位置留待检查，整改后复查原处。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jjc.ecjtu.edu.cn/__local/0/D3/27/2EA0F0352B5FE74203FBB0C79CD_D87CE1F4_C5AAD.pdf?e=.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50209-2010 · 建筑地面工程施工质量验收规范 · 6.2.5–6.2.16、表 6.1.8</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.9 第 1 款、4.1.12</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-tiling-06"><summary><span>卫生间防滑铺装</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>卫生间地面铺装</dd></div>
-    <div><dt>检查时点</dt><dd>对应安装或铺装完成后、交付前；覆盖前检查隐蔽部分</dd></div>
-    <div><dt>合格要求</dt><dd>按住宅规范 4.1.10 核对防滑材料的性能证明与实际铺装对应关系，不能仅凭触感判定。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请泥工或供货方准备卫生间地砖的产品与防滑性能资料，你核对资料和实际铺装是否同一产品。</p><ol class="ac-method-steps"><li>先拍地砖包装、型号或施工材料记录，确认卫生间实际用的砖是什么；客厅砖的报告不能直接拿来代替卫生间这款砖。</li><li>在性能报告里找到防滑相关结果，请供货方或检测人员指出测试项目、测试条件和所适用的要求，并核对是否满足本项验收口径。</li><li>现场查看有无影响使用的明显污染、损伤或不平，需要进一步测试时由专业人员按适用方法做；不要赤脚洒水走动来试会不会滑倒。</li><li>保存产品对应记录、性能资料和铺装位置照片；没有报告或报告对不上型号时记待补，不能凭“摸起来粗糙”判防滑合格。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 4.1.10</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>防滑性能报告</li><li>材料对应记录</li><li>现场照片</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>防滑性能报告</li><li>材料对应记录</li><li>现场照片</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><section class="ac-photo-batch"><h4>照片批次 · 泥工阶段20260919</h4><div class="photos ac-gallery"><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卧01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-54.webp" alt="主卧01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卧 · 方向：未标注<br>主卧01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卧02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-55.webp" alt="主卧02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卧 · 方向：未标注<br>主卧02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卫-洗手台 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-56.webp" alt="主卫-洗手台 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：主卫-洗手台 · 方向：未标注<br>主卫-洗手台 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：主卫 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-57.webp" alt="主卫 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：主卫 · 方向：未标注<br>主卫 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：儿童房01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-58.webp" alt="儿童房01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：儿童房 · 方向：未标注<br>儿童房01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：儿童房02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-59.webp" alt="儿童房02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：儿童房 · 方向：未标注<br>儿童房02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：入户区域01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-60.webp" alt="入户区域01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：入户区域 · 方向：未标注<br>入户区域01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：入户区域02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-61.webp" alt="入户区域02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-17<br>空间：入户区域 · 方向：未标注<br>入户区域02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：多功能房 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-62.webp" alt="多功能房 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-14<br>空间：多功能房 · 方向：未标注<br>多功能房 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：客厅 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-63.webp" alt="客厅 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-18<br>空间：客厅 · 方向：未标注<br>客厅 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卧01 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-64.webp" alt="次卧01 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：次卧 · 方向：未标注<br>次卧01 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卧02 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-65.webp" alt="次卧02 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-19<br>空间：次卧 · 方向：未标注<br>次卧02 · 泥工阶段现场记录</figcaption></figure><figure><button type="button" class="ac-photo-button" aria-label="放大照片：次卫 · 泥工阶段现场记录"><img loading="lazy" src="assets/img-66.webp" alt="次卫 · 泥工阶段现场记录"></button><figcaption>拍摄：2026-09-18<br>空间：次卫 · 方向：未标注<br>次卫 · 泥工阶段现场记录</figcaption></figure></div></section></section></div></details><details class="ac-stage" id="stage-grout">
-      <summary><div><h3>美缝施工</h3><span class="ac-summary-line">原计划 09-30 → 10-09</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主自理</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>美缝施工 · 09-30 → 10-09</p></details></section>
-      
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/1 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 2 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>墙面、地面、美缝</h5><details class="ac-check" id="check-grout-01"><summary><span>接缝处理与成品表面</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>实际使用填缝或美缝材料的砖缝</dd></div>
-    <div><dt>检查时点</dt><dd>美缝施工前后</dd></div>
-    <div><dt>合格要求</dt><dd>按材料使用条件施工，接缝连续、整洁；美缝外观不替代防水验收。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请美缝施工方准备产品说明，确认材料固化到可检查后与你一起逐区查看。</p><ol class="ac-method-steps"><li>“美缝”是处理砖之间缝隙的材料。先核对使用产品和颜色，并索取施工前清理缝隙的照片，确认不是只把表面盖住。</li><li>请施工方按该产品要求说明缝的宽深、清洁和干燥条件；这些条件不清楚或没有记录的，先列待核。</li><li>顺着缝看有无明显断开、孔洞、开裂、凸起、凹坑或弄脏砖面的位置；不要用尖物去挑、刮尚未固化的材料。</li><li>拍每处问题并注明房间、哪两块砖之间，处理后复看同一处。美缝做得好看不能替代防水和贴砖验收。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 10.2.7；具体美缝产品说明须归档</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-paint">
-      <summary><div><h3>漆工施工</h3><span class="ac-summary-line">原计划 10-10 → 11-10</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>等待现场进度更新。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>漆工施工 · 10-10 → 11-10</p></details></section>
-      <section class="cs-stage" aria-label="漆工施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>21 项对应 · 4 项跨阶段</span></div>
-    <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>界面剂、挂网、腻子按各空间核量。附件未单列乳胶漆面涂，施工范围需与工长核实。</li></ul></div>
-    <div class="cs-group"><h5>客厅、饭厅及过道</h5><details class="cs-item" data-service-id="base-r006"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">124 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 6 行 · 客厅、饭厅及过道</p></div>
-  </details><details class="cs-item" data-service-id="base-r007"><summary><span>墙、顶面腻子基层找平</span><span class="cs-quantity">143 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 7 行 · 客厅、饭厅及过道</p></div>
-  </details><details class="cs-item" data-service-id="base-r008"><summary><span>墙面挂网</span><span class="cs-quantity">96 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 8 行 · 客厅、饭厅及过道</p></div>
-  </details></div><div class="cs-group"><h5>主卧工程</h5><details class="cs-item" data-service-id="base-r015"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">60 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 15 行 · 主卧工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r016"><summary><span>墙、顶面腻子基层找平</span><span class="cs-quantity">75.2 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 16 行 · 主卧工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r017"><summary><span>墙面挂网</span><span class="cs-quantity">48.6 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 17 行 · 主卧工程</p></div>
-  </details></div><div class="cs-group"><h5>长辈房工程</h5><details class="cs-item" data-service-id="base-r021"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">40.3 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 21 行 · 长辈房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r022"><summary><span>墙、顶面腻子基层找平</span><span class="cs-quantity">43.6 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 22 行 · 长辈房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r023"><summary><span>墙面挂网</span><span class="cs-quantity">31 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 23 行 · 长辈房工程</p></div>
-  </details></div><div class="cs-group"><h5>儿童房工程</h5><details class="cs-item" data-service-id="base-r028"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">45.3 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 28 行 · 儿童房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r029"><summary><span>墙、顶面腻子基层找平</span><span class="cs-quantity">45.3 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 29 行 · 儿童房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r030"><summary><span>墙面挂网</span><span class="cs-quantity">33.7 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 30 行 · 儿童房工程</p></div>
-  </details></div><div class="cs-group"><h5>多功能房工程</h5><details class="cs-item" data-service-id="base-r034"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">25.8 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 34 行 · 多功能房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r035"><summary><span>墙、顶面腻子基层找平</span><span class="cs-quantity">31 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 35 行 · 多功能房工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r036"><summary><span>墙面挂网</span><span class="cs-quantity">21.2 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 36 行 · 多功能房工程</p></div>
-  </details></div><div class="cs-group"><h5>主卫生间工程</h5><details class="cs-item" data-service-id="base-r046"><summary><span>顶面腻子基层找平</span><span class="cs-quantity">2.6 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 46 行 · 主卫生间工程</p></div>
-  </details></div><div class="cs-group"><h5>次卫生间工程</h5><details class="cs-item" data-service-id="base-r057"><summary><span>顶面腻子基层找平</span><span class="cs-quantity">3.3 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 57 行 · 次卫生间工程</p></div>
-  </details></div><div class="cs-group"><h5>厨房工程</h5><details class="cs-item" data-service-id="base-r067"><summary><span>顶面腻子基层找平</span><span class="cs-quantity">8.5 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 67 行 · 厨房工程</p></div>
-  </details></div><div class="cs-group"><h5>生活阳台工程</h5><details class="cs-item" data-service-id="base-r077"><summary><span>墙、顶面防水腻子基层找平</span><span class="cs-quantity">29.1 ㎡</span></summary>
-    <div><p>镶嵌缝带、环保腻子粉两遍，打磨平底处理（立邦品牌.顺平工艺）</p><p class="ac-caption">原表：Sheet1 第 77 行 · 生活阳台工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r079"><summary><span>基层界面剂滚涂</span><span class="cs-quantity">23.6 ㎡</span></summary>
-    <div><p>采用“立邦”基层专用界面剂滚涂</p><p class="ac-caption">原表：Sheet1 第 79 行 · 生活阳台工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r080"><summary><span>墙面挂网</span><span class="cs-quantity">23.6 ㎡</span></summary>
-    <div><p>采用“立邦”墙面专用防裂网铺挂，防止墙面基层开裂。</p><p class="ac-caption">原表：Sheet1 第 80 行 · 生活阳台工程</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 4 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r113"><summary><span>施工中清扫</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>施工中现场清扫出渣（电工完工，木泥工完工，漆工完工，整体完工）</p><p class="ac-caption">原表：Sheet1 第 113 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>墙面、地面、美缝</h5><details class="ac-check" id="check-paint-01"><summary><span>墙面基层与抹灰</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次抹灰、修补及后续涂饰基层</dd></div>
-    <div><dt>检查时点</dt><dd>腻子与涂饰前</dd></div>
-    <div><dt>合格要求</dt><dd>基层清理及不同材料交接按对应做法处理，粘结、裂缝和空鼓情况有记录。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请油漆或抹灰师傅提供墙面处理过程照片，陪你检查；测量和敲查由适合的人员完成。</p><ol class="ac-method-steps"><li>“基层、抹灰”就是刷漆或贴饰面前的墙面底层处理。先看墙上有无裂缝、起皮、松散或明显高低不平的位置。</li><li>不同材料接在一起的地方，例如新旧墙交界，请师傅用过程照片说明怎样处理、防止开裂；刷完漆后看不到的部分不能靠猜。</li><li>需要查空鼓和平整度时，请验收人员用合适工具检查，并在墙面示意图上标测点、实测结果及要求；你不用大力敲或刮墙。</li><li>保存问题全景、细节照片及测量、过程记录；修补后再检查同一处，不用表面重新刷白代替确认里面的问题已处理。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 4.2.2–4.2.4、4.2.10</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>隐蔽验收记录</li><li>实测记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>隐蔽验收记录</li><li>实测记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-paint-02"><summary><span>涂饰材料与成品质量</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次水性涂料墙面及顶面</dd></div>
-    <div><dt>检查时点</dt><dd>涂饰前及完成后</dd></div>
-    <div><dt>合格要求</dt><dd>涂料、基层条件及成品效果满足设计和材料要求；色差、漏涂等逐处核验。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">带已确认的颜色或样板，请油漆师傅准备产品说明，在正常照明下逐面查看成品。</p><ol class="ac-method-steps"><li>先核对实际使用的涂料名称、颜色和批次是否有记录，与确认样板是否一致；不要只看包装桶摆在现场就认定实际用了它。</li><li>沿墙面和顶面查看明显漏刷、流挂、起皮、露底及颜色不一致。“流挂”就是涂料流下来形成的条痕，发现后拍照标位置。</li><li>请师傅说明刷涂前底层需要达到什么条件，并提供施工记录；需要量测的项目，记录实际数值与对应要求，不自行刮漆验证。</li><li>将样板、材料记录和问题照片放在一起；对观察距离、光线或色差有分歧时按适用验收要求共同复看，不凭极端侧光下的影子直接下结论。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 12.1、12.2</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-screed">
-      <summary><div><h3>自流平施工</h3><span class="ac-summary-line">原计划 11-05 → 11-09</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>等待现场进度更新。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>自流平施工 · 11-05 → 11-09</p></details></section>
-      <section class="cs-stage" aria-label="自流平施工基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>5 项对应 · 3 项跨阶段</span></div>
-    <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>五处地面找平为石膏自流平；超过 30mm 的另计口径先确认，核对与木地板衔接。</li></ul></div>
-    <div class="cs-group"><h5>客厅、饭厅及过道</h5><details class="cs-item" data-service-id="base-r011"><summary><span>地面找平</span><span class="cs-quantity">39.1 ㎡</span></summary>
-    <div><p>采用石膏自流平找平。找平层厚度大于30mm费用另计。</p><p class="cs-boundary">范围提醒：原表为石膏自流平；找平层超过 30mm 另计，施工前复核标高和厚度。</p><p class="ac-caption">原表：Sheet1 第 11 行 · 客厅、饭厅及过道</p></div>
-  </details></div><div class="cs-group"><h5>主卧工程</h5><details class="cs-item" data-service-id="base-r018"><summary><span>地面找平</span><span class="cs-quantity">20.9 ㎡</span></summary>
-    <div><p>采用石膏自流平找平。找平层厚度大于30mm费用另计。</p><p class="cs-boundary">范围提醒：原表为石膏自流平；找平层超过 30mm 另计，施工前复核标高和厚度。</p><p class="ac-caption">原表：Sheet1 第 18 行 · 主卧工程</p></div>
-  </details></div><div class="cs-group"><h5>长辈房工程</h5><details class="cs-item" data-service-id="base-r024"><summary><span>地面找平</span><span class="cs-quantity">10.2 ㎡</span></summary>
-    <div><p>采用石膏自流平找平。找平层厚度大于30mm费用另计。</p><p class="cs-boundary">范围提醒：原表为石膏自流平；找平层超过 30mm 另计，施工前复核标高和厚度。</p><p class="ac-caption">原表：Sheet1 第 24 行 · 长辈房工程</p></div>
-  </details></div><div class="cs-group"><h5>儿童房工程</h5><details class="cs-item" data-service-id="base-r031"><summary><span>地面找平</span><span class="cs-quantity">10 ㎡</span></summary>
-    <div><p>采用石膏自流平找平。找平层厚度大于30mm费用另计。</p><p class="cs-boundary">范围提醒：原表为石膏自流平；找平层超过 30mm 另计，施工前复核标高和厚度。</p><p class="ac-caption">原表：Sheet1 第 31 行 · 儿童房工程</p></div>
-  </details></div><div class="cs-group"><h5>多功能房工程</h5><details class="cs-item" data-service-id="base-r037"><summary><span>地面找平</span><span class="cs-quantity">7.9 ㎡</span></summary>
-    <div><p>采用石膏自流平找平。找平层厚度大于30mm费用另计。</p><p class="cs-boundary">范围提醒：原表为石膏自流平；找平层超过 30mm 另计，施工前复核标高和厚度。</p><p class="ac-caption">原表：Sheet1 第 37 行 · 多功能房工程</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/2 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 4 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>墙面、地面、美缝</h5><details class="ac-check" id="check-screed-01"><summary><span>找平材料与基层交接</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>设计采用自流平或找平的地面</dd></div>
-    <div><dt>检查时点</dt><dd>施工前及地板安装前</dd></div>
-    <div><dt>合格要求</dt><dd>材料体系、基层处理、标高及后续面层接口按已确认做法核对。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">“找平”是把地面处理到后续铺地板等所需的高度和平整程度。请施工方与后续地板安装方一起交接。</p><ol class="ac-method-steps"><li>先问清采用普通水泥找平还是专用自流平产品，拍下产品标记并索取说明；材料没确定时先把这项列待核。</li><li>请施工方说明施工前如何处理地面裂口、松散处和污染物，并提供处理前后照片；已盖住的部分不凭完成面外观反推。</li><li>请双方一起核对完成后的地面高度，是否已给地板、门和相邻地面留出空间；把位置、预留尺寸和要求记下来。</li><li>保存材料、施工和交接记录，写清后续需等到什么养护或安装条件；不要把“今天做完了”当作“明天一定能铺地板”。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jjc.ecjtu.edu.cn/__local/0/D3/27/2EA0F0352B5FE74203FBB0C79CD_D87CE1F4_C5AAD.pdf?e=.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50209-2010 · 建筑地面工程施工质量验收规范 · 4.1、4.9（普通水泥类找平层）；专用自流平产品施工要求另核</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>实测记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-screed-02"><summary><span>地面平整及面层安装条件</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>待铺木地板等成品面层的基层</dd></div>
-    <div><dt>检查时点</dt><dd>面层进场安装前</dd></div>
-    <div><dt>合格要求</dt><dd>基层平整、含水及养护条件按对应面层与材料要求判定，不统一套用木地板和瓷砖数值。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请后续地板安装方带靠尺等测平工具和适用的含水检测设备，与你一起做基层交接。</p><ol class="ac-method-steps"><li>请安装方先指出所用地板要求地面多平、多干，以及依据是哪份说明；“养护”是让材料按要求逐渐达到可使用状态，不只是随便等几天。</li><li>让安装人员在房间内选取并标记测点，用工具检查平整情况，同时看有无裂缝、松散或起砂；把实测数值与限值写在一起。</li><li>按对应材料要求测量含水等安装条件，由安装人员写清测法、仪器和结果；不能只凭手摸着干或颜色变浅判断已经适合铺装。</li><li>收取双方交接记录，明确哪些位置通过、哪些需处理或继续等待；存在未满足条件的部位，待复查后再确认安装。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jjc.ecjtu.edu.cn/__local/0/D3/27/2EA0F0352B5FE74203FBB0C79CD_D87CE1F4_C5AAD.pdf?e=.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50209-2010 · 建筑地面工程施工质量验收规范 · 4.9、7.1.5、表 4.1.7</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-installation">
-      <summary><div><h3>安装</h3><span class="ac-summary-line">原计划 11-16 → 11-20</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>等待现场进度更新。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>安装 · 11-16 → 11-20</p></details></section>
-      <section class="cs-stage" aria-label="安装基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>2 项对应 · 3 项跨阶段</span></div>
-    <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>基装列有开关灯具安装及卫生洁具安装；不含水晶吊灯，其他灯具开孔与安装责任需与灯光供应商对齐。</li></ul></div>
-    <div class="cs-group"><h5>水电工程</h5><details class="cs-item" data-service-id="base-r088"><summary><span>开关及灯具安装</span><span class="cs-quantity">112 ㎡</span></summary>
-    <div><p>安装室内所有灯具（水晶吊灯除外）</p><p class="cs-boundary">范围提醒：原表明确不含水晶吊灯安装；灯带、开孔及供应商安装范围另行对齐。</p><p class="ac-caption">原表：Sheet1 第 88 行 · 水电工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r089"><summary><span>卫生洁具安装</span><span class="cs-quantity">2 套</span></summary>
-    <div><p>安装成品马桶、蹲便器等浴卫设施安装。</p><p class="ac-caption">原表：Sheet1 第 89 行 · 水电工程</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 3 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/6 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 15 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>门窗、定制及安装</h5><details class="ac-check" id="check-installation-01"><summary><span>门窗固定与防脱落</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次安装的外窗与门窗框扇</dd></div>
-    <div><dt>检查时点</dt><dd>安装后、封口前</dd></div>
-    <div><dt>合格要求</dt><dd>框扇固定及推拉防脱落措施可靠，连接方式与设计相符。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请门窗安装人员检查固定和防脱落装置；你在室内安全位置观察，不探身窗外、不用力摇晃窗扇。</p><ol class="ac-method-steps"><li>先请师傅指出门窗框怎样固定到墙上，查看固定点照片和安装记录；表面打了胶不等于里面已固定牢靠。</li><li>由师傅演示开启、关闭和锁紧，你观察是否卡住、刮碰或锁不牢；推拉窗请他说明防止窗扇脱出的装置在哪里，并按要求检查。</li><li>发现框扇晃动、缝隙异常或部件缺失时请安装方复核，必要的固定检查由专业人员完成，不自行拆盖板或做拉拔试验。</li><li>保存固定记录、启闭演示和问题照片，逐樘编号；修好后重新演示和复查，不能只签一张没有具体检查内容的安装单。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/1/1356/1356241/10878088.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55032-2022 · 建筑与市政工程施工质量控制通用规范 · 3.3.7 第 3 款；GB 50210-2018 6.3.2–6.3.4</a></li><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 6.3.2–6.3.4</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>隐蔽验收记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>隐蔽验收记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-installation-02"><summary><span>门窗密封、排水与玻璃</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>实际安装的金属门窗及玻璃</dd></div>
-    <div><dt>检查时点</dt><dd>门窗安装后</dd></div>
-    <div><dt>合格要求</dt><dd>密封条与填嵌连续，排水孔通畅，玻璃配置及安装与确认设计相符。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请门窗安装人员准备玻璃和密封材料资料，与你一起从室内能安全到达的位置检查。</p><ol class="ac-method-steps"><li>沿玻璃和窗框四周看有无裂纹、缺角，密封条或胶线是否有明显断口、脱开；拍照记录，不用刀划胶或撬玻璃。</li><li>“排水孔”是让窗框里的水排出去的小孔。请师傅指出位置，核对有没有被胶或垃圾堵住，需要试排水时由安装方安排。</li><li>把玻璃规格与确认订单、产品资料对应起来；只凭肉眼看厚薄无法确认全部性能。外墙门窗的防水测试由施工方按适用要求组织并留记录。</li><li>保存每樘窗的编号、密封与排水照片、玻璃资料和试验记录；外侧看不到的位置请安装方补安全拍摄的记录，不探身检查。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 6.3.7–6.3.9、6.6.1–6.6.3</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-installation-03"><summary><span>定制柜、门套和五金</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次定制柜、室内门及附属五金</dd></div>
-    <div><dt>检查时点</dt><dd>定制安装交付时</dd></div>
-    <div><dt>合格要求</dt><dd>规格和尺寸对应确认方案与复尺结果，安装牢固、启闭正常，接缝与表面满足相应用途。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">带定制确认单、复尺图和手机，准备卷尺，请安装人员与你一起逐个柜、门和门套检查。</p><ol class="ac-method-steps"><li>先核对安装的是哪个柜或哪樘门，量主要尺寸和内部空间；问清量的是外尺寸还是可用净尺寸，把实测值与确认单并排写。</li><li>由安装人员演示柜体和门套固定方式，悬挂或高处部件看安装记录；不要用攀爬、拉拽柜体的方式试牢固。</li><li>在正常使用力度下开关门、抽屉，查看是否卡碰、关不严，五金是否缺件；再看表面有无磕伤、明显缝隙不匀或收口缺口。</li><li>逐件拍照并记尺寸、功能和外观问题；安装方调整后再操作同一扇门或抽屉，保留复查记录。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jncc.jinan.gov.cn/cms_files/jcms1/web19/site/attach/0/9d0c7e1be25747879ba1fe1771616ebc.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50210-2018 · 建筑装饰装修工程质量验收标准 · 6.2.1、6.2.4–6.2.6、14.2、14.4</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>设计确认记录</li><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>设计确认记录</li><li>实测记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-installation-04"><summary><span>开关、插座、灯具功能</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次安装的用电末端</dd></div>
-    <div><dt>检查时点</dt><dd>通电及交付时</dd></div>
-    <div><dt>合格要求</dt><dd>安装、接线及控制关系与设计相符，保护措施及功能检查有记录。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">接线与保护检测由电工做；电工确认可以正常使用后，你再按普通使用方式操作开关和灯具。</p><ol class="ac-method-steps"><li>请电工给每个插座、开关和灯位编号，先检查安装与接线，使用适用仪器测试插座等点位，留下逐点记录；不要自己拆面板或用物品插孔试电。</li><li>电工确认可操作后，逐个开关灯，检查控制的是否是约定灯具；需要两个位置控制的灯，两处都试并分别记录。</li><li>查看面板是否破损、明显松动或被柜体挡住，卫生间等位置的防护是否符合对应要求，由电工核对说明。</li><li>保存“点位编号—用途—电工检测结果—实际使用结果”表；灯能亮、充电器能充电，都不能替代接线和保护检测。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/0/998/998037/9913357.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55024-2022 · 建筑电气与智能化通用规范 · 8.5.3、8.5.5、9.5.7</a></li><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 7.4.5</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>测试报告</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>测试报告</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-installation-05"><summary><span>洁具及给排水器具功能</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次安装的洁具、龙头、地漏及接口</dd></div>
-    <div><dt>检查时点</dt><dd>器具安装后</dd></div>
-    <div><dt>合格要求</dt><dd>固定和连接符合相应安装要求，供排水使用正常且无可见渗漏。 生活给水与热水系统交付前完成冲洗、消毒及对应水质检验，保留记录（GB 55020-2021 8.3.7）。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请安装人员确认器具可以通水后，与你一起逐件试用；准备干纸巾或干布，便于看可接近连接处有没有新水迹。</p><ol class="ac-method-steps"><li>先列出龙头、台盆、马桶、淋浴等器具，逐件核对型号、安装位置和固定检查记录；不要靠猛摇器具试牢固。</li><li>由安装方确认后按日常方式使用，观察水是否从正确位置流出、排水是否顺畅、冲水或启闭是否正常；冷热水先请师傅核对，避免直接用手试高温水。</li><li>在安全可见的位置观察软管、阀门、下水连接处，用干纸巾检查是否出现新湿痕；柜内和器具下方也要看，有湿点请安装方找原因。</li><li>逐件记录结果并收齐给水系统适用的冲洗、消毒和水质检验记录；水看着清澈、没有漏水，不能替代这些记录。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/0/953/953626/9619601.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55020-2021 · 建筑给水排水与节水通用规范 · 8.1、8.2、8.3.7</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>检查记录</li><li>测试报告</li><li>冲洗消毒及水质检验记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>检查记录</li><li>测试报告</li><li>冲洗消毒及水质检验记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-installation-06"><summary><span>厨房排烟与卫生间通风</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>厨房排烟；无外窗卫生间按实际布局核对机械通风</dd></div>
-    <div><dt>检查时点</dt><dd>对应安装或铺装完成后、交付前；覆盖前检查隐蔽部分</dd></div>
-    <div><dt>合格要求</dt><dd>厨房排烟检查支管防回流、竖井接口密封；无外窗卫生间检查机械通风及防回流措施。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请排烟或通风安装方与你一起检查厨房及相关卫生间，准备设备说明、安装照片和功能测试记录。</p><ol class="ac-method-steps"><li>先请师傅指出空气从哪里排到哪里；没有外窗的卫生间，核对是否设置对应机械排风。厨房烟机接到的管道和普通通风口不要混记。</li><li>请安装方说明怎样防止别家的气味或空气倒灌，并展示止回部件及接口密封记录；已经封住的部分核对封闭前照片。</li><li>在安装方确认可运行后，操作烟机或排风设备，观察是否正常响应、有无异常声响；排风量、回流等需要专门检查的内容请安装方测试，不用明火或烟熏自行试。</li><li>保存每个设备的位置、安装和测试结果。觉得“有吸力”只是一种观察，未核对的止回或隐蔽接口仍要保留待核。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 7.2.6–7.2.7</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>设备资料</li><li>功能试验记录</li><li>现场照片</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>设备资料</li><li>功能试验记录</li><li>现场照片</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-owner-install">
-      <summary><div><h3>自购项安装</h3><span class="ac-summary-line">原计划 11-21 → 12-20</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主自购、自行安排安装</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>自购项安装 · 11-21 → 12-20</p></details></section>
-      <section class="cs-stage" aria-label="自购项安装基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>0 项对应 · 3 项业主自理关联</span></div>
-    <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>儿童房床、主卧书桌及床头造型的饰面材质与安装由业主自理；这里只关联原报价边界，不另计一份基装工程量。</li></ul></div>
-    
-    <div class="cs-group"><h5>饰面与安装 · 业主自理</h5><details class="cs-item" data-service-id="base-r092"><summary><span>儿童房床钢架及欧松板基层</span><span class="cs-quantity">业主自理边界</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：本行同时包含钢架及欧松板基层：钢架阶段已确认施工完成，欧松板基层随木工逐项核对。饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 92 行 · 木作工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r094"><summary><span>主卧书桌造型基层</span><span class="cs-quantity">业主自理边界</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 94 行 · 木作工程</p></div>
-  </details><details class="cs-item" data-service-id="base-r095"><summary><span>主卧床头平板造型基层</span><span class="cs-quantity">业主自理边界</span></summary>
-    <div><p>饰面材质及安装由业主自理。</p><p class="cs-boundary">范围提醒：仅造型基层；饰面材质及安装由业主自理。</p><p class="ac-caption">原表：Sheet1 第 95 行 · 木作工程</p></div>
-  </details></div>
-    
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/3 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 7 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>门窗、定制及安装</h5><details class="ac-check" id="check-owner-install-01"><summary><span>木地板与成品面层</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次自购木地板或其他成品地面</dd></div>
-    <div><dt>检查时点</dt><dd>自购面层安装时</dd></div>
-    <div><dt>合格要求</dt><dd>产品、基层、安装及伸缩构造按确认材料体系验收；无此工程时由业主确认不适用。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">带地板产品说明，请地板安装方先交付基层检查记录，再与你一起看成品。</p><ol class="ac-method-steps"><li>核对实际地板的类别、型号和颜色是否与订单对应，查看铺装前的地面平整、含水等检查记录是否覆盖本房间。</li><li>在正常光线下逐区看划伤、破损、翘起和明显缝隙异常；按正常使用方式走动，听到异常响声就标位置，不跳踩测试。</li><li>请安装方指出门口、墙边和与其他材料交界处怎样处理，是否按该产品要求留出伸缩空间；看不到的边缘用过程照片或安装记录核对，不自行拆踢脚线。</li><li>保存房间照片、问题位置和安装交接记录，复查时回到原处；若本次不铺木地板，明确确认不适用并写原因。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://jjc.ecjtu.edu.cn/__local/0/D3/27/2EA0F0352B5FE74203FBB0C79CD_D87CE1F4_C5AAD.pdf?e=.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 50209-2010 · 建筑地面工程施工质量验收规范 · 7.1、7.2–7.6（按实际地板类别选用）</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-owner-install-02"><summary><span>家电及自购设备安装</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本次自购、自行安排安装的设备</dd></div>
-    <div><dt>检查时点</dt><dd>设备安装后</dd></div>
-    <div><dt>合格要求</dt><dd>设备按说明安装，接入条件和保护满足设计，试运行正常并留存保修信息。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">准备自购设备清单和说明书，请相应安装人员完成安装与首次调试，你负责逐台核对和学习使用。</p><ol class="ac-method-steps"><li>对照订单查看设备型号、附件是否齐全；请安装方说明需要什么电源、给排水、通风或固定条件，并核对现场是否具备。</li><li>请安装人员按说明书完成连接、固定和首次运行；涉及接线、燃气或高处固定的部分由对应专业人员操作。</li><li>确认可使用后，按说明试主要功能，例如启停、调节、正常工作程序，记录报错、异常噪声或渗漏；不要强行运行或自己拆机排查。</li><li>每台保存型号、安装单、调试结果及保修信息；请安装人员演示日常操作和需要联系售后的情况，缺附件或未完成的功能单独留待办。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/1/1356/1356241/10878088.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55032-2022 · 建筑与市政工程施工质量控制通用规范 · 3.2.1、3.3.13</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>材料资料</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-owner-install-03"><summary><span>燃气器具及排烟交接</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>燃气灶、燃气热水器及关联管道实际安装范围待确认 · 适用范围待确认</dd></div>
-    <div><dt>检查时点</dt><dd>对应安装或铺装完成后、交付前；覆盖前检查隐蔽部分</dd></div>
-    <div><dt>合格要求</dt><dd>由相应安装或供气单位核定燃气接入、通风、排烟和试验要求并提供交接记录；未确定器具和安装方案前不判通过。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">燃气连接、检漏和首次调试交由相应专业安装或供气单位完成，你负责确认范围、收材料和学习日常使用。</p><ol class="ac-method-steps"><li>先列出本户实际使用的燃气灶、热水器等器具，请专业人员核对型号、气源适配和安装位置；范围还没确定就先标待确认。</li><li>请对方按器具说明和专业方案检查连接、房间通风及排烟去向，并提供安装记录；你不要自行拆接燃气管、改排烟管或点火试漏。</li><li>首次调试和检漏由专业人员完成，记录是否包含每台器具和相关连接；你核对报告的房屋、设备、日期与结果，缺的项目单独列出。</li><li>请安装人员演示正常启停及异常时如何处理，交付安装、检验和使用资料。未完成专业检查或结果不明时，不通过自行试用来判断安全。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://zjj.pingliang.gov.cn/flfg/fgzc/art/2025/art_b2dec84b508844e19115b3ff37348ea9.html" target="_blank" rel="noopener noreferrer">标准要求 · GB 55038-2025 · 住宅项目规范 · 7.3.1–7.3.4</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>器具安装说明</li><li>专业安装方案</li><li>专业验收记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>器具安装说明</li><li>专业安装方案</li><li>专业验收记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-ac-final">
-      <summary><div><h3>空调后期安装及调试</h3><span class="ac-summary-line">外机与窗户同步安装；具体日期待定</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>业主于 9 月 20 日确认还剩外机待安装，安排与窗户安装同步进行；具体到场日期待对齐。系统调试及验收结果另行记录。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p></section>
-      
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/3 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 5 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>门窗、定制及安装</h5><details class="ac-check" id="check-ac-final-01"><summary><span>空调后期设备与接口</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>室外机、温控器及后期安装部件</dd></div>
-    <div><dt>检查时点</dt><dd>后期安装时</dd></div>
-    <div><dt>合格要求</dt><dd>按确认设备配置和安装要求核对后期设备、供电、通信和维护条件。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请暖通安装方与电工一起确认后期设备和接口，你准备配置表、设备资料和手机。</p><ol class="ac-method-steps"><li>逐台核对室外机等设备型号、安装位置与配置表，固定及室外高处部分由安装人员检查并提供照片，你不靠近危险位置查看。</li><li>请暖通方给出实际设备需要的供电条件，让电工对照电源线路和保护开关核对；资料之间不一致时先取得书面结论，不自行选择一种接法。</li><li>请安装方说明内外机的通信连接、管路接口、维修空间及排水如何安排，并对照现场逐项检查。</li><li>保存设备编号、供电核对、安装和接口检查记录；“机器已就位”不等于接线已正确或整套系统调试已完成。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li>设计及设备要求 · 已归档空调系统配置与材料表 · 主机参数及后期安装配合要求</li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>设备核对记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>设备核对记录</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-ac-final-02"><summary><span>空调风口与木工配合</span><span class="ac-badge">清单要求待核验</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>实际送回风口、基层及检修口</dd></div>
-    <div><dt>检查时点</dt><dd>风口安装及交付时</dd></div>
-    <div><dt>合格要求</dt><dd>按确认尺寸、数量和供货分工核验，保持送回风及检修条件。<b class="ac-warning">要求或专业参数待核验</b></dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请暖通方与木工一起带着最终风口图到现场，你准备手机和数量清单。</p><ol class="ac-method-steps"><li>逐个指出送风口、回风口和检修口。“送风”是把处理后的空气送出来，“回风”是把室内空气吸回去，检修口用于以后维修，三者不能混记。</li><li>给每个开口编号，核对房间、数量、尺寸和材料，确认由谁提供、谁开孔、谁安装；原资料数量不一致的地方请双方先书面明确。</li><li>请师傅测实际开口，并演示滤网或需维护部件如何取出，检查灯具、柜体是否挡住；高处演示由师傅完成。</li><li>保存编号照片、实测尺寸和分工确认，缺风口或无法维修的地方列待处理；不能只看外面装饰条对齐就算完成。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li>设计及设备要求 · 已归档空调系统配置与材料表 · 风口材料表与开孔配合要求</li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>设计确认记录</li><li>实测记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>设计确认记录</li><li>实测记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div><div class="ac-group"><h5>竣工交付</h5><details class="ac-check" id="check-ac-final-03"><summary><span>空调系统调试与运行</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>完整安装后的空调系统</dd></div>
-    <div><dt>检查时点</dt><dd>整套系统交付前</dd></div>
-    <div><dt>合格要求</dt><dd>单机及系统调试按实际设计和设备条件完成，记录运行参数及异常处理。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">由暖通人员先完成专业调试，你在他们确认可以使用后，学习温控操作并逐台体验。</p><ol class="ac-method-steps"><li>先索取调试计划和记录，核对本户所有内机、外机是否都在范围内，记录里是否写了运行条件、时间和适用的参数。</li><li>请师傅逐台演示开关机、温度和风速等调节；你按说明操作，观察对应机器是否响应，有无报错、异常振动或明显异响。</li><li>请师傅检查运行时的排水、渗漏及专业参数。制冷或制热某种工况因季节等原因没测，要写清未测内容和后续安排，不把未测项目写成通过。</li><li>按设备编号保存调试报告和操作结果，异常处理后请师傅复测并另留记录；感到风凉或风热只能作为使用观察，不能代替系统调试报告。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://canvas.zut.edu.cn/courses/3525/files/435976" target="_blank" rel="noopener noreferrer">标准要求 · GB 50243-2016 · 通风与空调工程施工质量验收规范 · 11.2.1、11.2.2 第 5 款、12.0.1–12.0.5</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>调试报告</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>调试报告</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details><details class="ac-stage" id="stage-finishing">
-      <summary><div><h3>完工收尾与交付</h3><span class="ac-summary-line">原计划 12-21 → 12-30</span></div><div class="ac-badges"><span class="ac-badge">未开始</span><span class="ac-badge">未开始</span><span class="ac-badge">0 张照片</span></div></summary>
-      <div class="ac-stage-body"><section><h4>进度记录</h4><p>等待现场进度更新。</p><p class="ac-caption">实际开始：未知／待补 · 实际结束：未知／待补</p><details class="ac-original-plan"><summary>原工长计划</summary><p>完工 · 收尾 · 验收 · 12-21 → 12-30</p></details></section>
-      <section class="cs-stage" aria-label="完工收尾与交付基装服务范围"><div class="ac-section-head"><h4>基装施工服务</h4><span>1 项对应 · 4 项跨阶段</span></div>
-    <p class="ac-caption">以下是本阶段应衔接的服务范围，实际施工尚未确认开始。展开项目查看原表工程量、材料与工艺。</p>
-    <div class="cs-guidance"><b>本节点核对</b><ul><li>核对分阶段清扫出渣、成品保护和最终开荒清洁的交付记录。</li></ul></div>
-    <div class="cs-group"><h5>其它零星工程</h5><details class="cs-item" data-service-id="base-r114"><summary><span>完工清洁</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>竣工后做开荒清洁</p><p class="ac-caption">原表：Sheet1 第 114 行 · 其它零星工程</p></div>
-  </details></div>
-    
-    <details class="cs-shared"><summary>本阶段的转运、清扫与保护 · 4 项</summary><details class="cs-item" data-service-id="base-r112"><summary><span>二次转运</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程材料运输到小区搬运上楼</p><p class="ac-caption">原表：Sheet1 第 112 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r113"><summary><span>施工中清扫</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>施工中现场清扫出渣（电工完工，木泥工完工，漆工完工，整体完工）</p><p class="ac-caption">原表：Sheet1 第 113 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r115"><summary><span>成品保护</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>工程成品　电器具　材料保护</p><p class="ac-caption">原表：Sheet1 第 115 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details><details class="cs-item" data-service-id="base-r116"><summary><span>施工机具磨损，　临时设施</span><span class="cs-quantity">92 ㎡</span></summary>
-    <div><p>脚手架 工作梯 临时电线　灯泡　插板　临时水管　施工机具等设施</p><p class="ac-caption">原表：Sheet1 第 116 行 · 其它零星工程 · 跨阶段关联，单项完成待核对</p></div>
-  </details></details>
-  </section>
-      <section><div class="ac-section-head"><h4>验收清单</h4><span>0/4 项通过</span></div><p class="ac-caption">适用范围：待业主确认 · 资料：待补 5 项证据要求 · 结果：未开始</p>
-      <div class="ac-group"><h5>竣工交付</h5><details class="ac-check" id="check-finishing-01"><summary><span>系统联合使用与功能交接</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>本户水电、设备及联动使用场景</dd></div>
-    <div><dt>检查时点</dt><dd>竣工交付时</dd></div>
-    <div><dt>合格要求</dt><dd>按确认设计和实际设备核验功能，逐项记录异常与交接，不从单台设备启动推定系统交付。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">与工长和相关设备安装人员一起，按房间、按日常使用场景做交接，提前确认各系统已允许正常使用。</p><ol class="ac-method-steps"><li>先列出要试的功能，例如照明、取水排水、空调、网络和已安装家电，逐项写所在房间与负责人，避免只绕房一圈就结束。</li><li>由相应人员确认安全后，按正常使用方式操作，检查功能之间是否互相影响；组合运行按既定调试安排进行，不自行把全部大功率设备同时开启试负荷。</li><li>把现场使用现象与已有调试记录对照，哪里未测、哪里报错或出现渗漏等异常，就写具体位置和触发操作。</li><li>保留逐项交接结果和相关报告；问题交对应人员处理后复查，单台设备能启动不能代表所有系统已经交付合格。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/1/1356/1356241/10878088.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55032-2022 · 建筑与市政工程施工质量控制通用规范 · 3.3.13、4.2.6</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>调试报告</li><li>检查记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>调试报告</li><li>检查记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-finishing-02"><summary><span>室内环境检测</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>装修完成后的住宅室内环境</dd></div>
-    <div><dt>检查时点</dt><dd>竣工检测及整改复测时</dd></div>
-    <div><dt>合格要求</dt><dd>按住宅适用类别、污染物项目及检测条件出具合格检测结论；不能用气味或消费级仪表替代正式报告。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">请承担相应检测的机构安排室内环境检测，你负责确认检测方案、现场条件和收到的报告是否对应自家房屋。</p><ol class="ac-method-steps"><li>预约时说明是住宅装修验收，问清要测哪些房间、哪些污染物，采样前门窗和通风设备要怎样设置、保持多久，请对方给出书面安排和依据。</li><li>按方案准备现场，不自行改变门窗或空调状态；检测时核对采样房间、点位和日期是否与记录一致，保留采样记录。</li><li>收到报告后，逐行找“检测项目、实测值、适用限值、结论”，核对报告对应的房屋和检测范围；不懂某项时请机构解释，漏测房间或项目先列缺项。</li><li>保存报告原件和采样条件记录，不合格项目由相关方处理并按要求复检；没有刺鼻气味或家用仪表读数低，不能代替验收检测报告。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://www.beijing.gov.cn/zhengce/zhengcefagui/qtwj/202204/W020220412565025615406.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55016-2021 · 建筑环境通用规范 · 5.1.2、5.1.3、5.4.1、5.4.3</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>检测报告</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>检测报告</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-finishing-03"><summary><span>问题整改与复验关闭</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>施工中已确认的全部整改事项</dd></div>
-    <div><dt>检查时点</dt><dd>竣工交付前</dd></div>
-    <div><dt>合格要求</dt><dd>每项整改都有对应复验结论与证据，经业主确认后关闭，未关闭项不隐藏。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">打开已有问题清单、整改前照片和复验材料，逐条核对；不要另起一份没有原问题对应关系的“已修好”清单。</p><ol class="ac-method-steps"><li>先找到一条原问题，确认房间、位置和当时的现象，再让施工方说明这次具体改了哪里、采取什么处理。</li><li>回到同一位置复查；原来需要仪器或试验才能判定的问题，由对应专业人员按要求重新检测，不能只补拍一张成品照片。</li><li>核对复验材料是否写明问题编号、处理后检查范围、日期和结果；仍有异常或材料缺失的，继续留待处理。</li><li>将原问题、处理过程、复验结果放在一起，证据满足要求后再由业主确认关闭；口头说“处理好了”只作为反馈保留。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/1/1356/1356241/10878088.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55032-2022 · 建筑与市政工程施工质量控制通用规范 · 4.2.7、4.2.8</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>复验记录</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>复验记录</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details><details class="ac-check" id="check-finishing-04"><summary><span>竣工资料、保修与维护移交</span><span class="ac-badge">未检查</span></summary>
-    <div class="ac-check-body"><dl class="ac-fields">
-    <div><dt>适用条件</dt><dd>已交付工程和安装设备</dd></div>
-    <div><dt>检查时点</dt><dd>交付时</dd></div>
-    <div><dt>合格要求</dt><dd>施工、验收、实际管线、设备资料及保修维护信息齐备，可追溯到对应工程或设备。</dd></div>
-    <div class="ac-method"><dt>照着这几步检查</dt><dd><p class="ac-method-prep">与工长及各安装方按资料清单一份份交接，你可以用手机或电脑建立对应文件夹。</p><ol class="ac-method-steps"><li>先列出应收到的图纸、实际管线位置记录、材料与设备说明、各类检查试验、整改复验、保修和维护资料，逐类找文件，不只收一个压缩包就结束。</li><li>抽开每份文件看能否正常阅读，是否对应本户、实际设备或施工版本；照片能否定位、报告是否缺页，也一起检查。</li><li>让各方说明设备怎样维护、哪些阀门或开关对应哪里，保修找谁、覆盖什么和从何时起算，并留下可查的交接记录。</li><li>缺的资料写清由谁补、何时补或在什么事项前补；保存原件和备份。已收到多少与是否完整分别记录，不把“资料已发送”直接记为全部交齐。</li></ol></dd></div>
-    <div><dt>依据与条款</dt><dd><ul><li><a href="https://szwb.sz.gov.cn/attachment/1/1356/1356241/10878088.pdf" target="_blank" rel="noopener noreferrer">标准要求 · GB 55032-2022 · 建筑与市政工程施工质量控制通用规范 · 2.0.7、4.2.6、第 5 章</a></li></ul></dd></div>
-    <div><dt>所需证据</dt><dd><ul><li>移交清单</li></ul></dd></div>
-    <div><dt>当前缺项</dt><dd><ul><li>移交清单</li></ul></dd></div>
-    <div><dt>实际结果</dt><dd>尚未收到检查结果，不推定合格。<br>确认：待业主确认</dd></div>
-    </dl>
-    <details class="ac-history"><summary>结果与复验记录 · 0 条</summary><ol><li>暂无记录</li></ol></details>
-    
-    </div></details></div></section>
-      <section><h4>现场照片</h4><div class="ac-empty">待补照片<span>拍照建议（非验收条款）：提供全景、局部细节和带尺寸参照的照片，并注明空间、位置方向和拍摄日期。照片不能代替试验报告。</span></div></section></div></details></div>
-    
-    <details class="ac-version-history"><summary>清单版本与变更记录</summary><p>当前版本：2026-09-12-v2 · 编制日期：2026-09-11 · 适用范围确认与验收通过分别记录。</p><ul><li>2026-09-11-v1 · 2026-09-11 · 首次整理十大检查组；适用范围待业主确认，工程结果未录入。；原文复核后补充住宅规范、厨房通风排烟、卫生间防滑与燃气器具检查。</li><li>2026-09-12-v2 · 2026-09-12 · 按业主要求，将全部 55 项检查方法改写为新手可读的准备说明与四步操作；区分业主观察与专业检测，保留原条款、合格要求及待核状态。</li></ul></details>
-    </section>
-  <details class="blk ac-extra"><summary>实际施工时间线与确认记录</summary><section class="blk">
-  <h2 class="blk-t">实际施工节点<span class="h2-note">业主补充确认 · 2026-09-20 补录</span></h2>
-  <p class="pend-note">以下为业主确认的实际施工节点；原工期计划保留作对照。施工结束与验收结论分别记录。</p>
-  <ul class="tl"><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">施工进场</span><span class="chip chip-done">2026-08-09</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">开始拆除</span><span class="chip chip-done">2026-08-10</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">拆除完工，钢架施工</span><span class="chip chip-done">2026-08-11</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">开始土建</span><span class="chip chip-done">2026-08-12</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">墙面开槽</span><span class="chip chip-done">2026-08-19</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">水电进场，开始水电施工</span><span class="chip chip-done">2026-08-28</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">水电施工</span><span class="chip chip-done">2026-09-01</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">水电施工结束</span><span class="chip chip-done">2026-09-07</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">木工进场，设计师和业主交底</span><span class="chip chip-done">2026-09-08</span></div></li><li class="st-done"><span class="dot"></span><div class="st-head"><span class="st-name">瓷砖全部送到现场（铺贴尚未确认开工）</span><span class="chip chip-done">2026-09-20</span></div></li></ul>
-</section>
-  <article class="ac-confirmation"><b>2026-09-11 · 业主确认水电之前工序施工完成</b><p>这是确认日期，未知完工日期不推算；不代表验收通过。</p></article>
-  </details>
-  <details class="blk ac-extra"><summary>设计、验收及备料节点（不计施工阶段）</summary><ul class="public-list"><li><b>设计与方案定稿</b> · 06-30 → 07-31<p>量房、平面布局、水电点位、全屋定制,施工图已定稿</p></li><li><b>水电验收</b> · 验收日期与结论待补<p>水电施工已于 9 月 7 日结束，验收日期和结论待补。9 月 8 日木工进场时设计师和业主已交底，交底记录见实际节点。</p></li><li><b>业主备料到场</b> · 原计划 11-11 → 11-15<p>开关面板、灯具、卫生间五金件等要安装的东西送到现场</p></li></ul></details>
-  
-<section class="blk">
-  <h2 class="blk-t">要业主出面的节点<span class="cnt">12</span><span class="h2-note">到场、自购、自己安排的都在这</span></h2>
-  
-  <div class="oa">
-    <div class="oa-when">当前木工阶段</div>
-    <div>
-      <div class="oa-what">隐蔽工程影像与打压报告备份<span class="kind k-self">要配合</span></div>
-      <div class="oa-note">入口已登记；联系工长或水电施工方取得原始文件，核对覆盖范围与测试结论。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">09-08 已完成</div>
-    <div>
-      <div class="oa-what">木工进场交底<span class="kind k-live">要到场</span></div>
-      <div class="oa-note">业主确认设计师和业主已交底；具体交底事项及现场变更记录继续留档。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">08-23 已签约</div>
-    <div>
-      <div class="oa-what">把中央空调定下来<span class="kind k-call">要拍板</span></div>
-      <div class="oa-note">已签约；9 月 11 日确认内机及隐蔽管线安装完成，后期设备安装与调试另列。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">木工封板前核对</div>
-    <div>
-      <div class="oa-what">提前预埋智能通信线<span class="kind k-self">业主自理</span></div>
-      <div class="oa-note">隐蔽安装已确认施工完成；通信线是否按设备要求敷设仍需现场记录核验，不据施工完成自动关闭检查。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">实际日期待补</div>
-    <div>
-      <div class="oa-what">水电验收记录<span class="kind k-live">要到场</span></div>
-      <div class="oa-note">原计划 08-31 → 09-01；9 月 7 日施工结束，验收日期、报告及结论待补。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">预计 09-21 至 09-27 开贴前</div>
-    <div>
-      <div class="oa-what">瓷砖铺贴交底<span class="kind k-des">设计师到场</span></div>
-      <div class="oa-note">09-20 瓷砖已全部到场，核对设计稿、主卫洗手台补砖范围与具体开工日；交底是否完成待确认。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 约 09-08</div>
-    <div>
-      <div class="oa-what">防水验收<span class="kind k-live">要到场</span></div>
-      <div class="oa-note">泥工阶段的关键节点,验完才能往下走。实际日期待更新。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 09-10 前</div>
-    <div>
-      <div class="oa-what">提供地漏<span class="kind k-give">业主提供</span></div>
-      <div class="oa-note">泥工进场就要用。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 约 09-18</div>
-    <div>
-      <div class="oa-what">定制复尺<span class="kind k-self">要配合</span></div>
-      <div class="oa-note">复尺之日起算定制 30 个工作日,复尺拖一天交付就晚一天。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 09-30 → 10-09</div>
-    <div>
-      <div class="oa-what">美缝施工<span class="kind k-self">业主自理</span></div>
-      
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 11-11 → 11-15</div>
-    <div>
-      <div class="oa-what">开关面板、灯具、卫生间五金件送到现场<span class="kind k-give">业主提供</span></div>
-      <div class="oa-note">11-16 就开始安装,东西不到位就卡住。</div>
-    </div>
-  </div>
-  <div class="oa">
-    <div class="oa-when">原计划 11-21 → 12-20</div>
-    <div>
-      <div class="oa-what">自购项安装<span class="kind k-self">业主自理</span></div>
-      <div class="oa-note">家具、家电这类自己买的东西自行安排进场。</div>
-    </div>
-  </div>
-</section>
-  
-<section class="blk">
-  <h2 class="blk-t">工期与作息约定<span class="h2-note">以下是工长随工期计划一起给的约定,原文口径。</span></h2>
-  <ul class="public-list"><li>施工时间:工作日上午 9:00–12:00、下午 14:00–18:00;周六周日、法定节假日、中考高考期间及国家特定情况不施工。</li><li>定制项目(家具、橱柜、衣柜、门窗、石材等):从业主选定方案样式选材、且相关区域瓷砖铺贴完成、我方完成最终复尺之日起,30 个工作日内完成定制交付。总工期可能因此调整,会提前商议确认后在工作群告知。</li><li>室外露天施工遇下雨、大风、下雪、冰雹等天气,工期顺延。</li><li>遇突发不可抗力(疫情、室外低于 5℃ 的极寒、高于 37℃ 的极热等),工期相应调整顺延,会提前沟通并在群里告知。</li></ul>
-</section>
-  <section class="blk">
-    <h2 class="blk-t">项目全生命周期<span class="h2-note">事实、判断、待定节点分开记</span></h2>
-    <div class="life-grid"><div class="life-card ">
-    <div class="life-k">全生命周期起点</div>
-    <div class="life-v">2026-05-31</div>
-    <div class="life-note">签订购房合同,装修项目从房屋交接准备开始进入记录。</div>
-  </div><div class="life-card ">
-    <div class="life-k">装修项目启动</div>
-    <div class="life-v">2026-06-01</div>
-    <div class="life-note">开始围绕设计、施工方式、费用台账与资料归档推进。</div>
-  </div><div class="life-card ">
-    <div class="life-k">当前记录截点</div>
-    <div class="life-v">2026-09-20</div>
-    <div class="life-note">9 月 20 日瓷砖已全部送到现场，预计 9 月 21—27 日开始铺贴，具体开工日待确认。木工 9 月 8 日已进场交底，9 月 19 日泥工照片已归档；工序完成及验收结果继续分别记录。 中央空调内机已安装，外机安排与窗户同步安装，具体日期随窗户安装排期确定。</div>
-  </div><div class="life-card end">
-    <div class="life-k">计划完工时间</div>
-    <div class="life-v">12-21 → 12-30(计划)</div>
-    <div class="life-note">工长工期计划排到 12 月 21–30 日完工收尾验收。实际结束仍以竣工验收、开荒保洁、通风除醛并具备入住条件的当天为准;定制项目复尺后 30 个工作日交付,可能整体顺延。</div>
-  </div></div>
-    <div class="life-judge">原工长计划从 8 月 10 日排至 12 月 21–30 日收尾验收；实际已确认 8 月 9 日施工进场、9 月 8 日木工进场。后续日期仍为原计划，需结合现场进度和定制交付重新核对。合同的 90 个工作日口径保留，实际施工节点不直接替代合同工期认定。</div>
-    <ul class="life-nodes">
-      <li class="life-node st-done">
-        <div class="node-date">2026-05-31</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">购房合同签订</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">全生命周期记录从房屋取得与装修准备开始。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-06-01</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">装修项目启动</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">启动装修规划、资料整理和团队比选。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-06-07</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">开始设计/装修方比选</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">金山片区实地看三家设计/装修方。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-06-14</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">阶段判断:走整装路线</span><span class="node-kind">判断</span></div>
-          <p class="node-desc">当时判断整装工期约 90 天、整体花费更可控。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-06-30</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">阶段判断调整:设计先行</span><span class="node-kind">判断</span></div>
-          <p class="node-desc">设计单独签约设计工作室,施工方等方案出来后用同一套图纸比价。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-07-03</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">进度页上线 + 方案审阅启动</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">设计师已定,进度页开始作为对外记录入口。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-07-07</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">收到设计一版图纸</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">原始结构、拆除、平面布置到位,随后提修改意见。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-07-18</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">设计费二期支付</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">房子解押后按合同节点支付。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-07-29</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">历史拆除出渣记录</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">保留此前拆除结算与现场照片记录；本次业主确认的施工拆除日期为 08-10 至 08-11，范围对应另核。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-07-31</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">施工图定稿 + 全套效果图</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">在原始结构、拆除、平面之外补齐水电、立面与节点;效果图 36 张,已挑 5 张上页。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-01</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">预算与采购台账重建</span><span class="node-kind">判断</span></div>
-          <p class="node-desc">把散在四处、互相打架的预算合并成一套关联台账,全部项目逐项估价完毕。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-07</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">基装施工合同签订</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">含税总价 96,000,包工包料(主材业主自购),工期 90 个工作日,周六日与法定节假日不计。附带 13 个分部、126 行的逐项报价明细。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-09</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">施工进场</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-10</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">开始拆除</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-11</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">拆除完工，钢架施工</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-12</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">开始土建</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-15</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">拿到整套工期计划</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">原计划从 8-10 排到 12-30；实际节点现按业主补充单列，后续计划待更新。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-19</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">墙面开槽</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-23</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">中央空调签约</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">国产一线品牌整套系统,固定综合价 19,000 含安装:主机 7 匹 + 4 台室内机,覆盖 78.5㎡,设备质保 6 年。配置表与材料表作为合同附件,同等法律效力。待进场。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-23</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">门窗定标</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">四家按同一把尺子重算后选定最低的一家,优惠后成交 32,500,已预付八成。12 页逐窗加工图(窗号、分格、玻璃、五金、单套面积)一并归档。交期从复尺日起算 30 个工作日。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-08-28</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">水电进场，开始水电施工</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-09-01</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">水电施工</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-09-07</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">水电施工结束</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-09-08</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">木工进场，设计师和业主交底</span><span class="node-kind">实际节点 · 业主确认</span></div>
-          <p class="node-desc">2026-09-10 补录。当前木工阶段进行中。</p>
-        </div>
-      </li>
-      <li class="life-node st-todo">
-        <div class="node-date">约 2026-09-18</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">定制复尺</span><span class="node-kind">关键节点</span></div>
-          <p class="node-desc">复尺之日起算定制 30 个工作日交付,直接决定后段工期。</p>
-        </div>
-      </li>
-      <li class="life-node st-todo">
-        <div class="node-date">12-21 → 12-30</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">完工收尾与验收</span><span class="node-kind">结束定义</span></div>
-          <p class="node-desc">计划节点;实际结束仍以具备入住条件当天为准。</p>
-        </div>
-      </li>
-      <li class="life-node st-todo">
-        <div class="node-date">实际日期待补</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">防水验收</span><span class="node-kind">关键节点</span></div>
-          <p class="node-desc">原计划约 09-08，实际日期待工长更新。</p>
-        </div>
-      </li>
-      <li class="life-node st-todo">
-        <div class="node-date">日期待补</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">水电验收</span><span class="node-kind">待核验</span></div>
-          <p class="node-desc">原计划 08-31 → 09-01；实际验收日期及结论待补。木工交底已于 09-08 完成。</p>
-        </div>
-      </li>
-      <li class="life-node st-done">
-        <div class="node-date">2026-09-20</div>
-        <div class="node-body">
-          <div class="node-head"><span class="node-title">瓷砖全部到场</span><span class="node-kind">事实</span></div>
-          <p class="node-desc">预计下周（09-21 至 09-27）开始铺贴；具体开工日待确认。</p>
-        </div>
-      </li>
-    </ul>
   </section></div></section>
 <section class="page" id="cost">
   <div class="page-head">
